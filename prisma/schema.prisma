@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String      @id @default(cuid())
+  name         String
+  email        String      @unique
+  password     String
+  role         Role        @default(DEPT_HEAD)
+  departmentId String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  department   Department? @relation(fields: [departmentId], references: [id])
+
+  @@index([departmentId])
+  @@index([email])
+}
+
+model Department {
+  id        String      @id @default(cuid())
+  name      String      @unique
+  location  String
+  logo      String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  equipment Equipment[]
+  users     User[]
+
+  @@index([name])
+}
+
+model Equipment {
+  id              String           @id @default(cuid())
+  name            String
+  type            String
+  status          EquipmentStatus  @default(AVAILABLE)
+  purchaseDate    DateTime
+  imageUrl        String?
+  departmentId    String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  department      Department       @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  maintenanceLogs MaintenanceLog[]
+
+  @@index([departmentId])
+  @@index([status])
+  @@index([type])
+}
+
+model MaintenanceLog {
+  id          String    @id @default(cuid())
+  equipmentId String
+  date        DateTime
+  cost        Decimal   @db.Decimal(10, 2)
+  description String
+  createdAt   DateTime  @default(now())
+  equipment   Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+
+  @@index([equipmentId])
+  @@index([date])
+}
+
+enum Role {
+  ADMIN
+  DEPT_HEAD
+}
+
+enum EquipmentStatus {
+  AVAILABLE
+  IN_USE
+  NEEDS_REPAIR
+  DISCARDED
+}
