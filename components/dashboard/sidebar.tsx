@@ -9,6 +9,7 @@ import {
   Settings,
   Menu,
   X,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -33,8 +34,14 @@ const navigation = [
   },
   {
     name: "Departments",
-    href: "/dashboard/departments",
+    href: "/dashboard/admin/departments",
     icon: Building2,
+    roles: ["ADMIN"],
+  },
+  {
+    name: "Users",
+    href: "/dashboard/admin/users",
+    icon: Users,
     roles: ["ADMIN"],
   },
   {

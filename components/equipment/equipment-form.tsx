@@ -10,7 +10,8 @@ import {
   equipmentSchema,
   type EquipmentInput,
 } from "@/lib/validations/equipment";
-import { createEquipment, updateEquipment } from "@/actions/equipment";
+import { useCreateEquipment, useUpdateEquipment } from "@/hooks/use-equipment";
+import { useDepartments } from "@/hooks/use-departments";
 import { getDepartments } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import {
@@ -74,11 +75,16 @@ export function EquipmentForm({
   userRole,
   userDepartmentId,
 }: EquipmentFormProps) {
-  const [isLoading, setIsLoading] = useState(false);
   const [departments, setDepartments] = useState<
     Array<{ id: string; name: string; location: string }>
   >([]);
-  const { toast } = useToast();
+
+  // Use the custom hooks
+  const createMutation = useCreateEquipment();
+  const updateMutation = useUpdateEquipment();
+  const { data: departmentsData } = useDepartments();
+
+  const isLoading = createMutation.isPending || updateMutation.isPending;
 
   const form = useForm<EquipmentInput>({
     resolver: zodResolver(equipmentSchema),
@@ -93,46 +99,36 @@ export function EquipmentForm({
   });
 
   useEffect(() => {
-    async function loadDepartments() {
-      const result = await getDepartments();
-      if (result.success && result.data) {
-        setDepartments(result.data);
+    if (departmentsData) {
+      setDepartments(departmentsData);
+    } else {
+      // Fallback to the old method if the hook doesn't work
+      async function loadDepartments() {
+        const result = await getDepartments();
+        if (result.success && result.data) {
+          setDepartments(result.data);
+        }
       }
+      loadDepartments();
     }
-    loadDepartments();
-  }, []);
+  }, [departmentsData]);
 
   async function onSubmit(data: EquipmentInput) {
-    setIsLoading(true);
-
-    try {
-      const result = equipment
-        ? await updateEquipment(equipment.id, data)
-        : await createEquipment(data);
-
-      if (result.success) {
-        toast({
-          title: "Success",
-          description:
-            result.message ||
-            `Equipment ${equipment ? "updated" : "created"} successfully`,
-        });
-        onSuccess?.();
-      } else {
-        toast({
-          title: "Error",
-          description: result.message || "Operation failed",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
+    if (equipment) {
+      updateMutation.mutate(
+        { id: equipment.id, data },
+        {
+          onSuccess: () => {
+            onSuccess?.();
+          },
+        }
+      );
+    } else {
+      createMutation.mutate(data, {
+        onSuccess: () => {
+          onSuccess?.();
+        },
       });
-    } finally {
-      setIsLoading(false);
     }
   }
 

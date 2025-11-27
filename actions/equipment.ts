@@ -6,8 +6,9 @@ import {
   equipmentSchema,
   type EquipmentInput,
 } from "@/lib/validations/equipment";
-import { ActionResult } from "@/types";
+import { ActionResult, BulkImportResult } from "@/types";
 import { revalidatePath } from "next/cache";
+import { parseCSVFile } from "@/lib/file-parser";
 
 /**
  * Server action to create a new equipment record
@@ -446,6 +447,217 @@ export async function getEquipment(filters?: {
     return {
       success: false,
       message: "An error occurred while fetching equipment",
+    };
+  }
+}
+
+/**
+ * Server action to bulk import equipment from CSV or PDF files
+ * Requirements: 8.1, 8.2, 8.3, 8.4, 8.5
+ */
+export async function bulkImportEquipment(
+  formData: FormData
+): Promise<ActionResult<BulkImportResult>> {
+  try {
+    const session = await auth();
+
+    if (!session || !session.user) {
+      return {
+        success: false,
+        message: "Unauthorized. Please log in.",
+      };
+    }
+
+    const { role, departmentId: userDepartmentId } = session.user;
+
+    // Get the uploaded file
+    const file = formData.get("file") as File;
+
+    if (!file) {
+      return {
+        success: false,
+        message: "No file provided",
+      };
+    }
+
+    // Validate file type
+    const allowedTypes = [
+      "text/csv",
+      "application/csv",
+      "application/vnd.ms-excel", // .csv files sometimes have this MIME type
+    ];
+
+    if (
+      !allowedTypes.includes(file.type) &&
+      !file.name.toLowerCase().endsWith(".csv")
+    ) {
+      return {
+        success: false,
+        message: "Invalid file type. Only CSV files are allowed.",
+      };
+    }
+
+    // Validate file size (10MB max)
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (file.size > maxSize) {
+      return {
+        success: false,
+        message: "File size too large. Maximum size is 10MB.",
+      };
+    }
+
+    // Parse the CSV file
+    const parseResult = await parseCSVFile(file);
+
+    if (!parseResult.success && parseResult.errors.length > 0) {
+      return {
+        success: false,
+        message: "File parsing failed",
+        data: {
+          success: false,
+          imported: 0,
+          failed: parseResult.totalRows,
+          errors: parseResult.errors,
+        },
+      };
+    }
+
+    // Determine target department
+    let targetDepartmentId: string;
+
+    if (role === "DEPT_HEAD") {
+      if (!userDepartmentId) {
+        return {
+          success: false,
+          message: "Department head must be assigned to a department",
+        };
+      }
+      targetDepartmentId = userDepartmentId;
+    } else {
+      // For ADMIN, get department from form data or use first available
+      const departmentId = formData.get("departmentId") as string;
+
+      if (departmentId) {
+        // Verify department exists
+        const department = await prisma.department.findUnique({
+          where: { id: departmentId },
+        });
+
+        if (!department) {
+          return {
+            success: false,
+            message: "Invalid department selected",
+          };
+        }
+
+        targetDepartmentId = departmentId;
+      } else {
+        return {
+          success: false,
+          message: "Department selection is required for admin users",
+        };
+      }
+    }
+
+    // Process valid equipment records
+    const importResults: BulkImportResult = {
+      success: true,
+      imported: 0,
+      failed: 0,
+      errors: [],
+    };
+
+    // Use transaction for bulk insert
+    await prisma.$transaction(async (tx) => {
+      for (let i = 0; i < parseResult.data.length; i++) {
+        const equipmentData = parseResult.data[i];
+
+        try {
+          // Add department ID to the equipment data
+          const completeEquipmentData = {
+            ...equipmentData,
+            departmentId: targetDepartmentId,
+          };
+
+          // Validate the complete data
+          const validatedData = equipmentSchema.safeParse(
+            completeEquipmentData
+          );
+
+          if (!validatedData.success) {
+            importResults.failed++;
+            importResults.errors.push({
+              row: i + 1,
+              message: `Validation failed: ${validatedData.error.issues
+                .map((e) => e.message)
+                .join(", ")}`,
+            });
+            continue;
+          }
+
+          // Create equipment record
+          await tx.equipment.create({
+            data: {
+              name: validatedData.data.name,
+              type: validatedData.data.type,
+              status: validatedData.data.status,
+              purchaseDate: validatedData.data.purchaseDate,
+              imageUrl: validatedData.data.imageUrl || null,
+              departmentId: validatedData.data.departmentId,
+            },
+          });
+
+          importResults.imported++;
+        } catch (error) {
+          importResults.failed++;
+          importResults.errors.push({
+            row: i + 1,
+            message: `Database error: ${
+              error instanceof Error ? error.message : "Unknown error"
+            }`,
+          });
+        }
+      }
+    });
+
+    // Add parsing errors to the final result
+    importResults.errors.push(...parseResult.errors);
+    importResults.failed += parseResult.errors.length;
+
+    // Update success status
+    importResults.success = importResults.failed === 0;
+
+    // Revalidate relevant paths
+    revalidatePath("/dashboard");
+    revalidatePath("/dashboard/inventory");
+
+    const message = importResults.success
+      ? `Successfully imported ${importResults.imported} equipment records`
+      : `Import completed with ${importResults.imported} successful and ${importResults.failed} failed records`;
+
+    return {
+      success: true,
+      message,
+      data: importResults,
+    };
+  } catch (error) {
+    console.error("Bulk import error:", error);
+    return {
+      success: false,
+      message: "An error occurred during bulk import",
+      data: {
+        success: false,
+        imported: 0,
+        failed: 0,
+        errors: [
+          {
+            row: 0,
+            message: `System error: ${
+              error instanceof Error ? error.message : "Unknown error"
+            }`,
+          },
+        ],
+      },
     };
   }
 }

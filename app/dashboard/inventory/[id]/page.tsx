@@ -3,13 +3,15 @@
 import { useState } from "react";
 
 export const dynamic = "force-dynamic";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useParams } from "next/navigation";
 import { format } from "date-fns";
-import { ArrowLeft, Pencil, Trash2, Package } from "lucide-react";
+import { ArrowLeft, Pencil, Trash2, Package, Plus } from "lucide-react";
 import { EquipmentStatus } from "@prisma/client";
-import { getEquipmentById, deleteEquipment } from "@/actions/equipment";
+import { useEquipmentById, useDeleteEquipment } from "@/hooks/use-equipment";
+import { useMaintenanceLogs } from "@/hooks/use-maintenance";
 import { EquipmentForm } from "@/components/equipment/equipment-form";
+import { MaintenanceLogList } from "@/components/maintenance/maintenance-log-list";
+import { AddMaintenanceLogForm } from "@/components/maintenance/add-maintenance-log-form";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -45,58 +47,42 @@ const statusColors: Record<EquipmentStatus, string> = {
 export default function EquipmentDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [isAddMaintenanceDialogOpen, setIsAddMaintenanceDialogOpen] =
+    useState(false);
 
   const equipmentId = params.id as string;
 
   // Fetch equipment details
-  const { data: equipmentResult, isLoading } = useQuery({
-    queryKey: ["equipment", equipmentId],
-    queryFn: async () => {
-      const result = await getEquipmentById(equipmentId);
-      if (!result.success) {
-        throw new Error(result.message || "Failed to fetch equipment");
-      }
-      return result.data;
-    },
-  });
+  const { data: equipmentResult, isLoading } = useEquipmentById(equipmentId);
+
+  // Fetch maintenance logs
+  const { data: maintenanceResult, isLoading: isLoadingMaintenance } =
+    useMaintenanceLogs(equipmentId);
 
   // Delete mutation
-  const deleteMutation = useMutation({
-    mutationFn: async (id: string) => {
-      const result = await deleteEquipment(id);
-      if (!result.success) {
-        throw new Error(result.message || "Failed to delete equipment");
-      }
-      return result;
-    },
-    onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Equipment deleted successfully",
-      });
-      router.push("/dashboard/inventory");
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
+  const deleteMutation = useDeleteEquipment();
 
   const handleDelete = async () => {
     if (confirm("Are you sure you want to delete this equipment?")) {
-      deleteMutation.mutate(equipmentId);
+      deleteMutation.mutate(equipmentId, {
+        onSuccess: () => {
+          router.push("/dashboard/inventory");
+        },
+      });
     }
   };
 
   const handleFormSuccess = () => {
-    queryClient.invalidateQueries({ queryKey: ["equipment", equipmentId] });
     setIsEditDialogOpen(false);
+  };
+
+  const handleMaintenanceSuccess = () => {
+    setIsAddMaintenanceDialogOpen(false);
+  };
+
+  const handleMaintenanceDeleted = () => {
+    // The hook handles cache invalidation automatically
   };
 
   if (isLoading) {
@@ -243,55 +229,36 @@ export default function EquipmentDetailPage() {
       {/* Maintenance Log Section */}
       <Card>
         <CardHeader>
-          <CardTitle>Maintenance History</CardTitle>
-          <CardDescription>
-            Track all maintenance and repair activities for this equipment
-          </CardDescription>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>Maintenance History</CardTitle>
+              <CardDescription>
+                Track all maintenance and repair activities for this equipment
+              </CardDescription>
+            </div>
+            <Button onClick={() => setIsAddMaintenanceDialogOpen(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Add Maintenance Log
+            </Button>
+          </div>
         </CardHeader>
         <CardContent>
-          {equipment.maintenanceLogs && equipment.maintenanceLogs.length > 0 ? (
-            <div className="space-y-4">
-              {equipment.maintenanceLogs.map((log: any) => (
-                <div
-                  key={log.id}
-                  className="border-l-4 border-blue-500 pl-4 py-2"
-                >
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <p className="font-medium text-gray-900">
-                        {log.description}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {format(new Date(log.date), "MMMM dd, yyyy")}
-                      </p>
-                    </div>
-                    <p className="text-lg font-semibold text-gray-900">
-                      ${Number(log.cost).toFixed(2)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <div className="border-t pt-4 mt-4">
-                <div className="flex justify-between items-center">
-                  <p className="font-semibold text-gray-900">
-                    Total Maintenance Cost
-                  </p>
-                  <p className="text-xl font-bold text-gray-900">
-                    $
-                    {equipment.maintenanceLogs
-                      .reduce(
-                        (sum: number, log: any) => sum + Number(log.cost),
-                        0
-                      )
-                      .toFixed(2)}
-                  </p>
-                </div>
-              </div>
+          {isLoadingMaintenance ? (
+            <div className="text-center py-8">
+              <div className="text-gray-500">Loading maintenance logs...</div>
             </div>
+          ) : maintenanceResult ? (
+            <MaintenanceLogList
+              logs={maintenanceResult.logs}
+              totalCost={maintenanceResult.totalCost}
+              onLogDeleted={handleMaintenanceDeleted}
+            />
           ) : (
-            <p className="text-gray-500 text-center py-8">
-              No maintenance records found for this equipment
-            </p>
+            <div className="text-center py-8">
+              <p className="text-gray-500">
+                No maintenance records found for this equipment
+              </p>
+            </div>
           )}
         </CardContent>
       </Card>
@@ -316,6 +283,26 @@ export default function EquipmentDetailPage() {
               departmentId: equipment.departmentId,
             }}
             onSuccess={handleFormSuccess}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* Add Maintenance Log Dialog */}
+      <Dialog
+        open={isAddMaintenanceDialogOpen}
+        onOpenChange={setIsAddMaintenanceDialogOpen}
+      >
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle>Add Maintenance Log</DialogTitle>
+            <DialogDescription>
+              Record maintenance work performed on {equipment.name}.
+            </DialogDescription>
+          </DialogHeader>
+          <AddMaintenanceLogForm
+            equipmentId={equipmentId}
+            onSuccess={handleMaintenanceSuccess}
+            onCancel={() => setIsAddMaintenanceDialogOpen(false)}
           />
         </DialogContent>
       </Dialog>

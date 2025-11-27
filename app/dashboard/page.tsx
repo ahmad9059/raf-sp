@@ -1,7 +1,6 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import { getDashboardStats } from "@/actions/stats";
+import { useDashboardStats } from "@/hooks/use-dashboard";
 import {
   StatsOverview,
   StatsOverviewSkeleton,
@@ -20,14 +19,7 @@ import {
 } from "@/components/dashboard/recent-equipment-table";
 
 export default function DashboardPage() {
-  const {
-    data: stats,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["dashboard-stats"],
-    queryFn: () => getDashboardStats(),
-  });
+  const { data: stats, isLoading, error } = useDashboardStats();
 
   if (error) {
     return (

@@ -192,9 +192,9 @@
     - Handle upload errors gracefully
     - _Requirements: 4.5_
 
-- [ ] 10. Implement maintenance log tracking
+- [x] 10. Implement maintenance log tracking
 
-  - [ ] 10.1 Create maintenance log server actions
+  - [x] 10.1 Create maintenance log server actions
 
     - Implement createMaintenanceLog server action
     - Build getMaintenanceLogs server action with equipment filtering
@@ -203,7 +203,7 @@
     - Calculate total maintenance costs in query
     - _Requirements: 7.1, 7.3, 7.4, 7.5_
 
-  - [ ] 10.2 Build maintenance log UI components
+  - [x] 10.2 Build maintenance log UI components
 
     - Create MaintenanceLogList component
     - Build AddMaintenanceLogForm with date picker and cost input
@@ -212,16 +212,16 @@
     - Add delete functionality for log entries
     - _Requirements: 7.1, 7.2, 7.3_
 
-  - [ ] 10.3 Integrate maintenance logs with equipment
+  - [x] 10.3 Integrate maintenance logs with equipment
     - Add maintenance log section to equipment detail page
     - Display maintenance history below equipment info
     - Add "Add Maintenance Log" button
     - Update equipment status when maintenance is logged
     - _Requirements: 7.2, 7.3_
 
-- [ ] 11. Implement bulk equipment import
+- [x] 11. Implement bulk equipment import
 
-  - [ ] 11.1 Create file parsing utilities
+  - [x] 11.1 Create file parsing utilities
 
     - Install PapaParse for CSV parsing
     - Install pdf-parse for PDF parsing
@@ -231,7 +231,7 @@
     - Handle parsing errors with row-level tracking
     - _Requirements: 8.1, 8.2_
 
-  - [ ] 11.2 Build bulk import server action
+  - [x] 11.2 Build bulk import server action
 
     - Create bulkImportEquipment server action
     - Accept FormData with file upload
@@ -241,7 +241,7 @@
     - Return import results with error details
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5_
 
-  - [ ] 11.3 Create bulk import UI
+  - [x] 11.3 Create bulk import UI
     - Build BulkImportDialog component
     - Add file upload with drag-and-drop support
     - Display progress indicator during parsing
@@ -250,9 +250,9 @@
     - Add download template functionality
     - _Requirements: 8.3, 8.4_
 
-- [ ] 12. Implement department management (Admin only)
+- [x] 12. Implement department management (Admin only)
 
-  - [ ] 12.1 Create department CRUD server actions
+  - [x] 12.1 Create department CRUD server actions
 
     - Implement createDepartment server action with admin check
     - Build updateDepartment server action
@@ -260,7 +260,7 @@
     - Add Zod schemas for department validation
     - _Requirements: 9.1, 9.2, 9.3_
 
-  - [ ] 12.2 Build department management UI
+  - [x] 12.2 Build department management UI
 
     - Create app/dashboard/admin/departments/page.tsx
     - Build DepartmentTable component
@@ -270,14 +270,14 @@
     - Display equipment count per department
     - _Requirements: 9.1, 9.2, 9.3, 9.4_
 
-  - [ ] 12.3 Add department assignment for users
+  - [x] 12.3 Add department assignment for users
     - Create user management page for admins
     - Add department dropdown to user forms
     - Implement user-to-department assignment
     - Display department info in user profile
     - _Requirements: 9.5_
 
-- [ ] 13. Implement data caching and optimization
+- [x] 13. Implement data caching and optimization
 
   - Install and configure TanStack Query
   - Set up query client with 5-minute stale time
