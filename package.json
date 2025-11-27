@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "seed": "node -r dotenv/config scripts/seed-departments.js"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",

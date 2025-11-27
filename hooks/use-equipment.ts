@@ -5,6 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import { queryKeys } from "@/lib/query-keys";
 import {
   getEquipment,
+  getAllEquipment,
   getEquipmentById,
   createEquipment,
   updateEquipment,
@@ -39,12 +40,26 @@ interface EquipmentInput {
   departmentId: string;
 }
 
-// Hook for fetching all equipment
+// Hook for fetching all equipment (department-filtered for DEPT_HEAD)
 export function useEquipment() {
   return useQuery({
     queryKey: queryKeys.equipment.all(),
     queryFn: async () => {
       const result = await getEquipment();
+      if (!result.success) {
+        throw new Error(result.message || "Failed to fetch equipment");
+      }
+      return result.data as Equipment[];
+    },
+  });
+}
+
+// Hook for fetching all equipment across departments (for viewing)
+export function useAllEquipment() {
+  return useQuery({
+    queryKey: queryKeys.equipment.allDepartments(),
+    queryFn: async () => {
+      const result = await getAllEquipment();
       if (!result.success) {
         throw new Error(result.message || "Failed to fetch equipment");
       }
@@ -81,7 +96,7 @@ export function useCreateEquipment() {
       }
       return result.data;
     },
-    onMutate: async (newEquipment) => {
+    onMutate: async () => {
       // Cancel any outgoing refetches
       await queryClient.cancelQueries({ queryKey: queryKeys.equipment.all() });
 
@@ -90,24 +105,10 @@ export function useCreateEquipment() {
         queryKeys.equipment.all()
       );
 
-      // Optimistically update to the new value
-      const optimisticEquipment = {
-        id: `temp-${Date.now()}`, // Temporary ID
-        ...newEquipment,
-        department: { name: "Loading..." }, // Placeholder
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-
-      queryClient.setQueryData(
-        queryKeys.equipment.all(),
-        (old: Equipment[] = []) => [optimisticEquipment as Equipment, ...old]
-      );
-
       // Return a context object with the snapshotted value
       return { previousEquipment };
     },
-    onError: (err, newEquipment, context) => {
+    onError: (err, _, context) => {
       // If the mutation fails, use the context returned from onMutate to roll back
       queryClient.setQueryData(
         queryKeys.equipment.all(),
@@ -115,12 +116,15 @@ export function useCreateEquipment() {
       );
       error(err instanceof Error ? err.message : "Failed to create equipment");
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       success("Equipment created successfully");
     },
     onSettled: () => {
       // Always refetch after error or success
       queryClient.invalidateQueries({ queryKey: queryKeys.equipment.all() });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.equipment.allDepartments(),
+      });
       queryClient.invalidateQueries({ queryKey: queryKeys.dashboardStats() });
     },
   });
@@ -189,9 +193,12 @@ export function useUpdateEquipment() {
     onSuccess: () => {
       success("Equipment updated successfully");
     },
-    onSettled: (data, error, { id }) => {
+    onSettled: (_, __, { id }) => {
       // Always refetch after error or success
       queryClient.invalidateQueries({ queryKey: queryKeys.equipment.all() });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.equipment.allDepartments(),
+      });
       queryClient.invalidateQueries({ queryKey: queryKeys.equipment.byId(id) });
       queryClient.invalidateQueries({ queryKey: queryKeys.dashboardStats() });
     },
@@ -243,6 +250,9 @@ export function useDeleteEquipment() {
     onSettled: () => {
       // Always refetch after error or success
       queryClient.invalidateQueries({ queryKey: queryKeys.equipment.all() });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.equipment.allDepartments(),
+      });
       queryClient.invalidateQueries({ queryKey: queryKeys.dashboardStats() });
     },
   });
@@ -270,6 +280,9 @@ export function useBulkImportEquipment() {
     onSettled: () => {
       // Refetch all equipment-related queries
       queryClient.invalidateQueries({ queryKey: queryKeys.equipment.all() });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.equipment.allDepartments(),
+      });
       queryClient.invalidateQueries({ queryKey: queryKeys.dashboardStats() });
     },
   });

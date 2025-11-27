@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { AboutSection } from "@/components/landing/about-section";
-import { FeaturesSection } from "@/components/landing/features-section";
+import { DepartmentsSection } from "@/components/landing/departments-section";
 import { Footer } from "@/components/landing/footer";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutSection />
-      <FeaturesSection />
+      <DepartmentsSection />
       <Footer />
     </main>
   );

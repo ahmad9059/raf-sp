@@ -8,10 +8,12 @@ export const queryKeys = {
   dashboardStats: () => ["dashboard-stats"] as const,
   dashboardStatsByDepartment: (departmentId: string) =>
     ["dashboard-stats", departmentId] as const,
+  allDepartmentsStats: () => ["dashboard-stats", "all-departments"] as const,
 
   // Equipment queries
   equipment: {
     all: () => ["equipment"] as const,
+    allDepartments: () => ["equipment", "all-departments"] as const,
     byId: (id: string) => ["equipment", id] as const,
     byDepartment: (departmentId: string) =>
       ["equipment", "department", departmentId] as const,

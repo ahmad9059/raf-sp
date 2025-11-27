@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "@/lib/query-keys";
-import { getDashboardStats } from "@/actions/stats";
+import { getDashboardStats, getAllDepartmentsStats } from "@/actions/stats";
 
 interface DashboardStats {
   totalEquipment: number;
@@ -22,5 +22,13 @@ export function useDashboardStats(departmentId?: string) {
       ? queryKeys.dashboardStatsByDepartment(departmentId)
       : queryKeys.dashboardStats(),
     queryFn: () => getDashboardStats(departmentId),
+  });
+}
+
+// Hook for fetching dashboard stats across all departments
+export function useAllDepartmentsStats() {
+  return useQuery({
+    queryKey: queryKeys.allDepartmentsStats(),
+    queryFn: () => getAllDepartmentsStats(),
   });
 }

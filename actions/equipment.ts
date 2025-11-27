@@ -452,6 +452,69 @@ export async function getEquipment(filters?: {
 }
 
 /**
+ * Server action to get all equipment across all departments (for viewing)
+ */
+export async function getAllEquipment(filters?: {
+  status?: string;
+  type?: string;
+  search?: string;
+}): Promise<ActionResult> {
+  try {
+    const session = await auth();
+
+    if (!session || !session.user) {
+      return {
+        success: false,
+        message: "Unauthorized. Please log in.",
+      };
+    }
+
+    // Build where clause (no department filtering for viewing)
+    const whereClause: any = {};
+
+    // Apply filters
+    if (filters?.status) {
+      whereClause.status = filters.status;
+    }
+
+    if (filters?.type) {
+      whereClause.type = filters.type;
+    }
+
+    if (filters?.search) {
+      whereClause.OR = [
+        { name: { contains: filters.search, mode: "insensitive" } },
+        { type: { contains: filters.search, mode: "insensitive" } },
+      ];
+    }
+
+    const equipment = await prisma.equipment.findMany({
+      where: whereClause,
+      include: {
+        department: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+      orderBy: [{ department: { name: "asc" } }, { createdAt: "desc" }],
+    });
+
+    return {
+      success: true,
+      data: equipment,
+    };
+  } catch (error) {
+    console.error("Get all equipment error:", error);
+    return {
+      success: false,
+      message: "An error occurred while fetching equipment",
+    };
+  }
+}
+
+/**
  * Server action to bulk import equipment from CSV or PDF files
  * Requirements: 8.1, 8.2, 8.3, 8.4, 8.5
  */

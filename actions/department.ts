@@ -283,7 +283,7 @@ export async function deleteDepartment(id: string): Promise<ActionResult> {
 }
 
 /**
- * Server action to get all departments (Admin only)
+ * Server action to get all departments (All authenticated users can view)
  */
 export async function getDepartments(): Promise<ActionResult> {
   try {
@@ -293,16 +293,6 @@ export async function getDepartments(): Promise<ActionResult> {
       return {
         success: false,
         message: "Unauthorized. Please log in.",
-      };
-    }
-
-    const { role } = session.user;
-
-    // Admin check
-    if (role !== "ADMIN") {
-      return {
-        success: false,
-        message: "Access denied. Admin privileges required.",
       };
     }
 

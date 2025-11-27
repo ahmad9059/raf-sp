@@ -10,6 +10,8 @@ import {
   Menu,
   X,
   Users,
+  Eye,
+  BarChart3,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -27,9 +29,21 @@ const navigation = [
     roles: ["ADMIN", "DEPT_HEAD"],
   },
   {
+    name: "Organization Overview",
+    href: "/dashboard/overview",
+    icon: BarChart3,
+    roles: ["ADMIN", "DEPT_HEAD"],
+  },
+  {
     name: "Equipment Inventory",
     href: "/dashboard/inventory",
     icon: Package,
+    roles: ["ADMIN", "DEPT_HEAD"],
+  },
+  {
+    name: "All Equipment",
+    href: "/dashboard/all-equipment",
+    icon: Eye,
     roles: ["ADMIN", "DEPT_HEAD"],
   },
   {
