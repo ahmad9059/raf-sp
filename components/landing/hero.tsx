@@ -41,7 +41,7 @@ export function Hero() {
           {/* Main Heading */}
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight"
           >
             Repair & Facility
             <span className="block text-brand mt-2">Smart Platform</span>
@@ -50,7 +50,7 @@ export function Hero() {
           {/* Subtitle */}
           <motion.p
             variants={fadeInUp}
-            className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
             A comprehensive asset management system for government agriculture
             departments. Track equipment, manage maintenance, and visualize
@@ -98,21 +98,31 @@ export function Hero() {
           {/* Stats */}
           <motion.div
             variants={fadeInUp}
-            className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+            className="mt-12 lg:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 sm:px-0"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand">100+</div>
-              <div className="text-sm text-gray-600 mt-1">Departments</div>
+              <div className="text-2xl sm:text-3xl font-bold text-brand">
+                100+
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">
+                Departments
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand">5000+</div>
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="text-2xl sm:text-3xl font-bold text-brand">
+                5000+
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">
                 Equipment Tracked
               </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand">99.9%</div>
-              <div className="text-sm text-gray-600 mt-1">Uptime</div>
+              <div className="text-2xl sm:text-3xl font-bold text-brand">
+                99.9%
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">
+                Uptime
+              </div>
             </div>
           </motion.div>
         </motion.div>

@@ -22,6 +22,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { EquipmentStatus } from "@prisma/client";
+import { LoadingState } from "@/components/ui/loading-spinner";
 
 interface Equipment {
   id: string;
@@ -44,7 +45,7 @@ export default function InventoryPage() {
   );
 
   // Fetch equipment
-  const { data: equipmentResult, isLoading } = useEquipment();
+  const { data: equipmentResult, isLoading, error, refetch } = useEquipment();
 
   // Delete mutation
   const deleteMutation = useDeleteEquipment();
@@ -58,9 +59,7 @@ export default function InventoryPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this equipment?")) {
-      deleteMutation.mutate(id);
-    }
+    deleteMutation.mutate(id);
   };
 
   const handleDialogClose = () => {
@@ -76,39 +75,40 @@ export default function InventoryPage() {
     setIsBulkImportOpen(false);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-gray-500">Loading equipment...</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">
             Equipment Inventory
           </h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-gray-600 mt-1 text-sm lg:text-base">
             Manage your department's equipment and assets
           </p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={() => setIsBulkImportOpen(true)}>
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <Button
+            variant="outline"
+            onClick={() => setIsBulkImportOpen(true)}
+            className="w-full sm:w-auto"
+          >
             <Upload className="h-4 w-4 mr-2" />
-            Bulk Import
+            <span className="hidden sm:inline">Bulk Import</span>
+            <span className="sm:hidden">Import</span>
           </Button>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <Button onClick={() => setSelectedEquipment(null)}>
+              <Button
+                onClick={() => setSelectedEquipment(null)}
+                className="w-full sm:w-auto"
+              >
                 <Plus className="h-4 w-4 mr-2" />
-                Add Equipment
+                <span className="hidden sm:inline">Add Equipment</span>
+                <span className="sm:hidden">Add</span>
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4 sm:mx-0">
               <DialogHeader>
                 <DialogTitle>
                   {selectedEquipment ? "Edit Equipment" : "Add New Equipment"}
@@ -141,21 +141,29 @@ export default function InventoryPage() {
       </div>
 
       {/* Equipment Table */}
-      {equipmentResult && equipmentResult.length > 0 ? (
-        <EquipmentTable
-          data={equipmentResult}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
-        />
-      ) : (
-        <div className="text-center py-12 bg-white rounded-lg border">
-          <p className="text-gray-500 mb-4">No equipment found</p>
-          <Button onClick={() => setIsDialogOpen(true)}>
-            <Plus className="h-4 w-4 mr-2" />
-            Add Your First Equipment
-          </Button>
-        </div>
-      )}
+      <LoadingState
+        isLoading={isLoading}
+        error={error}
+        loadingText="Loading equipment inventory..."
+        errorText="Failed to load equipment"
+        onRetry={() => refetch()}
+      >
+        {equipmentResult && equipmentResult.length > 0 ? (
+          <EquipmentTable
+            data={equipmentResult}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        ) : (
+          <div className="text-center py-12 bg-white rounded-lg border">
+            <p className="text-gray-500 mb-4">No equipment found</p>
+            <Button onClick={() => setIsDialogOpen(true)}>
+              <Plus className="h-4 w-4 mr-2" />
+              Add Your First Equipment
+            </Button>
+          </div>
+        )}
+      </LoadingState>
 
       {/* Bulk Import Dialog */}
       <BulkImportDialog

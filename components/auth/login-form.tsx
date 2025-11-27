@@ -21,7 +21,7 @@ import { useToast } from "@/hooks/use-toast";
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
@@ -38,25 +38,14 @@ export function LoginForm() {
       const result = await loginAction(data.email, data.password);
 
       if (result.success) {
-        toast({
-          title: "Success",
-          description: result.message || "Login successful",
-        });
+        success(result.message || "Login successful");
         router.push("/dashboard");
         router.refresh();
       } else {
-        toast({
-          title: "Error",
-          description: result.message || "Login failed",
-          variant: "destructive",
-        });
+        error(result.message || "Login failed");
       }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
+    } catch (err) {
+      error("An unexpected error occurred");
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +53,10 @@ export function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-4 lg:space-y-6"
+      >
         <FormField
           control={form.control}
           name="email"
@@ -103,7 +95,11 @@ export function LoginForm() {
           )}
         />
 
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button
+          type="submit"
+          className="w-full h-12 lg:h-10"
+          disabled={isLoading}
+        >
           {isLoading ? "Signing in..." : "Sign In"}
         </Button>
       </form>

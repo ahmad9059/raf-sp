@@ -40,18 +40,19 @@ export function EquipmentTypeChart({ stats }: EquipmentTypeChartProps) {
       <CardHeader>
         <CardTitle>Equipment Distribution by Type</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-4 lg:p-6">
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="type"
-              angle={-45}
+              angle={window.innerWidth > 640 ? -45 : -90}
               textAnchor="end"
-              height={80}
+              height={window.innerWidth > 640 ? 80 : 100}
               interval={0}
+              fontSize={window.innerWidth > 640 ? 12 : 10}
             />
-            <YAxis />
+            <YAxis fontSize={window.innerWidth > 640 ? 12 : 10} />
             <Tooltip />
             <Legend />
             <Bar

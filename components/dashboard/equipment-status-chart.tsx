@@ -50,7 +50,7 @@ export function EquipmentStatusChart({ stats }: EquipmentStatusChartProps) {
       <CardHeader>
         <CardTitle>Equipment Status Distribution</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-4 lg:p-6">
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
@@ -59,9 +59,11 @@ export function EquipmentStatusChart({ stats }: EquipmentStatusChartProps) {
               cy="50%"
               labelLine={false}
               label={({ name, percent }) =>
-                `${name}: ${((percent || 0) * 100).toFixed(0)}%`
+                window.innerWidth > 640
+                  ? `${name}: ${((percent || 0) * 100).toFixed(0)}%`
+                  : `${((percent || 0) * 100).toFixed(0)}%`
               }
-              outerRadius={80}
+              outerRadius={window.innerWidth > 640 ? 80 : 60}
               fill="#8884d8"
               dataKey="value"
             >

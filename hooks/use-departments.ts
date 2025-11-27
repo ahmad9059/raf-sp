@@ -44,7 +44,7 @@ export function useDepartments() {
 // Hook for creating department with optimistic updates
 export function useCreateDepartment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (data: DepartmentInput) => {
@@ -87,18 +87,10 @@ export function useCreateDepartment() {
         queryKeys.departments.all(),
         context?.previousDepartments
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to create department",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to create department");
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Department created successfully",
-      });
+      success("Department created successfully");
     },
     onSettled: () => {
       // Always refetch after error or success
@@ -110,7 +102,7 @@ export function useCreateDepartment() {
 // Hook for updating department with optimistic updates
 export function useUpdateDepartment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async ({ id, data }: { id: string; data: DepartmentInput }) => {
@@ -150,18 +142,10 @@ export function useUpdateDepartment() {
         queryKeys.departments.all(),
         context?.previousDepartments
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to update department",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to update department");
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Department updated successfully",
-      });
+      success("Department updated successfully");
     },
     onSettled: () => {
       // Always refetch after error or success
@@ -173,7 +157,7 @@ export function useUpdateDepartment() {
 // Hook for deleting department with optimistic updates
 export function useDeleteDepartment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (id: string) => {
@@ -209,18 +193,10 @@ export function useDeleteDepartment() {
         queryKeys.departments.all(),
         context?.previousDepartments
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to delete department",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to delete department");
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Department deleted successfully",
-      });
+      success("Department deleted successfully");
     },
     onSettled: () => {
       // Always refetch after error or success

@@ -95,7 +95,7 @@ export function Sidebar({ userRole = "DEPT_HEAD" }: SidebarProps) {
           variant="outline"
           size="sm"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="bg-white"
+          className="bg-white shadow-md"
         >
           {isMobileMenuOpen ? (
             <X className="h-5 w-5" />

@@ -36,7 +36,7 @@ export function SignupForm() {
   const [departments, setDepartments] = useState<Department[]>([]);
   const [loadingDepartments, setLoadingDepartments] = useState(true);
   const router = useRouter();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   const form = useForm<SignupInput>({
     resolver: zodResolver(signupSchema),
@@ -56,25 +56,17 @@ export function SignupForm() {
         if (result.success && result.data) {
           setDepartments(result.data);
         } else {
-          toast({
-            title: "Error",
-            description: "Failed to load departments",
-            variant: "destructive",
-          });
+          error("Failed to load departments");
         }
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Failed to load departments",
-          variant: "destructive",
-        });
+      } catch (err) {
+        error("Failed to load departments");
       } finally {
         setLoadingDepartments(false);
       }
     }
 
     loadDepartments();
-  }, [toast]);
+  }, [error]);
 
   async function onSubmit(data: SignupInput) {
     setIsLoading(true);
@@ -83,24 +75,13 @@ export function SignupForm() {
       const result = await signupAction(data);
 
       if (result.success) {
-        toast({
-          title: "Success",
-          description: result.message || "Account created successfully",
-        });
+        success(result.message || "Account created successfully");
         router.push("/login");
       } else {
-        toast({
-          title: "Error",
-          description: result.message || "Registration failed",
-          variant: "destructive",
-        });
+        error(result.message || "Registration failed");
       }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
+    } catch (err) {
+      error("An unexpected error occurred");
     } finally {
       setIsLoading(false);
     }

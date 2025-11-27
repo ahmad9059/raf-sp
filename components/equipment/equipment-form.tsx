@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
+
 import { ImageUpload } from "./image-upload";
 
 interface EquipmentFormProps {
@@ -134,7 +134,10 @@ export function EquipmentForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-4 lg:space-y-6"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -296,8 +299,12 @@ export function EquipmentForm({
           )}
         />
 
-        <div className="flex gap-4">
-          <Button type="submit" className="flex-1" disabled={isLoading}>
+        <div className="flex gap-4 pt-4">
+          <Button
+            type="submit"
+            className="flex-1 h-12 lg:h-10"
+            disabled={isLoading}
+          >
             {isLoading
               ? equipment
                 ? "Updating..."

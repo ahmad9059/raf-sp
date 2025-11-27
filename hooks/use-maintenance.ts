@@ -35,7 +35,7 @@ export function useMaintenanceLogs(equipmentId: string) {
 // Hook for creating maintenance log
 export function useCreateMaintenanceLog() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (data: MaintenanceLogInput) => {
@@ -46,20 +46,12 @@ export function useCreateMaintenanceLog() {
       return result.data;
     },
     onError: (err) => {
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error
-            ? err.message
-            : "Failed to create maintenance log",
-        variant: "destructive",
-      });
+      error(
+        err instanceof Error ? err.message : "Failed to create maintenance log"
+      );
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Maintenance log created successfully",
-      });
+      success("Maintenance log created successfully");
     },
     onSettled: (data, error, variables) => {
       // Always refetch after error or success
@@ -77,7 +69,7 @@ export function useCreateMaintenanceLog() {
 // Hook for deleting maintenance log
 export function useDeleteMaintenanceLog() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async ({
@@ -94,20 +86,12 @@ export function useDeleteMaintenanceLog() {
       return result;
     },
     onError: (err) => {
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error
-            ? err.message
-            : "Failed to delete maintenance log",
-        variant: "destructive",
-      });
+      error(
+        err instanceof Error ? err.message : "Failed to delete maintenance log"
+      );
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Maintenance log deleted successfully",
-      });
+      success("Maintenance log deleted successfully");
     },
     onSettled: (data, error, { equipmentId }) => {
       // Always refetch after error or success

@@ -27,7 +27,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
+import { ConfirmationDialog } from "@/components/ui/confirmation-dialog";
+import { LoadingState } from "@/components/ui/loading-spinner";
 import { cn } from "@/lib/utils";
 
 const statusLabels: Record<EquipmentStatus, string> = {
@@ -54,7 +55,12 @@ export default function EquipmentDetailPage() {
   const equipmentId = params.id as string;
 
   // Fetch equipment details
-  const { data: equipmentResult, isLoading } = useEquipmentById(equipmentId);
+  const {
+    data: equipmentResult,
+    isLoading,
+    error,
+    refetch,
+  } = useEquipmentById(equipmentId);
 
   // Fetch maintenance logs
   const { data: maintenanceResult, isLoading: isLoadingMaintenance } =
@@ -64,13 +70,11 @@ export default function EquipmentDetailPage() {
   const deleteMutation = useDeleteEquipment();
 
   const handleDelete = async () => {
-    if (confirm("Are you sure you want to delete this equipment?")) {
-      deleteMutation.mutate(equipmentId, {
-        onSuccess: () => {
-          router.push("/dashboard/inventory");
-        },
-      });
-    }
+    deleteMutation.mutate(equipmentId, {
+      onSuccess: () => {
+        router.push("/dashboard/inventory");
+      },
+    });
   };
 
   const handleFormSuccess = () => {
@@ -85,27 +89,74 @@ export default function EquipmentDetailPage() {
     // The hook handles cache invalidation automatically
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-gray-500">Loading equipment details...</div>
-      </div>
-    );
-  }
+  return (
+    <LoadingState
+      isLoading={isLoading}
+      error={error}
+      loadingText="Loading equipment details..."
+      errorText="Failed to load equipment"
+      onRetry={() => refetch()}
+    >
+      {equipmentResult ? (
+        <EquipmentDetailView
+          equipment={equipmentResult}
+          maintenanceResult={maintenanceResult}
+          isLoadingMaintenance={isLoadingMaintenance}
+          deleteMutation={deleteMutation}
+          handleDelete={handleDelete}
+          handleFormSuccess={handleFormSuccess}
+          handleMaintenanceSuccess={handleMaintenanceSuccess}
+          handleMaintenanceDeleted={handleMaintenanceDeleted}
+          isEditDialogOpen={isEditDialogOpen}
+          setIsEditDialogOpen={setIsEditDialogOpen}
+          isAddMaintenanceDialogOpen={isAddMaintenanceDialogOpen}
+          setIsAddMaintenanceDialogOpen={setIsAddMaintenanceDialogOpen}
+          router={router}
+          equipmentId={equipmentId}
+        />
+      ) : (
+        <div className="flex flex-col items-center justify-center min-h-[400px]">
+          <p className="text-gray-500 mb-4">Equipment not found</p>
+          <Button onClick={() => router.push("/dashboard/inventory")}>
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Inventory
+          </Button>
+        </div>
+      )}
+    </LoadingState>
+  );
+}
 
-  if (!equipmentResult) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[400px]">
-        <p className="text-gray-500 mb-4">Equipment not found</p>
-        <Button onClick={() => router.push("/dashboard/inventory")}>
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Inventory
-        </Button>
-      </div>
-    );
-  }
+// Extract the main content into a separate component
+function EquipmentDetailView({
+  equipment,
+  maintenanceResult,
+  isLoadingMaintenance,
+  deleteMutation,
+  handleDelete,
+  handleFormSuccess,
+  handleMaintenanceSuccess,
+  handleMaintenanceDeleted,
+  isEditDialogOpen,
+  setIsEditDialogOpen,
+  isAddMaintenanceDialogOpen,
+  setIsAddMaintenanceDialogOpen,
+  router,
+  equipmentId,
+}: any) {
+  const statusLabels: Record<EquipmentStatus, string> = {
+    AVAILABLE: "Available",
+    IN_USE: "In Use",
+    NEEDS_REPAIR: "Needs Repair",
+    DISCARDED: "Discarded",
+  };
 
-  const equipment = equipmentResult;
+  const statusColors: Record<EquipmentStatus, string> = {
+    AVAILABLE: "bg-green-100 text-green-800",
+    IN_USE: "bg-blue-100 text-blue-800",
+    NEEDS_REPAIR: "bg-yellow-100 text-yellow-800",
+    DISCARDED: "bg-gray-100 text-gray-800",
+  };
 
   return (
     <div className="space-y-6">
@@ -132,14 +183,18 @@ export default function EquipmentDetailPage() {
             <Pencil className="h-4 w-4 mr-2" />
             Edit
           </Button>
-          <Button
-            variant="outline"
-            onClick={handleDelete}
-            disabled={deleteMutation.isPending}
+          <ConfirmationDialog
+            title="Delete Equipment"
+            description={`Are you sure you want to delete "${equipment.name}"? This action cannot be undone and will also delete all associated maintenance logs.`}
+            confirmText="Delete"
+            variant="destructive"
+            onConfirm={handleDelete}
           >
-            <Trash2 className="h-4 w-4 mr-2 text-red-600" />
-            Delete
-          </Button>
+            <Button variant="outline" disabled={deleteMutation.isPending}>
+              <Trash2 className="h-4 w-4 mr-2 text-red-600" />
+              Delete
+            </Button>
+          </ConfirmationDialog>
         </div>
       </div>
 

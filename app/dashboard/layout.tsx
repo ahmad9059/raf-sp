@@ -4,6 +4,7 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { AuthProvider } from "@/components/providers/session-provider";
 import { Sidebar } from "@/components/dashboard/sidebar";
 import { Header } from "@/components/dashboard/header";
+import { ErrorBoundary } from "@/components/error-boundary";
 
 export default async function DashboardLayout({
   children,
@@ -29,7 +30,9 @@ export default async function DashboardLayout({
             <Header user={session.user} />
 
             {/* Page content */}
-            <main className="p-6 lg:p-8">{children}</main>
+            <main className="p-4 sm:p-6 lg:p-8">
+              <ErrorBoundary>{children}</ErrorBoundary>
+            </main>
           </div>
         </div>
       </QueryProvider>

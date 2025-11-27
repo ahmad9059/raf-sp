@@ -71,7 +71,7 @@ export function useEquipmentById(id: string) {
 // Hook for creating equipment with optimistic updates
 export function useCreateEquipment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (data: EquipmentInput) => {
@@ -113,18 +113,10 @@ export function useCreateEquipment() {
         queryKeys.equipment.all(),
         context?.previousEquipment
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to create equipment",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to create equipment");
     },
     onSuccess: (data) => {
-      toast({
-        title: "Success",
-        description: "Equipment created successfully",
-      });
+      success("Equipment created successfully");
     },
     onSettled: () => {
       // Always refetch after error or success
@@ -137,7 +129,7 @@ export function useCreateEquipment() {
 // Hook for updating equipment with optimistic updates
 export function useUpdateEquipment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async ({ id, data }: { id: string; data: EquipmentInput }) => {
@@ -192,18 +184,10 @@ export function useUpdateEquipment() {
         queryKeys.equipment.byId(id),
         context?.previousSingleEquipment
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to update equipment",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to update equipment");
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Equipment updated successfully",
-      });
+      success("Equipment updated successfully");
     },
     onSettled: (data, error, { id }) => {
       // Always refetch after error or success
@@ -217,7 +201,7 @@ export function useUpdateEquipment() {
 // Hook for deleting equipment with optimistic updates
 export function useDeleteEquipment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (id: string) => {
@@ -251,18 +235,10 @@ export function useDeleteEquipment() {
         queryKeys.equipment.all(),
         context?.previousEquipment
       );
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to delete equipment",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to delete equipment");
     },
     onSuccess: () => {
-      toast({
-        title: "Success",
-        description: "Equipment deleted successfully",
-      });
+      success("Equipment deleted successfully");
     },
     onSettled: () => {
       // Always refetch after error or success
@@ -275,7 +251,7 @@ export function useDeleteEquipment() {
 // Hook for bulk import
 export function useBulkImportEquipment() {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
+  const { success, error } = useToast();
 
   return useMutation({
     mutationFn: async (formData: FormData) => {
@@ -286,20 +262,10 @@ export function useBulkImportEquipment() {
       return result.data;
     },
     onSuccess: (data) => {
-      toast({
-        title: "Success",
-        description: `Successfully imported ${
-          data?.imported || 0
-        } equipment items`,
-      });
+      success(`Successfully imported ${data?.imported || 0} equipment items`);
     },
     onError: (err) => {
-      toast({
-        title: "Error",
-        description:
-          err instanceof Error ? err.message : "Failed to import equipment",
-        variant: "destructive",
-      });
+      error(err instanceof Error ? err.message : "Failed to import equipment");
     },
     onSettled: () => {
       // Refetch all equipment-related queries
