@@ -99,12 +99,12 @@ enum EquipmentStatus {
 
 // Agriculture Mechanization Research Institute (AMRI)
 model AMRIInventory {
-  id               String    @id @default(cuid())
-  name             String    // Required field
-  type             String    // Required field  
-  status           String    @default("FUNCTIONAL") // Required field
-  imageUrl         String?   // Required field (nullable)
-  departmentId     String    // Required field
+  id               String          @id @default(cuid())
+  name             String          // Required field
+  type             String          // Required field  
+  status           EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl         String?         // Required field (nullable)
+  departmentId     String          // Required field
   assetCategory    String?   // e.g., 'Resource', 'Machinery'
   itemDescription  String?
   quantityOrArea   String?   // Stores '8 acres' or '1 No'
@@ -120,12 +120,12 @@ model AMRIInventory {
 
 // Food Science and Technology Lab Equipment
 model FoodAnalysisLabEquipment {
-  id              String    @id @default(cuid())
-  name            String    // Required field (equipment_name)
-  type            String    // Required field
-  status          String    @default("FUNCTIONAL") // Required field
-  imageUrl        String?   // Required field (nullable)
-  departmentId    String    // Required field
+  id              String          @id @default(cuid())
+  name            String          // Required field (equipment_name)
+  type            String          // Required field
+  status          EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl        String?         // Required field (nullable)
+  departmentId    String          // Required field
   labSectionName  String?   // e.g., 'Value Addition', 'Nutrient Analytical'
   roomNumber      String?
   quantity        Int       @default(1)
@@ -140,12 +140,12 @@ model FoodAnalysisLabEquipment {
 
 // Mango Research Institute (MRI) Assets
 model MRIAssets {
-  id                        String    @id @default(cuid())
-  name                      String    // Required field (item_name_or_designation)
-  type                      String    // Required field (category)
-  status                    String    @default("FUNCTIONAL") // Required field
-  imageUrl                  String?   // Required field (nullable)
-  departmentId              String    // Required field
+  id                        String          @id @default(cuid())
+  name                      String          // Required field (item_name_or_designation)
+  type                      String          // Required field (category)
+  status                    EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl                  String?         // Required field (nullable)
+  departmentId              String          // Required field
   category                  String?   // 'Land', 'Building', 'Farm Machinery', 'Lab Equipment', 'HR'
   itemNameOrDesignation     String?
   bpsScale                  Int?      // For HR
@@ -163,12 +163,12 @@ model MRIAssets {
 
 // Agronomy Lab Equipment
 model AgronomyLabEquipment {
-  id             String    @id @default(cuid())
-  name           String    // Required field (equipment_name)
-  type           String    // Required field
-  status         String    @default("FUNCTIONAL") // Required field
-  imageUrl       String?   // Required field (nullable)
-  departmentId   String    // Required field
+  id             String          @id @default(cuid())
+  name           String          // Required field (equipment_name)
+  type           String          // Required field
+  status         EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl       String?         // Required field (nullable)
+  departmentId   String          // Required field
   quantity       Int?
   focalPerson1   String?   // Dr. Mahmood Alam
   focalPerson2   String?   // Dr. Nabeel Ahmad Ikram
@@ -182,12 +182,12 @@ model AgronomyLabEquipment {
 
 // Floriculture Station Assets
 model FloricultureStationAssets {
-  id              String    @id @default(cuid())
-  name            String    // Required field (item_name_or_post)
-  type            String    // Required field (category)
-  status          String    @default("FUNCTIONAL") // Required field
-  imageUrl        String?   // Required field (nullable)
-  departmentId    String    // Required field
+  id              String          @id @default(cuid())
+  name            String          // Required field (item_name_or_post)
+  type            String          // Required field (category)
+  status          EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl        String?         // Required field (nullable)
+  departmentId    String          // Required field
   category        String?   // 'Land', 'Building', 'Farm Machinery', 'Lab Equipment', 'HR'
   itemNameOrPost  String?
   bpsScale        String?
@@ -204,12 +204,12 @@ model FloricultureStationAssets {
 
 // RARI Bahawalpur Assets
 model RARIBahawalpurAssets {
-  id              String    @id @default(cuid())
-  name            String    // Required field (item_name)
-  type            String    // Required field (category)
-  status          String    @default("WORKING") // Required field (condition_status)
-  imageUrl        String?   // Required field (nullable)
-  departmentId    String    // Required field
+  id              String          @id @default(cuid())
+  name            String          // Required field (item_name)
+  type            String          // Required field (category)
+  status          EquipmentStatus @default(AVAILABLE) // Required field (condition_status)
+  imageUrl        String?         // Required field (nullable)
+  departmentId    String          // Required field
   category        String?   // 'Land', 'Farm Machinery', 'Lab Equipment', 'HR'
   makeModelYear   String?   // For Tractors e.g., 'FIAT Dabang 85Hp, 2022'
   quantity        Int?
@@ -225,12 +225,12 @@ model RARIBahawalpurAssets {
 
 // MNSUAM Estate Facilities
 model MNSUAMEstateFacilities {
-  id              String    @id @default(cuid())
-  name            String    // Required field (facility_name_number)
-  type            String    // Required field (facility_type)
-  status          String    @default("FUNCTIONAL") // Required field
-  imageUrl        String?   // Required field (nullable)
-  departmentId    String    // Required field
+  id              String          @id @default(cuid())
+  name            String          // Required field (facility_name_number)
+  type            String          // Required field (facility_type)
+  status          EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl        String?         // Required field (nullable)
+  departmentId    String          // Required field
   blockName       String?   // 'Admin block', 'Academic block', etc.
   facilityType    String?   // 'Syndicate Hall', 'Lecture Hall'
   capacityPersons Int?
@@ -244,12 +244,12 @@ model MNSUAMEstateFacilities {
 
 // Cotton Research Institute (CRI) Assets
 model CRIMultanAssets {
-  id                    String    @id @default(cuid())
-  name                  String    // Required field (item_name)
-  type                  String    // Required field (asset_type)
-  status                String    @default("FUNCTIONAL") // Required field (operational_status)
-  imageUrl              String?   // Required field (nullable)
-  departmentId          String    // Required field
+  id                    String          @id @default(cuid())
+  name                  String          // Required field (item_name)
+  type                  String          // Required field (asset_type)
+  status                EquipmentStatus @default(AVAILABLE) // Required field (operational_status)
+  imageUrl              String?         // Required field (nullable)
+  departmentId          String          // Required field
   assetType             String?   // 'Lab Equipment', 'Farm Machinery', 'Land/Building'
   specificationModel    String?
   labSectionLocation    String?   // e.g., 'Integrated Pest management Laboratory'
@@ -266,12 +266,12 @@ model CRIMultanAssets {
 
 // Soil & Water Testing Project
 model SoilWaterTestingProject {
-  id                          String    @id @default(cuid())
-  name                        String    // Required field (item_description)
-  type                        String    // Required field (category)
-  status                      String    @default("PLANNED") // Required field
-  imageUrl                    String?   // Required field (nullable)
-  departmentId                String    // Required field
+  id                          String          @id @default(cuid())
+  name                        String          // Required field (item_description)
+  type                        String          // Required field (category)
+  status                      EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl                    String?         // Required field (nullable)
+  departmentId                String          // Required field
   category                    String?   // 'HR Officers', 'HR Officials', 'Plant & Machinery', 'Civil Work'
   bps                         Int?
   quantityRequired            Int?
@@ -287,12 +287,12 @@ model SoilWaterTestingProject {
 
 // Entomological Research Sub Station (ERSS) Stock Register
 model ERSSStockRegister {
-  id                     String    @id @default(cuid())
-  name                   String    // Required field (item_name)
-  type                   String    // Required field
-  status                 String    @default("AVAILABLE") // Required field
-  imageUrl               String?   // Required field (nullable)
-  departmentId           String    // Required field
+  id                     String          @id @default(cuid())
+  name                   String          // Required field (item_name)
+  type                   String          // Required field
+  status                 EquipmentStatus @default(AVAILABLE) // Required field
+  imageUrl               String?         // Required field (nullable)
+  departmentId           String          // Required field
   registerPageNo         Int?
   quantityStr            String?   // Stores values like '4 kg', '3 buckets', '200'
   dateReceived           DateTime?

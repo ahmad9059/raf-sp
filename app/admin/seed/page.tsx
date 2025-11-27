@@ -4,13 +4,14 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { createFoodScienceEquipment } from "@/actions/food-science-equipment";
 import { useToast } from "@/hooks/use-toast";
+import { EquipmentStatus } from "@prisma/client";
 
 const foodScienceEquipmentData = [
   // Value Addition and Food Analysis Lab - Room # 127 Academic Block
   {
     name: "Kjeldhal Apparatus Digestion unit and Distillation unit",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -20,7 +21,7 @@ const foodScienceEquipmentData = [
   {
     name: "Water Activity meter",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -30,7 +31,7 @@ const foodScienceEquipmentData = [
   {
     name: "Soxhlet Apparatus",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -40,7 +41,7 @@ const foodScienceEquipmentData = [
   {
     name: "Analytical Weighing Balance",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -50,7 +51,7 @@ const foodScienceEquipmentData = [
   {
     name: "Autoclave",
     type: "Sterilization Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -60,7 +61,7 @@ const foodScienceEquipmentData = [
   {
     name: "Texture Analyzer",
     type: "Testing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -70,7 +71,7 @@ const foodScienceEquipmentData = [
   {
     name: "Freeze Dryer",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -80,7 +81,7 @@ const foodScienceEquipmentData = [
   {
     name: "Pulse Electric Field",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -90,7 +91,7 @@ const foodScienceEquipmentData = [
   {
     name: "Ozonation chamber",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -100,7 +101,7 @@ const foodScienceEquipmentData = [
   {
     name: "Pasteurizer",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -110,7 +111,7 @@ const foodScienceEquipmentData = [
   {
     name: "Fermenter",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Value Addition and Food Analysis Lab",
     roomNumber: "127",
@@ -121,7 +122,7 @@ const foodScienceEquipmentData = [
   {
     name: "Kjeldhal Apparatus",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -131,7 +132,7 @@ const foodScienceEquipmentData = [
   {
     name: "Digestion unit and Distillation unit",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -141,7 +142,7 @@ const foodScienceEquipmentData = [
   {
     name: "Moisture Analyzer",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -151,7 +152,7 @@ const foodScienceEquipmentData = [
   {
     name: "Soxhlet Apparatus",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -161,7 +162,7 @@ const foodScienceEquipmentData = [
   {
     name: "Analytical Weighing Balance",
     type: "Analytical Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -171,7 +172,7 @@ const foodScienceEquipmentData = [
   {
     name: "Muffle Furnace",
     type: "Heating Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -181,7 +182,7 @@ const foodScienceEquipmentData = [
   {
     name: "Viscometer",
     type: "Testing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -191,7 +192,7 @@ const foodScienceEquipmentData = [
   {
     name: "Farinograph",
     type: "Testing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -201,7 +202,7 @@ const foodScienceEquipmentData = [
   {
     name: "Fume Hood",
     type: "Safety Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -211,7 +212,7 @@ const foodScienceEquipmentData = [
   {
     name: "Desiccator",
     type: "Storage Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -221,7 +222,7 @@ const foodScienceEquipmentData = [
   {
     name: "Gerber machine",
     type: "Testing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -231,7 +232,7 @@ const foodScienceEquipmentData = [
   {
     name: "Rose head machine",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -241,7 +242,7 @@ const foodScienceEquipmentData = [
   {
     name: "Abrasive peeler",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -251,7 +252,7 @@ const foodScienceEquipmentData = [
   {
     name: "Refrigerator",
     type: "Storage Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -261,7 +262,7 @@ const foodScienceEquipmentData = [
   {
     name: "China Chakki",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -271,7 +272,7 @@ const foodScienceEquipmentData = [
   {
     name: "Grinder",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -281,7 +282,7 @@ const foodScienceEquipmentData = [
   {
     name: "Cheese press",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -291,7 +292,7 @@ const foodScienceEquipmentData = [
   {
     name: "Cheese vat",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",
@@ -301,7 +302,7 @@ const foodScienceEquipmentData = [
   {
     name: "Cream separator",
     type: "Processing Equipment",
-    status: "FUNCTIONAL",
+    status: EquipmentStatus.AVAILABLE,
     imageUrl: null,
     labSectionName: "Nutrient Analytical & Food Processing Lab",
     roomNumber: "114-115",

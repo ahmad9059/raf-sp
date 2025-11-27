@@ -27,7 +27,7 @@ async function main() {
     {
       name: "Kjeldhal Apparatus Digestion unit and Distillation unit",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -38,7 +38,7 @@ async function main() {
     {
       name: "Water Activity meter",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -49,7 +49,7 @@ async function main() {
     {
       name: "Soxhlet Apparatus",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -60,7 +60,7 @@ async function main() {
     {
       name: "Analytical Weighing Balance",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -71,7 +71,7 @@ async function main() {
     {
       name: "Autoclave",
       type: "Sterilization Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -82,7 +82,7 @@ async function main() {
     {
       name: "Texture Analyzer",
       type: "Testing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -93,7 +93,7 @@ async function main() {
     {
       name: "Freeze Dryer",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -104,7 +104,7 @@ async function main() {
     {
       name: "Pulse Electric Field",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -115,7 +115,7 @@ async function main() {
     {
       name: "Ozonation chamber",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -126,7 +126,7 @@ async function main() {
     {
       name: "Pasteurizer",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -137,7 +137,7 @@ async function main() {
     {
       name: "Fermenter",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Value Addition and Food Analysis Lab",
@@ -149,7 +149,7 @@ async function main() {
     {
       name: "Kjeldhal Apparatus",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -160,7 +160,7 @@ async function main() {
     {
       name: "Digestion unit and Distillation unit",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -171,7 +171,7 @@ async function main() {
     {
       name: "Moisture Analyzer",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -182,7 +182,7 @@ async function main() {
     {
       name: "Soxhlet Apparatus",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -193,7 +193,7 @@ async function main() {
     {
       name: "Analytical Weighing Balance",
       type: "Analytical Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -204,7 +204,7 @@ async function main() {
     {
       name: "Muffle Furnace",
       type: "Heating Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -215,7 +215,7 @@ async function main() {
     {
       name: "Viscometer",
       type: "Testing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -226,7 +226,7 @@ async function main() {
     {
       name: "Farinograph",
       type: "Testing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -237,7 +237,7 @@ async function main() {
     {
       name: "Fume Hood",
       type: "Safety Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -248,7 +248,7 @@ async function main() {
     {
       name: "Desiccator",
       type: "Storage Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -259,7 +259,7 @@ async function main() {
     {
       name: "Gerber machine",
       type: "Testing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -270,7 +270,7 @@ async function main() {
     {
       name: "Rose head machine",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -281,7 +281,7 @@ async function main() {
     {
       name: "Abrasive peeler",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -292,7 +292,7 @@ async function main() {
     {
       name: "Refrigerator",
       type: "Storage Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -303,7 +303,7 @@ async function main() {
     {
       name: "China Chakki",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -314,7 +314,7 @@ async function main() {
     {
       name: "Grinder",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -325,7 +325,7 @@ async function main() {
     {
       name: "Cheese press",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -336,7 +336,7 @@ async function main() {
     {
       name: "Cheese vat",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",
@@ -347,7 +347,7 @@ async function main() {
     {
       name: "Cream separator",
       type: "Processing Equipment",
-      status: "FUNCTIONAL",
+      status: "AVAILABLE",
       imageUrl: null,
       departmentId: foodScienceDept.id,
       labSectionName: "Nutrient Analytical & Food Processing Lab",

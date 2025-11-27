@@ -16,6 +16,7 @@ import { EquipmentStatus } from "@prisma/client";
 import { format } from "date-fns";
 import { Pencil, Trash2, Search } from "lucide-react";
 import { ConfirmationDialog } from "@/components/ui/confirmation-dialog";
+import { StatusBadge } from "@/components/ui/status-badge";
 import {
   Table,
   TableBody,
@@ -58,13 +59,6 @@ const statusLabels: Record<EquipmentStatus, string> = {
   IN_USE: "In Use",
   NEEDS_REPAIR: "Needs Repair",
   DISCARDED: "Discarded",
-};
-
-const statusColors: Record<EquipmentStatus, string> = {
-  AVAILABLE: "bg-green-100 text-green-800",
-  IN_USE: "bg-blue-100 text-blue-800",
-  NEEDS_REPAIR: "bg-yellow-100 text-yellow-800",
-  DISCARDED: "bg-gray-100 text-gray-800",
 };
 
 export function EquipmentTable({
@@ -117,16 +111,7 @@ export function EquipmentTable({
       header: "Status",
       cell: ({ row }) => {
         const status = row.getValue("status") as EquipmentStatus;
-        return (
-          <span
-            className={cn(
-              "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
-              statusColors[status]
-            )}
-          >
-            {statusLabels[status]}
-          </span>
-        );
+        return <StatusBadge status={status} />;
       },
     },
     {

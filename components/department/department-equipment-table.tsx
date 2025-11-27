@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { StatusBadge, EquipmentStatus } from "@/components/ui/status-badge";
 import {
   getDepartmentEquipment,
   getDepartmentBySlug,
@@ -127,23 +128,25 @@ const getTableColumns = (tableType: string) => {
   }
 };
 
-const getStatusColor = (status: string) => {
-  switch (status.toUpperCase()) {
+const normalizeStatus = (status: string): EquipmentStatus => {
+  const upperStatus = status.toUpperCase();
+  switch (upperStatus) {
     case "FUNCTIONAL":
-    case "AVAILABLE":
     case "WORKING":
-      return "bg-green-100 text-green-800";
-    case "NEEDS_REPAIR":
+      return "AVAILABLE";
     case "NON_FUNCTIONAL":
     case "NOT_WORKING":
-      return "bg-yellow-100 text-yellow-800";
-    case "DISCARDED":
     case "OUT_OF_ORDER":
-      return "bg-red-100 text-red-800";
+      return "NEEDS_REPAIR";
     case "PLANNED":
-      return "bg-blue-100 text-blue-800";
+      return "IN_USE";
+    case "AVAILABLE":
+    case "IN_USE":
+    case "NEEDS_REPAIR":
+    case "DISCARDED":
+      return upperStatus as EquipmentStatus;
     default:
-      return "bg-gray-100 text-gray-800";
+      return "AVAILABLE";
   }
 };
 
@@ -285,14 +288,11 @@ export function DepartmentEquipmentTable({
                     {columns.map((column) => (
                       <TableCell key={column.key} className="whitespace-nowrap">
                         {column.key === "status" ? (
-                          <Badge
-                            variant="secondary"
-                            className={getStatusColor(
+                          <StatusBadge
+                            status={normalizeStatus(
                               item[column.key as keyof typeof item] as string
                             )}
-                          >
-                            {item[column.key as keyof typeof item]}
-                          </Badge>
+                          />
                         ) : column.key === "dateReceived" &&
                           item[column.key] ? (
                           <span>

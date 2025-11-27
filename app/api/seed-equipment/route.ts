@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { EquipmentStatus } from "@prisma/client";
 
 export async function POST() {
   try {
@@ -22,7 +23,7 @@ export async function POST() {
       {
         name: "Kjeldahl Apparatus (Digestion and Distillation)",
         type: "Analysis",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Analysis",
         quantity: 1,
@@ -31,7 +32,7 @@ export async function POST() {
       {
         name: "Water Activity meter",
         type: "Analysis",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Analysis",
         quantity: 1,
@@ -40,7 +41,7 @@ export async function POST() {
       {
         name: "Soxhlet Apparatus",
         type: "Analysis",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Analysis",
         quantity: 1,
@@ -49,7 +50,7 @@ export async function POST() {
       {
         name: "Analytical Weighing Balance",
         type: "Measurement",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Measurement",
         quantity: 1,
@@ -58,7 +59,7 @@ export async function POST() {
       {
         name: "Autoclave",
         type: "Sterilization",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Sterilization",
         quantity: 1,
@@ -67,7 +68,7 @@ export async function POST() {
       {
         name: "Texture Analyser",
         type: "Analysis",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Analysis",
         quantity: 1,
@@ -76,7 +77,7 @@ export async function POST() {
       {
         name: "Freeze Dryer",
         type: "Processing",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Processing",
         quantity: 1,
@@ -85,7 +86,7 @@ export async function POST() {
       {
         name: "Pulse Electric Field",
         type: "Processing",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Processing",
         quantity: 1,
@@ -94,7 +95,7 @@ export async function POST() {
       {
         name: "Ozonation chamber",
         type: "Processing",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Processing",
         quantity: 1,
@@ -103,7 +104,7 @@ export async function POST() {
       {
         name: "Pasteurizer",
         type: "Processing",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Processing",
         quantity: 1,
@@ -112,7 +113,7 @@ export async function POST() {
       {
         name: "Fermenter",
         type: "Processing",
-        status: "FUNCTIONAL",
+        status: EquipmentStatus.AVAILABLE,
         departmentId: foodScienceDept.id,
         labSectionName: "Processing",
         quantity: 1,

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { RecentEquipment } from "@/types";
 import { EquipmentStatus } from "@prisma/client";
+import { StatusBadge } from "@/components/ui/status-badge";
 import {
   useReactTable,
   getCoreRowModel,
@@ -27,43 +28,6 @@ import Link from "next/link";
 
 interface RecentEquipmentTableProps {
   equipment: RecentEquipment[];
-}
-
-const STATUS_STYLES: Record<
-  EquipmentStatus,
-  { bg: string; text: string; label: string }
-> = {
-  AVAILABLE: {
-    bg: "bg-green-100",
-    text: "text-green-800",
-    label: "Available",
-  },
-  IN_USE: {
-    bg: "bg-yellow-100",
-    text: "text-yellow-800",
-    label: "In Use",
-  },
-  NEEDS_REPAIR: {
-    bg: "bg-orange-100",
-    text: "text-orange-800",
-    label: "Needs Repair",
-  },
-  DISCARDED: {
-    bg: "bg-red-100",
-    text: "text-red-800",
-    label: "Discarded",
-  },
-};
-
-function StatusBadge({ status }: { status: EquipmentStatus }) {
-  const style = STATUS_STYLES[status];
-  return (
-    <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${style.bg} ${style.text}`}
-    >
-      {style.label}
-    </span>
-  );
 }
 
 export function RecentEquipmentTable({ equipment }: RecentEquipmentTableProps) {
