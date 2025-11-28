@@ -114,7 +114,7 @@ const departments = [
     image: "/images/departments/mechanization.jpg",
     profileImage: null,
     hasData: true,
-    focalPerson: "Dr. Khalid Mahmood",
+    focalPerson: "Dr. Khalid",
     designation: "Director",
     phone: "+92-61-9210076",
     email: "khalid.mahmood@amri.gov.pk",

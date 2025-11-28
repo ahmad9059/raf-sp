@@ -144,6 +144,7 @@ export async function getDepartmentBySlug(slug: string): Promise<ActionResult> {
       "soil-water-testing": "Soil & Water Testing Laboratory",
       "entomology-research": "Entomology Research Sub-Station",
       "mnsuam-estate": "MNSUAM Estate & Facilities",
+      "cotton-research-insititue": "Cotton Research Institute",
     };
 
     const departmentName = departmentNameMap[slug];

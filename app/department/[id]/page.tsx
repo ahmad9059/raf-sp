@@ -208,6 +208,20 @@ const departmentData = {
     hasData: true,
     tableType: "MNSUAMEstateFacilities",
   },
+  "cotton-research-insititue": {
+    id: "cotton-research-insititue",
+    name: "Cotton Research Institute",
+    location: "MNS University of Agriculture, Multan",
+    description:
+      "Research and education in cotton production, pest management, and fiber quality improvement.",
+    focalPerson: "Dr. Rashid Ali Hassan",
+    designation: "Professor",
+    phone: "+92-61-9210078",
+    email: "rashid.ali@mnsuam.edu.pk",
+    profileImage: null,
+    hasData: true,
+    tableType: "CRIMultanAssets",
+  },
   horticulture: {
     id: "horticulture",
     name: "Horticulture",
