@@ -1,0 +1,23 @@
+# Test files
+test/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Development files
+.vscode/
+.kiro/
+
+# Documentation
+README.md
+SUPABASE_SETUP.md
+
+# Scripts
+scripts/
+
+# Local env files (Vercel uses its own env vars)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
