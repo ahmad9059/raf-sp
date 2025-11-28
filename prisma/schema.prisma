@@ -171,7 +171,6 @@ model AgronomyLabEquipment {
   departmentId   String          // Required field
   quantity       Int?
   focalPerson1   String?   // Dr. Mahmood Alam
-  focalPerson2   String?   // Dr. Nabeel Ahmad Ikram
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   department     Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)

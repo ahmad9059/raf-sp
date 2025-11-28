@@ -110,6 +110,20 @@ const departmentData = {
     hasData: true,
     tableType: "AgronomyLabEquipment",
   },
+  "bhawalpur-agri": {
+    id: "bhawalpur-agri",
+    name: "Regional Agricultural Research Institute (RARI), Bahawalpur",
+    location: "IUB - The Islamia University of Bahawalpur",
+    description:
+      "Research and development in ornamental plants, landscaping, and floriculture production techniques.",
+    focalPerson: "Dr. Asif Ali",
+    designation: "Research Officer",
+    phone: "+92-61-9210073",
+    email: "asif.ali@mnsuam.edu.pk",
+    profileImage: null,
+    hasData: true,
+    tableType: "RARIBahawalpurAssets",
+  },
   "mango-research": {
     id: "mango-research",
     name: "Mango Research Institute",

@@ -22,6 +22,16 @@ const departments = [
     email: "mahmood.alam@mnsuam.edu.pk",
   },
   {
+    name: "Regional Agricultural Research Institute (RARI), Bahawalpur",
+    location: "IUB - The Islamia University of Bahawalpur",
+    description:
+      "Research and development in ornamental plants, landscaping, and floriculture production techniques.",
+    focalPerson: "Dr. Asif Ali",
+    designation: "Research Officer",
+    phone: "+92-61-9210073",
+    email: "asif.ali@mnsuam.edu.pk",
+  },
+  {
     name: "Floriculture Research Sub-station",
     location: "MNS University of Agriculture, Multan",
     description:

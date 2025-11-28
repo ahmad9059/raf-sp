@@ -36,12 +36,26 @@ const departments = [
     email: "mahmood.alam@mnsuam.edu.pk",
   },
   {
+    id: "bhawalpur-agri",
+    name: "Regional Agricultural Research Institute (RARI), Bahawalpur",
+    location: "IUB - The Islamia University of Bahawalpur",
+    description:
+      "Research and development in ornamental plants, landscaping, and floriculture production techniques.",
+    image: "/images/departments/Agricultural-Research-Institute.jpg",
+    profileImage: null, // Add profile image when available
+    hasData: true,
+    focalPerson: "Dr. Asif Ali",
+    designation: "Research Officer",
+    phone: "+92-61-9210073",
+    email: "asif.ali@mnsuam.edu.pk",
+  },
+  {
     id: "floriculture-research",
     name: "Floriculture Research Sub-station",
     location: "MNS University of Agriculture, Multan",
     description:
       "Research and development in ornamental plants, landscaping, and floriculture production techniques.",
-    image: "/images/departments/floriculture.jpg",
+    image: "/images/departments/floriculture.jpeg",
     profileImage: null, // Add profile image when available
     hasData: true,
     focalPerson: "Dr. Asif Ali",
@@ -69,7 +83,7 @@ const departments = [
     location: "MNS University of Agriculture, Multan",
     description:
       "Research on insect pests, beneficial insects, and integrated pest management strategies.",
-    image: "/images/departments/entomology.jpg",
+    image: "/images/departments/entomology.webp",
     profileImage: null,
     hasData: true,
     focalPerson: "Dr. Sohail Ahmad",
@@ -120,15 +134,15 @@ const departments = [
     email: "ahmad.hassan@mnsuam.edu.pk",
   },
   {
-    id: "horticulture",
-    name: "Horticulture",
+    id: "cotton-research-insititue",
+    name: "Cotton Research Insititue",
     location: "MNS University of Agriculture, Multan",
     description:
       "Research and education in fruit and vegetable production, post-harvest handling, and horticultural sciences.",
-    image: "/images/departments/horticulture.jpg",
+    image: "/images/departments/cri.jpg",
     profileImage: null,
-    hasData: false,
-    focalPerson: "Dr. Rashid Ali",
+    hasData: true,
+    focalPerson: "Dr. Rashid Ali Hassan",
     designation: "Professor",
     phone: "+92-61-9210078",
     email: "rashid.ali@mnsuam.edu.pk",

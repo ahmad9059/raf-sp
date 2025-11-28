@@ -41,8 +41,7 @@ const getTableColumns = (tableType: string) => {
         { key: "type", label: "Type" },
         { key: "status", label: "Status" },
         { key: "quantity", label: "Quantity" },
-        { key: "focalPerson1", label: "Focal Person 1" },
-        { key: "focalPerson2", label: "Focal Person 2" },
+        { key: "focalPerson1", label: "Focal Person" },
       ];
     case "MRIAssets":
       return [

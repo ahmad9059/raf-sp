@@ -135,6 +135,8 @@ export async function getDepartmentBySlug(slug: string): Promise<ActionResult> {
     const departmentNameMap: Record<string, string> = {
       "food-science-technology": "Food Science and Technology",
       agronomy: "Agronomy Department",
+      "bhawalpur-agri":
+        "Regional Agricultural Research Institute (RARI), Bahawalpur",
       "mango-research": "Mango Research Institute",
       "agricultural-mechanization":
         "Agricultural Mechanization Research Institute",
