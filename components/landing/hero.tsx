@@ -1,87 +1,81 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  transition: { duration: 0.4, ease: "easeOut" as const },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand/5 via-white to-brand/10 pt-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative gradient-agriculture text-primary-foreground py-20 md:py-32 overflow-hidden">
+      {/* Decorative emojis */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-10 left-10 text-6xl">🌾</div>
+        <div className="absolute top-20 right-20 text-5xl">🌿</div>
+        <div className="absolute bottom-20 left-1/4 text-4xl">🌾</div>
+        <div className="absolute bottom-32 right-1/3 text-5xl">🌿</div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           variants={staggerContainer}
           initial="initial"
           animate="animate"
         >
-          {/* Badge */}
-          <motion.div
-            variants={fadeInUp}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium mb-8"
-          >
-            <span className="w-2 h-2 bg-brand rounded-full mr-2 animate-pulse"></span>
-            Ministry of Agriculture - Digital Initiative
-          </motion.div>
+
 
           {/* Main Heading */}
           <motion.h1
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight"
           >
-            Repair & Facility
-            <span className="block text-brand mt-2">Smart Platform</span>
+            Regional Agriculture Forum
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={fadeInUp}
-            className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
+            className="text-xl sm:text-2xl lg:text-3xl mb-8 opacity-90"
           >
-            A comprehensive asset management system for government agriculture
-            departments. Track equipment, manage maintenance, and visualize
-            inventory data with role-based dashboards.
+            South Punjab
           </motion.p>
 
-          {/* University Branding */}
-          <motion.div
+          {/* Description */}
+          <motion.p
             variants={fadeInUp}
-            className="mb-10 text-sm text-gray-500"
+            className="text-base sm:text-lg lg:text-xl mb-10 max-w-2xl mx-auto leading-relaxed opacity-90"
           >
-            <p className="font-medium">
-              Developed in collaboration with MNSUAM University
-            </p>
-            <p className="text-xs mt-1">
-              Modernizing Agriculture Asset Management
-            </p>
-          </motion.div>
+            Comprehensive agricultural research facilities, equipment inventories, and resources across departments and institutes in South Punjab, Pakistan
+          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           >
             <Button
               size="lg"
               asChild
-              className="bg-brand hover:bg-brand/90 text-white px-8 py-6 text-lg"
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 text-lg"
             >
-              <Link href="/signup">
-                Get Started
+              <Link href="#departments">
+                View Departments
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -89,47 +83,28 @@ export function Hero() {
               size="lg"
               variant="outline"
               asChild
-              className="border-brand text-brand hover:bg-brand/5 px-8 py-6 text-lg"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-6 text-lg"
             >
-              <Link href="/login">Sign In</Link>
+              <Link href="/dashboard">Access Platform</Link>
             </Button>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            variants={fadeInUp}
-            className="mt-12 lg:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4 sm:px-0"
-          >
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-brand">
-                100+
-              </div>
-              <div className="text-xs sm:text-sm text-gray-600 mt-1">
-                Departments
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-brand">
-                5000+
-              </div>
-              <div className="text-xs sm:text-sm text-gray-600 mt-1">
-                Equipment Tracked
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-brand">
-                99.9%
-              </div>
-              <div className="text-xs sm:text-sm text-gray-600 mt-1">
-                Uptime
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+      {/* Wave SVG Divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            className="fill-background"
+          />
+        </svg>
+      </div>
     </section>
   );
 }

@@ -4,59 +4,86 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Base Colors - Agriculture Theme */
+    --background: 60 30% 96%;
+    --foreground: 150 30% 10%;
+    
+    /* Primary - Forest Green */
+    --primary: 142 45% 28%;
+    --primary-foreground: 60 30% 96%;
+    
+    /* Secondary - Wheat Gold */
+    --secondary: 45 70% 50%;
+    --secondary-foreground: 150 30% 10%;
+    
+    /* Accent - Bright Gold */
+    --accent: 45 85% 55%;
+    --accent-foreground: 150 30% 10%;
+    
+    /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 150 30% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 218 89% 51%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --popover-foreground: 150 30% 10%;
+    --muted: 60 20% 90%;
+    --muted-foreground: 150 15% 40%;
+    --border: 142 20% 85%;
+    --input: 142 20% 85%;
+    --ring: 142 45% 28%;
+    
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 218 89% 51%;
-    --chart-1: 218 89% 51%;
-    --chart-2: 142 76% 36%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 0 84% 60%;
-    --chart-5: 262 83% 58%;
+    --destructive-foreground: 60 30% 96%;
+    
+    /* Chart Colors - Agriculture Themed */
+    --chart-1: 142 45% 35%;
+    --chart-2: 45 85% 55%;
+    --chart-3: 25 80% 50%;
+    --chart-4: 180 40% 40%;
+    --chart-5: 90 40% 45%;
+    
+    /* Sidebar */
+    --sidebar-background: 142 30% 20%;
+    --sidebar-foreground: 60 30% 96%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-accent: 142 40% 30%;
+    --sidebar-border: 142 30% 30%;
+    
     --radius: 0.5rem;
-    --brand: 218 89% 51%;
+    --brand: 142 45% 28%;
   }
+  
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 218 89% 51%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 150 30% 8%;
+    --foreground: 60 30% 96%;
+    --primary: 142 50% 45%;
+    --primary-foreground: 150 30% 8%;
+    --secondary: 45 70% 50%;
+    --secondary-foreground: 150 30% 8%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 150 30% 8%;
+    --card: 150 25% 12%;
+    --card-foreground: 60 30% 96%;
+    --popover: 150 25% 12%;
+    --popover-foreground: 60 30% 96%;
+    --muted: 150 20% 18%;
+    --muted-foreground: 60 15% 60%;
+    --border: 150 20% 25%;
+    --input: 150 20% 25%;
+    --ring: 142 50% 45%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 218 89% 51%;
-    --chart-1: 218 89% 51%;
-    --chart-2: 142 76% 36%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 0 84% 60%;
-    --chart-5: 262 83% 58%;
-    --brand: 218 89% 51%;
+    --destructive-foreground: 60 30% 96%;
+    --chart-1: 142 50% 45%;
+    --chart-2: 45 85% 55%;
+    --chart-3: 25 80% 50%;
+    --chart-4: 180 40% 40%;
+    --chart-5: 90 40% 45%;
+    --sidebar-background: 150 30% 8%;
+    --sidebar-foreground: 60 30% 96%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-accent: 150 25% 12%;
+    --sidebar-border: 150 20% 25%;
+    --brand: 142 50% 45%;
   }
 }
 
@@ -74,7 +101,7 @@
   .smooth-animation {
     will-change: transform, opacity;
     backface-visibility: hidden;
-    transform-style: preserve-3d;
+    transform: translateZ(0);
   }
 
   /* Prevent layout shifts during animations */
@@ -86,5 +113,42 @@
   .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform;
+  }
+  
+  /* Optimized will-change for specific properties */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* Agriculture Theme Gradients */
+  .gradient-agriculture {
+    @apply bg-gradient-to-r from-primary via-primary/90 to-primary/80;
+  }
+
+  .gradient-gold {
+    @apply bg-gradient-to-r from-secondary via-accent to-secondary;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* Card hover animation */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/30;
+  }
+
+  /* Statistic card with gradient overlay */
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl border bg-card p-6 shadow-sm;
+  }
+  
+  .stat-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none;
   }
 }

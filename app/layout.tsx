@@ -6,9 +6,9 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RAF-SP Platform",
+  title: "Agriculture Complex Multan | AgriData Hub",
   description:
-    "Repair & Facility - Smart Platform for Agriculture Asset Management",
+    "Comprehensive agricultural research facilities, equipment inventories, and resources across departments and institutes in South Punjab, Pakistan - MNS University of Agriculture, Multan",
 };
 
 export default function RootLayout({

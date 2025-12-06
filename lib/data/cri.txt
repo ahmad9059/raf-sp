@@ -1,0 +1,84 @@
+Cotton Research Institute
+Old Shujabad Road Multan
+Tel: +92-61-9200337	Fax:+92-61-9200339	Email:dircrimm@gmail.com
+
+No: 2319
+Date: 29/10/2025
+
+Dr. Nasir Nadeem
+Professor
+Director Graduate Studies
+MNS University of Agriculture 
+Multan
+
+Subject: PROVISION OF DATA FOR DEVELOPING DIGITAL ASSET MANAGEMENT SYSTEM
+In reference to your email regarding the subject cited above for the purpose to establish the South Punjab Regional Agriculture Forum, the available land resource, building details, farm machinery/equipment, lab machinery/equipment and human resource are as follows. 
+(a)	Land resource and building details
+•	Total area= 24.6 acres
+•	Area under direct cultivation=19.6 acres
+•	Area under building and infrastructure= 4 acres
+•	Area under roads and pathways= 1acre
+•	Building rooms=20 
+•	Laboratories =5
+(b)	Human resource
+•	Total officers=18
+•	Officials and field staff=32
+•	Vacant for officers=4
+(c)	Focal person to coordinate for digital asset management system
+•	Dr. Muhammad Tauseef
+Senior scientist (Agronomy)
+Contact: +923340072357
+ 
+MAJOR LABORATORY EQUIPMENTS AT CRI, MULTAN
+
+Sr. No	Equipment/Device/Machine	Make/Model/ Specification	Name of Lab/Department/Section	Qty	Purpose/ Function	Functional/Non-Functional
+1	Electrical Penetration Graph	GIGA-8d DC amplifier	Integrated Pest management Laboratory	1	Digital Screening of cotton varieties against insect pests, feeding behavior of insect pests	Functional
+2	Electrical Germinator	Theijang Top Cloud Agri Tech. Co. Ltd	Integrated Pest management Laboratory	1	To check seed germination of different cotton varieties	Functional
+3	Spectrophotometer	K5600S-KAIRO	Laboratory of Molecular Biology	1	To check and verify concentrations of different solutions used for molecular purposes	Non-Functional (chemicals procurement under process)
+4	HPLC	GB/T26792-2019	Analytical Laboratory	1	To analyze the components of a sample	Non-Functional (chemicals procurement under process)
+5	Atomic Absorption Spectroscopy	AA6100+	Analytical Laboratory	1	To analyze the components of a sample	Non-Functional (chemicals procurement under process)
+6	Digital Droplet PCR	D3200PRO	Laboratory of Molecular Biology	1	For nucleic acid studies	Non-Functional (chemicals procurement under process)
+7	Automatic DNA Extraction Unit	BFEX-96E	Laboratory of Molecular Biology	1	For nucleic acid studies	Non-Functional (chemicals procurement under process)
+8	Tissue Grinder	NO3D13	Laboratory of Molecular Biology	1	For nucleic acid studies	Non-Functional (chemicals procurement under process)
+9	Fluorescence Microscope	MF-43M	Analytical Laboratory	1	Cellular level studies	Non-Functional (chemicals procurement under process)
+10	Incubator	MDS-200	Laboratory of Molecular Biology	1	To incubate pathogens for studies or keep samples at controlled temperature	Non-Functional (chemicals procurement under process)
+11	Freezer -20 ᵒ C	MDF-40H485	Laboratory of Molecular Biology	1	For sample storage	Non-Functional (chemicals procurement under process)
+12	Refrigerated Centrifuge	Velocity30R	Laboratory of Molecular Biology	1	For sample preparation	Non-Functional (chemicals procurement under process)
+13	Stereoscope	Euromex Microscopes Holland	Integrated Pest management Laboratory	1	To observe minute insect pests and pathogens	Fuunctional
+14	Light Microscope	Euromex Microscopes Holland	Integrated Pest management Laboratory	1	To observe minute insect pests and pathogens	Functional
+15	IRGA	CID BIOSCIENCE CI-340 PHOTOSYNTHESIS SYSTEM	Laboratory of Physiology	1	For estimate physiological activities of plants	Non-Functional (chemicals procurement under process) 
+16	Drying Oven	RΔYPΔ	Integrated Pest management Laboratory	1	For drying of samples	Functional
+17	Gradient PCR	FC-96B	Laboratory of Molecular Biology	1	Running Molecular Reactions	Non-Functional (chemicals procurement under process)
+18	HVI	Uster HVI-1000	Fiber Testing Laboratory	1	Fiber Testing Operations	Functional
+MAJOR FARM MACHINARY AT CRI, MULTAN
+
+1	Massey Fergussion-375	1999	CRI, Farm Shed	1	Farm Operations	Functional
+2	Massey Fergussion-240	1991	CRI, Farm Shed	1	Farm Operations	Functional
+3	Cultivator (13-tines)	2012	CRI, Farm Shed	1	Farm Operations	Functional
+4	Chiesel Plough	1998	CRI, Farm Shed	1	Farm Operations	Functional
+5	Trolley for Tractor (12X 7ft)		CRI, Farm Shed	1	Farm Operations	Functional
+6	Disc Plough	2017	CRI, Farm Shed	1	Farm Operations	Functional
+7	Fertilizer Spreader	2000	CRI, Farm Shed	1	Farm Operations	Functional
+8	Land Leveler	2014	CRI, Farm Shed	1	Farm Operations	Functional
+	Boom Sprayer	2008	CRI, Farm Shed	1	Farm Operations	Functional
+	Laser land Leveler	2016	CRI, Farm Shed	1	Farm Operations	Functional
+	Ridger for Bed & Furrow	1998	CRI, Farm Shed	1	Farm Operations	Functional
+	Auomatic Kharif Drill	2018	CRI, Farm Shed	1	Farm Operations	Functional
+	Rotavator (42 blades)	2012	CRI, Farm Shed	1	Farm Operations	Functional
+	Water Tank	2017	CRI, Farm Shed	1	Farm Operations	Functional
+	Timmy Rotary Weeder	1999	CRI, Farm Shed	1	Farm Operations	Functional
+	Cotton Ridger with Fertilizer	1998	CRI, Farm Shed	1	Farm Operations	Functional
+	Cotton Hand Drill	2005	CRI, Farm Shed	1	Farm Operations	Functional
+	Tractor Driven Tarphali	2008	CRI, Farm Shed	1	Farm Operations	Functional
+	Disc Harrow	2016	CRI, Farm Shed	1	Farm Operations	Functional
+	Ditcher	2017	CRI, Farm Shed	1	Farm Operations	Functional
+	Wheat Straw Slasher	2017	CRI, Farm Shed	1	Farm Operations	Functional
+	Thresher with Elevator	2018	CRI, Farm Shed	1	Farm Operations	Functional
+
+
+
+							
+Dr. Ghulam Sarwar
+Chief Scientist
+Cotton Research Institute
+Multan

@@ -223,15 +223,23 @@ model MNSUAMEstateFacilities {
 model CRIMultanAssets {
   id                 String          @id @default(cuid())
   name               String
-  type               String
+  type               String          // "Laboratory Equipment" or "Farm Machinery"
   imageUrl           String?
   departmentId       String
-  assetType          String?
-  specificationModel String?
-  labSectionLocation String?
-  quantity           Int?
-  purposeFunction    String?
-  operationalStatus  String?
+  
+  // For Lab Equipment
+  makeModel          String?         // Make/Model/Specification
+  labDepartment      String?         // Name of Lab/Department/Section
+  purposeFunction    String?         // Purpose/Function
+  
+  // For Farm Machinery
+  year               String?         // Year of purchase
+  location           String?         // Location (e.g., "CRI, Farm Shed")
+  
+  // Common fields
+  quantity           Int             @default(1)
+  operationalStatus  String?         // "Functional" or "Non-Functional"
+  
   createdAt          DateTime        @default(now())
   updatedAt          DateTime        @updatedAt
   status             EquipmentStatus @default(AVAILABLE)
@@ -239,6 +247,7 @@ model CRIMultanAssets {
 
   @@index([departmentId])
   @@index([status])
+  @@index([type])
 }
 
 model SoilWaterTestingProject {

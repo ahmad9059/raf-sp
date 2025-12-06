@@ -1,38 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Home, Building2, ExternalLink, FileText, Shield, Globe } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-gray-900 text-gray-300">
+    <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* About Column */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-brand rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
+             
               <div className="flex flex-col">
-                <span className="text-white font-bold text-lg leading-tight">
-                  RAF-SP
+                <span className="font-bold text-lg leading-tight">
+                  Agriculture Complex
                 </span>
-                <span className="text-xs text-gray-400 leading-tight">
-                  Smart Platform
+                <span className="text-xs opacity-80 leading-tight">
+                  South Punjab
                 </span>
               </div>
             </div>
-            <p className="text-sm text-gray-400 mb-4">
-              Modernizing agriculture asset management for government
-              departments across the nation.
+            <p className="text-sm opacity-90 mb-4">
+              Showcasing agricultural research facilities, equipment inventories, and resources across departments in South Punjab, Pakistan.
             </p>
             <div className="flex space-x-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 hover:bg-brand rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -40,7 +38,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 hover:bg-brand rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
               >
                 <Twitter className="w-4 h-4" />
               </a>
@@ -48,7 +46,7 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-gray-800 hover:bg-brand rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-primary-foreground/10 hover:bg-secondary rounded-lg flex items-center justify-center transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -57,89 +55,97 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
+            <h3 className="font-semibold text-lg mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#about"
-                  className="text-sm hover:text-brand transition-colors"
+                  href="/"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
-                  About Us
+                  <Home className="w-3 h-3" />
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#features"
-                  className="text-sm hover:text-brand transition-colors"
+                  href="/dashboard"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
-                  Features
+                  <Building2 className="w-3 h-3" />
+                  Departments
                 </Link>
               </li>
               <li>
                 <Link
                   href="/login"
-                  className="text-sm hover:text-brand transition-colors"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <Shield className="w-3 h-3" />
                   Login
                 </Link>
               </li>
               <li>
                 <Link
                   href="/signup"
-                  className="text-sm hover:text-brand transition-colors"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
+                  <FileText className="w-3 h-3" />
                   Sign Up
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Government Links Column */}
+          {/* External Resources Column */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              Government Resources
+            <h3 className="font-semibold text-lg mb-4">
+              External Resources
             </h3>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://www.gov.example"
+                  href="https://mnsuam.edu.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-brand transition-colors"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
-                  Ministry of Agriculture
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.gov.example"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-brand transition-colors"
-                >
+                  <ExternalLink className="w-3 h-3" />
                   MNSUAM University
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.gov.example"
+                  href="https://hec.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-brand transition-colors"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
-                  Digital Government Portal
+                  <ExternalLink className="w-3 h-3" />
+                  HEC Pakistan
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.gov.example"
+                  href="https://agriculture.punjab.gov.pk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-brand transition-colors"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
-                  National Data Center
+                  <ExternalLink className="w-3 h-3" />
+                  Punjab Agriculture Dept
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.gov.pk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
+                >
+                  <Globe className="w-3 h-3" />
+                  Government of Pakistan
                 </a>
               </li>
             </ul>
@@ -147,31 +153,31 @@ export function Footer() {
 
           {/* Contact Column */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
+            <h3 className="font-semibold text-lg mb-4">
               Contact Us
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <span className="text-sm">
-                  Ministry of Agriculture
+                <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                <span className="text-sm opacity-90">
+                  Agriculture Complex Multan
                   <br />
-                  Government Complex, Capital City
+                  South Punjab
                   <br />
-                  Postal Code 12345
+                  Pakistan
                 </span>
               </li>
               <li className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-brand flex-shrink-0" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
+                <span className="text-sm opacity-90">+92 61 XXXXXXX</span>
               </li>
               <li className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-brand flex-shrink-0" />
+                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <a
-                  href="mailto:support@raf-sp.gov"
-                  className="text-sm hover:text-brand transition-colors"
+                  href="mailto:info@mnsuam.edu.pk"
+                  className="text-sm opacity-90 hover:text-secondary transition-colors"
                 >
-                  support@raf-sp.gov
+                  info@mnsuam.edu.pk
                 </a>
               </li>
             </ul>
@@ -179,34 +185,36 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-gray-400 text-center md:text-left">
+            <div className="text-sm opacity-80 text-center md:text-left">
               <p>
-                © {new Date().getFullYear()} RAF-SP Platform. All rights
-                reserved.
+                © {new Date().getFullYear()} Agriculture Complex Multan. All rights reserved.
               </p>
               <p className="text-xs mt-1">
-                A Government of [Country] Initiative
+                MNS University of Agriculture, Multan
               </p>
             </div>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm opacity-80">
               <Link
                 href="/privacy"
-                className="hover:text-brand transition-colors"
+                className="hover:text-secondary transition-colors flex items-center gap-1"
               >
+                <Shield className="w-3 h-3" />
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-brand transition-colors"
+                className="hover:text-secondary transition-colors flex items-center gap-1"
               >
+                <FileText className="w-3 h-3" />
                 Terms of Service
               </Link>
               <Link
                 href="/accessibility"
-                className="hover:text-brand transition-colors"
+                className="hover:text-secondary transition-colors flex items-center gap-1"
               >
+                <Globe className="w-3 h-3" />
                 Accessibility
               </Link>
             </div>

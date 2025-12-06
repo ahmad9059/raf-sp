@@ -2,32 +2,47 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Shield, BarChart3, Users, Wrench } from "lucide-react";
+import Image from "next/image";
+import { Building2, FlaskConical, Users, Tractor, BarChart3, Database } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-const features = [
+const stats = [
   {
-    icon: Shield,
-    title: "Secure & Compliant",
-    description:
-      "Government-grade security with role-based access control ensuring data protection and compliance.",
+    icon: Building2,
+    value: "18+",
+    label: "Departments",
+    color: "text-primary",
   },
   {
-    icon: BarChart3,
-    title: "Real-time Analytics",
-    description:
-      "Visualize equipment status, maintenance costs, and inventory distribution with interactive dashboards.",
+    icon: FlaskConical,
+    value: "1000+",
+    label: "Equipment Items",
+    color: "text-secondary",
   },
   {
     icon: Users,
-    title: "Multi-Department",
-    description:
-      "Manage multiple departments with isolated data access and centralized administrative oversight.",
+    value: "500+",
+    label: "Staff Members",
+    color: "text-primary",
   },
   {
-    icon: Wrench,
-    title: "Maintenance Tracking",
-    description:
-      "Track repair history, maintenance costs, and equipment lifecycle for informed decision-making.",
+    icon: Tractor,
+    value: "200+",
+    label: "Farm Machinery",
+    color: "text-secondary",
+  },
+  {
+    icon: BarChart3,
+    value: "100%",
+    label: "Data Coverage",
+    color: "text-primary",
+  },
+  {
+    icon: Database,
+    value: "Real-time",
+    label: "Updates",
+    color: "text-secondary",
   },
 ];
 
@@ -40,24 +55,25 @@ export function AboutSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.06,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
+        ease: "easeOut" as const,
       },
     },
   };
 
   return (
-    <section id="about" className="py-20 bg-white" ref={ref}>
+    <section id="about" className="py-16 bg-background" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -66,68 +82,163 @@ export function AboutSection() {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              About RAF-SP Platform
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              About AgriData Hub
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              The Repair & Facility Smart Platform is a comprehensive digital
-              solution designed to modernize asset management for government
-              agriculture departments across the nation.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive digital platform showcasing agricultural research facilities, 
+              equipment inventories, and resources across departments and institutes in South Punjab, Pakistan.
             </p>
           </motion.div>
 
-          {/* Features Grid */}
+          {/* Stats Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid md:grid-cols-2 gap-8 mb-16"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12"
           >
-            {features.map((feature, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="flex gap-4 p-6 rounded-lg border border-gray-200 hover:border-brand/50 hover:shadow-lg transition-all duration-300"
+                className="stat-card text-center"
               >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center">
-                    <feature.icon className="w-6 h-6 text-brand" />
+                <div className="relative z-10">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-3`}>
+                    <stat.icon className={`w-6 h-6 ${stat.color}`} />
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <div className={`text-2xl font-bold ${stat.color} mb-1`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Mission Statement */}
+          {/* Feature Section */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-br from-brand/5 to-brand/10 rounded-2xl p-8 md:p-12 text-center"
+            className="grid md:grid-cols-2 gap-8 items-center mb-12"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Our Mission
+            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/mns.png.jpg"
+                alt="Agricultural Research"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Comprehensive Agricultural Data
+              </h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Access detailed information about research facilities, laboratory equipment, 
+                farm machinery, and human resources across multiple departments and institutes 
+                in the Agriculture Complex Multan.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <FlaskConical className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Equipment Inventory</div>
+                    <div className="text-sm text-muted-foreground">Detailed lab equipment lists</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Building2 className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Facilities Overview</div>
+                    <div className="text-sm text-muted-foreground">Labs, halls, and resources</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Users className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Staff Directory</div>
+                    <div className="text-sm text-muted-foreground">Human resources data</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Tractor className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Farm Machinery</div>
+                    <div className="text-sm text-muted-foreground">Agricultural equipment</div>
+                  </div>
+                </div>
+              </div>
+              <Button asChild size="lg">
+                <Link href="#departments">
+                  Explore Departments
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Partner Logos Section */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-12"
+          >
+            <h3 className="text-center text-xl font-bold text-foreground mb-2">
+              Made Possible By
             </h3>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              To empower government agriculture departments with modern digital
-              tools that streamline equipment management, reduce operational
-              costs, and improve service delivery to farmers and communities
-              across the nation.
+            <p className="text-center text-sm text-muted-foreground mb-8">
+              In collaboration with our valued partners and supporting organizations
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-              <span className="px-4 py-2 bg-white rounded-full">
-                🌾 Agriculture Focus
-              </span>
-              <span className="px-4 py-2 bg-white rounded-full">
-                🏛️ Government Standard
-              </span>
-              <span className="px-4 py-2 bg-white rounded-full">
-                📊 Data-Driven
-              </span>
-              <span className="px-4 py-2 bg-white rounded-full">🔒 Secure</span>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo.png.png"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo2.png.png"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo3.png.jpg"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo4.jpg.jpeg"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo5.jpg.jpg"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/logo6.png"
+                  alt="Partner Organization"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </motion.div>
         </motion.div>
