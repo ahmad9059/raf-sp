@@ -1,0 +1,232 @@
+LIST OF NON CONSUMABLE ITEMS AT ERSS MULTAN DATED 25.08.2025 STOCK REGISTER (2) CLCV PROJECT 
+#	Name	Page #	Qty	Date received	Last verification
+1	Varnish	5	4 kg	26.05.1997	26.08.1999
+2	Enamel 	06	3 buckets	26.05.1997	26.08.1999
+3	Chak matte special	7	06 Kg	02.06.1997	26.08.1999
+4	Zinc	8	3 Kg	02.06.1997	26.08.1999
+5	Plaster of paris	9	5 Kg	02.06.1997	26.08.1999
+6	Distember	10	4 	02.06.1997	26.08.1999
+7	Sheet BKA light	11	7	29.05.1997	01.09.2016
+8	Wooden board 6 x 6 inches	12	7	29.05.1997	01.09.2016
+9	Sheet BKA light	13	1	29.05.1997	01.09.2016
+10	Pipe plastic ¾ inch	14	12	29.05.1997	01.09.2016
+11	Plastic elbow ¾ inch	15	2 dozen	29.05.1997	01.09.2016
+12	Plastic clip ¾ inch 	16	7 dozen	29.05.1997	01.09.2016
+13	Solution tape	17	03	29.05.1997	18.03.1999
+14	Screw	18	Two dozen	29.05.1997	26.08.1999
+15	Bell switch	19	1	29.05.1997	26.08.1999
+16	Screw Patch	20	1	29.05.1997	26.08.1999
+17	Rawal Plug	21	1	29.05.1997	26.08.1999
+18	Nut and screw ½ inch	22	03 dozen	29.05.1997	26.08.1999
+19	Electric wire	23	20 meter	19.05.1997	26.08.1999
+20	Electric wire	24	100 yards
+70 yards	05.06.1997
+	26.08.1999
+21	Main switch 30 A	26	02	05.06.1997	26.08.1999
+22	Power plug	27	07	05.06.1997	26.08.1999
+23	Clump	28	06	05.06.1997	26.08.1999
+24	Bell Push button	29	1	05.06.1997	-
+25	Tube light complete	30	06	28.05.1997	20.09.2013
+26	Circuit breaker	31	1	28.05.1997	01.09.2016
+27	Petri-Dishes 40 ml	32	200	05.09.1997	01.09.2016
+28	Petri-Dishes for whitefly	33	250	10.11.1997	01.09.2016
+29	Insect collection vials	34	200	10.11.1997	01.09.2016
+30	Micro guage 32 ml plastic	35	200	15.11.1997	01.09.2016
+31	Micro guage 40 ml plastic for whitefly	36	200	16.12.1997	01.09.2016
+32	Light microscope	52	0ne	29.03.1998	01.09.2016
+33	Test tubes with cover	53	25	29.03.1988	01.09.2016
+34	Beyn vials 25 ml size	54	25	29.03.1988	01.09.2016
+35	Generator 	55	1	25.02.1998	01.09.2016
+36	Calculator CT 500	56 	1	01.01.1998	01.09.2016
+37	Horizontal venation blinds	57	2	18.11.1997	01.09.2016
+38	Curtains	58	4	17.09.1997	01.09.2016
+39	Elbow ½  x ¾ inches	59	2	29.05.1997	01.09.2016
+40	Iron pipe one inch diameter	60	1	29.05.1997	01.09.2016
+41	Sink Bracket (fitted with sink)	61	1	29.05.1997	01.09.2016
+42 	Rubber (fitted with sink)	62	01	29.05.1997	01.09.2016
+43	Barrel Nipple ¾ inch fitted with iron pipe	63	01	29.05.1997	01.09.2016
+44	Union 1/2 inch	64	02	29.05.1997	01.09.2016
+45	Handle valve	65	01	29.05.1997	01.09.2016
+46	Iron hook connected with water pipe	66	06	29.05.1997	01.09.2016
+47	T-1/2 inch iron pipe	67	02	29.05.1997	01.09.2016
+48	Barrel nipple ½ inch fitted with sink	68	06	29.05.1997	01.09.2016
+49	T-1/20 x ¾ inches connected with sink	69	01	29.05.1997	01.09.2016
+50 	Socket 	70	06	29.05.1997	01.09.2016
+51	Elbow ½ inch 	71	06	29.05.1997	01.09.2016
+52	Iron pipe ¾ inches	72	100 inch length	29.05.1997	01.09.2016
+53	Waste pipe	73	One	29.05.1997	01.09.2016
+54	Waste sink	74	One	29.05.1997	01.09.2016
+55	Sink lock	75	One	29.05.1997	01.09.2016
+56	Sink 	76	One 	29.05.1997	01.09.2016
+57	Dimmer	77	One 	07.03.1997	01.09.2016
+58	Exhaust fan	78	One 	07.03.1997	01.09.2016
+59	Wire guage grill	79	Two 	05.06.1997	01.09.2016
+60	Iron safety cover for AC	80	One 	14.05.1997	01.09.2016
+61	Thermo control packing hot and cool chamber	81	One	28.02.1997	01.09.2016
+62	Magnetic stirrer	82	One	28.02.1997	01.09.2016
+63	Micro pipette	83	Three	28.02.1997	01.09.2016
+64	Micro liter syringe Hamilton	84	Three	28.02.1997	01.09.2016
+65	Automatic time switch	85	01	28.02.1997	01.09.2016
+66	Humidifier Jet cool Super Asia	86	01	28.02.1997	01.09.2016
+67	Incubator TV 100	87	01	28.02.1997	11.04.2018
+68	Swift Stereo SM 80 	88	01	28.02.1997	11.04.2018
+69	Anesthesia chamber	89	01	28.02.1997	11.04.2018
+70	 Low temperature incubator 	90	01	28.02.1997	13.10.2020
+71	Air conditioner cooling Deluxe	91	01	28.02.1997	13.10.2020
+72	Refrigerator 2 in one temperature incubator	92	01	22.04.2014	13.10.2020
+
+ 
+LIST OF NON CONSUMABLE ITEMS AT ERSS MULTAN DATED 25.08.2025 STOCK REGISTER (3)
+#	Name	Page #	Qty	Date received	Last verification
+01	Entomological pins
+	04
+	5 No Pins= 36
+16 size pins= 12
+20 size pins=03	21.12.1982
+	14.05.1984
+			05 size pins=06	04.05.1983	
+			05 size one vial	13.05.1993	
+02	Hand operated Ginning balance	05	01	18.02.1976	26.09.2023
+(Shifted to DSR against entry no 35/8 and auctioned)
+03	Show cases	06	06	08.06.1966	Last verified on 04.08.2024 (shifted to DSR against entry no 5/7)
+04	Triple beam balance	07	01	24.11.1985	Not repairable since 1994
+05	Magnifying lens	08	01	2.11.1966	Verified on 24.08.2024
+06	Electric pedestal fan	09	01	21.05.1969	Nil at 26.02.2000
+07	Hydrolux power sprayer	10	01	05.05.1971	Shifted to DSR against entry no 36/8
+08	Binocular microscope	11	01	08.06.1966	Last verified on 04.09.2024
+09	Gas lamp	12	01	21.05.1968	Shifted to DSR against entry 6/7 (Balance Nil)
+10	Rotary Duster	13	1	19.07.1969	Shifted to DSR on 04.03.1984
+Balance Nil
+11	Dissecting box	14	01	21.05.1969	Shifted to DSR against entry no 7/7
+Balance = Nil
+12	Collection box	15	04	05.01.1970	Last verified on 04.09.2024
+13	Rearing cages	16	12	05.01.1970	All were damaged on 19.03.1999. Shifted to DSR against entry no 38/8
+14	Binocular stereo microscope	17	1	12.08.1999	Last verified on 04.09.2024
+15	Measuring tape	18	1	02.08.1969	Shifted to DSR against entry 8/7
+16	Paper tags and field boards	19	150	03.08.1969	Nil since 14.05.1984
+17	Solo power sprayer	20	01	06.07.1971	Shifted to DSR 04.03.1984 (Balance = Nil)
+18	Buckets	21	08	20.02.1970	Nil 
+20	Locks	22	04
+03	05.05.1971
+12.05.91	Shifted to DSR against entry 3/7. 02 locks auctioned no 18/7
+21	Dori	23	01	05.05.1971	Shifted to DSR against entry 18/7
+22	Glass chimney	24	Two dozen	23.09.1977	Last verified on 04.09.2024
+(Balance 02)
+23	Glass Jar	25	06	23.08.1977	Last verified on 04.09.2024
+(Balance Nil)
+24	Rubber band	26	One packet	23.08.1977	Balance nil
+25	Petri-Dishes	27	Ten pairs	23.08.1977	Balance Nil
+24	Dry and wet thermometer	28	one	23.08.1977	Last verified on 18.03.1999
+25	Maximum and minimum Thermometer	29	One	23.08.1977	Last verified on 04.09.2024
+26	Flasks	30	Six 	23.08.1977	Last verified on 04.09.2024
+(Balance Nil)
+27	Pipette graduated	31	Two 	23.08.1977	Shifted to DSR against 30/6 entry
+28	Sterlized lint	32	One 	23.08.1977	Taken over on 29.05.1982
+29	Beakers	33	5	23.08.1977	Shifted to DSR against entry no 8/6
+(Last verified on 13.07.1984)
+30	Ivory Card sheet	34	2	23.08.1977	Moved to Stationery register P#34 (Balance = Nil)
+31	Vials with corks	35	Two dozen	23.08.1977	Balance Nil
+Shifted to DSR against entry 9/6
+32	Test tubes 	36	Two dozen	23.08.1977	Last verified on 26.09.2023
+(Shifted to DSR against entry 13/6)
+33	Syringe 10 CC Plastic	37	01	23.08.1977	Shifted to DSR against entry 2/6 and auctioned
+34	Calculator (Casio Memory B-1)	38	01	30.06.1979	Last verified on 26.09.2023
+35	Photographs of alternate host plants of Pink bollworm and Spotted bollworm	39	one	30.06.1979	Rs 50 was given to Entomologist for these photographs subsequently 48 Rs. were given. Total 98 Rs spent. 
+(No photographs is present now)
+36	Setting boards	40	03	04.05.1983	Last verified on 24.08.2024
+37	Insect collection hand net	41	02	17.12.1983	Balance (01)
+Last verified on 26.09.2023
+38	Solo hand sprayer	42	01	27.06.1984	All the parts of sprayer were auctioned vide DSR 2/5
+39	Cash book	43	01	01.04.1984	Last verified on 26.01.2023
+40	Rubber office stamp of Assistant entomologist Multan	44	01	01.04.1984	Last verified on 26.01.2023
+41	Tumliler Lamp	45	06	12.01.1985	Last shifted to DSR against 22/06 & 48/8
+42	Glass Jug	46	01	12.01.1984	Broken (balance Nil) Last verified on 30.04.1987
+43	Office chairs	47	04 + 06	05.06.1985	Last verified on 24.09.2024
+44	Office stool	48	02	05.06.1985	Last verified on 26.09.2023
+45	Metalic water cooler	49	01	05.06.1985	Shifted to DSR against entry 55/9 and auctioned on 03.11.2011
+46	Plastic water cooler	50	01	05.06.1985	NIL 
+Last verified on 03.11.2011
+47	Office table lamp	51	01	28.10.1985	Last verified on 26.09.2023
+48	Cloth bags	52	300	04.01.1986	Last verified on 26.08.1999 (Balance = Nil)
+49	Gas mask with filter	53	02	02.04.1986	Balance = Nil
+Auctioned 
+50	Umbrella	54	03	30.04.1986	Shifted to DSR against entry 23/7 
+Balance = Nil
+51
+	Humidifier Room cooler AC	55	01	06. 1986	Balance Nil
+Last verified on 26.08.1999
+Shifted to DSR against entry 24/7
+52	Deep freezer (Low temperature incubator)	56	01	16.04.1988	Last verified on 26.09.2023
+53	Light trap (Justi sheet)	57	05	31.01.1989	Balance = Nil
+Last verified on 30.03.1998
+54	Applicator	58	02	25.02.1970	Not verified 
+55	Moricke	59	03	12.02.1991	Last verified on 04.09.2024
+56	Pheromone traps	60	15	03.06.1991	Balance = NIL
+Last verified on 03.06.1991
+57	Knap sack sprayer/Solo hand sprayer	61	05	26.02.1995
+24.05.1995
+30.07.1995	Balance = Nil shifted to DSR FSD
+58	Plastic water cooler	62	01	26.11.1995	Balance = Nil
+Last verified on 26.08.1991
+59	Electric tube rod with choke station	63	01	09.01.1985	Last verified on 03.11.17.
+Not functioning
+60	Wall o Clock	64	01	13.03.1993	Balance = NIL
+Shifted to DSR against entry 56/9
+61	Glass Chimney	68	From page 24 shifted to page 28		Balance = NIL
+62	Measuring tape	71	100 ft	10.04.2004	Last verified on 26.09.2023
+63	Locks 	73	From page 22		Balance 02
+05 unserviceable locks are shifted to DSR against entry 40/8
+Last verified on 26.09.2023
+64	Power hand sprayer	74	03		Three returned to CRI FSD 
+Balance =Nil
+65	Hand sprayer 	75	05	28.06.2007	Three returned to CRI Fsd 
+Balance =NIL
+Two broken and auctioned
+Last verified on 01.09.2016
+66	ULV sprayer	76	02	10.03.2008	Last verified on 4.09.2024
+Balance=2
+67	Computer + printer 	77	01	21.06.2010	Last verified on 04.09.2024
+68	Office chairs	78	Shifted from page 47		Last verified on 04.09.2024
+Balance = 10
+69	Energy saving lamp	79	04	25.10.2011	Last verified on 24.08.2021
+Balance = nil
+70	Energy saving lamp holder	80	04	25.10.2011	Last verified on 24.08.2021
+Balance = nil
+71	Insect collection box	81	Moved from page #15		Balance =04
+Last verified on 04.09.2024
+72	Flasks	82	Moved from page #30		Shifted to DSR against entry No 46/8
+Balance = NIL
+73	Printer laser Jet
+M26-A	83	01	11.02.2021	Last verified on 04.09.2024
+71	Evo triangle 	84	01	16.08.2013	Last verified on 04.09.2024
+72	Motor cycle FDG-10-1006	85	01	24.04.2014	Last verified on 04.09.2024
+73	Pheromone traps	86	62	04.01.2015	Installed in the field in mango research area for the project purpose
+Balance = NIL 
+
+74	Electronic digital camera (Sony) 	87	01	06.10.2015	Last verified on 04.09.2024
+75	Samsung galaxy case prime	88	01	09.10.2015	LCD was dead on 13.10.2020
+Auctioned
+76	Water cooler	89	01	30.05.2016	Balance Nil 
+It was broken 25.10.2018
+77	Rearing cages	90	4	13.08.2015	02 broken and auctioned.
+02 broken in stock
+Last verified on 04.09.2024
+78	Dimmers	91	Moved from page 77 stock register 02	Last verified on 26.09.2023
+80	Biometric machine	92	02	23.06.2016	Out of order =1 and returned
+Balance =1
+81	Gas heater/plastic pipe/clip	93	01	05.01.2017	Last verified on 26.09.2023
+82	Low temperature incubator	94	Moved from stock register 02		Last verified on 04.09.2024
+83	Repair of Humidifier for lab/window AC	95		04.05.2017	Last verified on 04.09.2024
+84	Knap sack sprayer	95	01	07.02.2019	Last verified on 04.09.2024
+85	Measuring tape	95	01	07.02.2019	Last verified on 04.09.2024
+86	Measuring Dori 100 ft	95	01	07.02.2019	Last verified on 04.09.2024
+87	Bucket	95	02	07.02.2019	Last verified on 04.09.2024
+88	Spade	95	02	07.02.2019	Last verified on 04.09.2024
+89	Sickle	95	05	07.02.2019	Last verified on 04.09.2024
+90	Ramba	95	05	07.02.2019	Last verified on 04.09.2024
+91	Repair of Computer and printer	96			Last verified on 04.09.2024
+
+Officers 3; officials 2; land 3.5 acre. Rooms occupied 5
+Focal person: Dr. Asifa Hameed Principal Scientist Entomological Research Sub Station Multan
+
+asifa_hameed_sheikh@yahoo.com

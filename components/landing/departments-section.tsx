@@ -54,10 +54,10 @@ const allDepartments = [
       "Specialized research in ornamental plants, landscaping, floriculture production techniques, and horticultural development.",
     image: "/images/flori.jpg.jpg",
     hasData: true,
-    focalPerson: "Dr. Muhammad Akram",
-    designation: "Research Officer",
-    phone: "+92-61-9210073",
-    email: "akram@flori.gov.pk",
+    focalPerson: "Dr. Muhammad Muzamil Ijaz",
+    designation: "Assistant Research Officer",
+    phone: "03016984364",
+    email: "muzamil.ijaz243@gmail.com",
   },
   {
     id: "soil-water",
@@ -67,10 +67,10 @@ const allDepartments = [
       "Comprehensive soil and water analysis services providing critical data for agricultural research and farmer support across the region.",
     image: "/images/soil.png.jpg",
     hasData: true,
-    focalPerson: "Dr. Muhammad Tariq",
-    designation: "Lab Director",
-    phone: "+92-61-9210074",
-    email: "tariq@soilwater.gov.pk",
+    focalPerson: "Ms. Fatima Bibi",
+    designation: "Principal Scientist",
+    phone: "061-4423568",
+    email: "swt_mltn@yahoo.com",
   },
   {
     id: "ento",
@@ -80,10 +80,10 @@ const allDepartments = [
       "Advanced research on insect pests, beneficial insects, and integrated pest management strategies for sustainable agriculture.",
     image: "/images/ent.jpg.jpg",
     hasData: true,
-    focalPerson: "Dr. Sohail Ahmad",
-    designation: "Senior Entomologist",
+    focalPerson: "Dr. Asifa Hameed",
+    designation: "Principal Scientist",
     phone: "+92-61-9210075",
-    email: "sohail.ahmad@ento.gov.pk",
+    email: "asifa_hameed_sheikh@yahoo.com",
   },
   {
     id: "mri",
@@ -93,10 +93,10 @@ const allDepartments = [
       "Dedicated research facility for mango cultivation, variety development, post-harvest technologies, and quality improvement.",
     image: "/images/mango.jpg.jpg",
     hasData: true,
-    focalPerson: "Dr. Muhammad Tauseef",
-    designation: "Senior Scientist (Agronomy)",
-    phone: "+923340072357",
-    email: "tauseef@mri.gov.pk",
+    focalPerson: "Mr. Abid Hameed Khan",
+    designation: "Scientific Officer- Entomology",
+    phone: "0300-6326987",
+    email: "abidhameedkhan@yahoo.com",
   },
   {
     id: "ext",
@@ -151,8 +151,8 @@ const allDepartments = [
     email: "zahid@raedc.gov.pk",
   },
   {
-    id: "mns-data",
-    name: "Directorate of Agricultural Engineering",
+    id: "agri-eng",
+    name: "Agriculture Engineering Field Wing",
     location: "Multan, Punjab",
     description:
       "Comprehensive agricultural engineering services including farm machinery, infrastructure development, and technical support across multiple divisions.",
@@ -262,69 +262,66 @@ export function DepartmentsSection() {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 prevent-layout-shift"
           >
             {departments.map((department, index) => (
-              <motion.div
+              <Link
                 key={department.id}
-                variants={itemVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.3, ease: "easeOut" as const },
-                }}
-                className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 will-change-transform"
+                href={`/departments/${department.id}`}
+                className="block"
               >
-                {/* Full Card Image Background */}
-                <div className="relative h-80 md:h-96">
-                  {department.image ? (
-                    <>
-                      <Image
-                        src={department.image}
-                        alt={department.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      {/* Gradient Overlay - stronger at bottom */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 gradient-agriculture"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Building2 className="w-20 h-20 text-white/40" />
-                      </div>
-                    </>
-                  )}
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -8,
+                    transition: { duration: 0.3, ease: "easeOut" as const },
+                  }}
+                  className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 will-change-transform cursor-pointer"
+                >
+                  {/* Full Card Image Background */}
+                  <div className="relative h-80 md:h-96">
+                    {department.image ? (
+                      <>
+                        <Image
+                          src={department.image}
+                          alt={department.name}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        {/* Gradient Overlay - stronger at bottom */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 gradient-agriculture"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Building2 className="w-20 h-20 text-white/40" />
+                        </div>
+                      </>
+                    )}
 
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    {/* Department Name */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 line-clamp-2 drop-shadow-lg">
-                      {department.name}
-                    </h3>
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-6">
+                      {/* Department Name */}
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 drop-shadow-lg group-hover:text-secondary transition-colors duration-300">
+                        {department.name}
+                      </h3>
 
-                    {/* Focal Person Info - Compact */}
-                    <div className="flex items-center gap-2 text-white/90 text-sm mb-4">
-                      <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                        <Users className="w-3.5 h-3.5" />
-                        <span className="font-medium">{department.focalPerson}</span>
-                      </div>
+                      {/* View Details Button */}
+                      {/* <Link
+                        href={`/departments/${department.id}`}
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105 transform"
+                      >
+                        Explore Department
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link> */}
                     </div>
 
-                    {/* View Details Button */}
-                    <Link
-                      href={`/departments/${department.id}`}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 shadow-lg hover:shadow-xl group-hover:scale-105 transform"
-                    >
-                      Explore Department
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    {/* Decorative Corner Badge */}
+                    <div className="absolute top-4 right-4 bg-secondary/90 backdrop-blur-sm text-secondary-foreground px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                      View Data
+                    </div>
                   </div>
-
-                  {/* Decorative Corner Badge */}
-                  <div className="absolute top-4 right-4 bg-secondary/90 backdrop-blur-sm text-secondary-foreground px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    View Data
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </motion.div>

@@ -1,0 +1,76 @@
+Muhammad Nawaz Sharif University of Agriculture
+Name 				desgination 				 Contact No 	Email address
+Mr.Muhammad Abdul Haye Faisal 	Director Agricultural (Technical) Multan 0334-7456723	daemultan@yahoo.com
+1. Land Resource
+No farm land is available in Multan Region
+2. Building details
+Division 	Name of Office							Total Area
+		Director Agricultural engineering Multan			8 acres 1 kanal
+Multan		Assistant Director Agriculturla Engineer Khanewal 		2 acres 3 kanals
+		Assistant Director Agriculturla Engineering Vehari		3 acres
+
+Bahawalpur	Director Agricultural Engineering Bahawalpur			24 acres
+		Director Agricultural Engineering (Training Bahawalpur)		5 acres
+		Assistant Director Agricultural Engineering R.Y Khan		9.375 acre
+		Assistant Director Agricultural Engineering Bahawalnagar	4 acres 06 kanal 2 marla
+
+D.G Khan	Director Agricultural Engineering, D.G Khan			5 acres 7 kanal 4 marla
+		Unit Supervisor Taunsa Sharif					5 kanal
+		Assistant Director Agricultural Engineering Muzaffargarh	2 acre
+		Assistant Director Agricultural Engineering Rajanpur		Rented
+
+Layyah		Director Agricultural Engineering Layyah			41 Kanal 10 marla
+		Unit Supervisor Layyah						2 kanal
+		Assistant Director Agricultural Engineering Bhakkar		5 kanal
+
+Sahiwal		Agricultural Engineering Workshop Sahiwal			2 acre, 6 kanal
+		Agricultural Engineering Workshop Okara				Rented
+
+3. Farm Machinery /Equipment
+Buildozers (For land development)
+S.No		Name of office				No. of Buildozers
+1		Director Agricultural Engineering Multan	24
+2		Director Agricultural Engineering Sahiwal	7
+3		Director Agricultural Engineering D.G Khan	35
+4		Director Agricultural Engineering Layyah	23
+5		Director Agricultural Engineering Bahawalpur	42
+	Total Multan Region					131
+
+Hand Boring plants(For Drilling of Tubewells for farmers)
+S.No		Name of office				No. of HBP
+1		Director Agricultural Engineering Multan	6
+2		Director Agricultural Engineering Sahiwal	4
+3		Director Agricultural Engineering D.G Khan	2
+4		Director Agricultural Engineering Layyah	4
+5		Director Agricultural Engineering Bahawalpur	6
+	Total Multan Region					22
+Power Drilling Rigs (For exploration of ground Multan)
+S.no		Name of office					No. of PDRs
+1		Director Agricultural Engineering D.G Khan	3
+	Total Multan Region					3
+
+Electrict Resitivity Meters
+S.No		Name of office				No. of ERM
+1		Director Agricultural Engineering Multan	3
+2		Director Agricultural Engineering Sahiwal	2
+3		Director Agricultural Engineering D.G Khan	3
+4		Director Agricultural Engineering Layyah	1
+5		Director Agricultural Engineering Bahawalpur	3
+	Total Multan Region					12
+
+4. Lab Machinery / Equipment
+	NIL
+5. Human Resources
+	Detail attached
+
+	Detail of Human Resources of Multan Region
+S.No		Name of Regional office and Divisional Level			No. of ERM
+1		Additional Director General (Agricultural Engineering), Multan	30
+2		Director Agricultural Engineering (M&E), Multan			6
+3		Director Agricultural Engineering Multan			136
+4		Director Agricultural Engineering Bahawalpur			209
+5		Director Agricultural Engineering D.G Khan			136
+6		Director Agricultural Engineering Layyah			115
+7		Director Agricultural Engineering Sahiwal			36
+8		Director Agricultural Engineering (Training), Bahawalpur	24
+		Total Multan Region, Multa					692

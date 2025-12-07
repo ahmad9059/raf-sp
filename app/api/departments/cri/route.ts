@@ -27,12 +27,21 @@ export async function GET() {
       );
     }
 
-    // Separate lab equipment and farm machinery
+    // Separate assets by type
     const labEquipment = department.criMultanAssets.filter(
       (asset) => asset.type === "Laboratory Equipment"
     );
     const farmMachinery = department.criMultanAssets.filter(
       (asset) => asset.type === "Farm Machinery"
+    );
+    const landData = department.criMultanAssets.filter(
+      (asset) => asset.type === "Land"
+    );
+    const buildingData = department.criMultanAssets.filter(
+      (asset) => asset.type === "Infrastructure"
+    );
+    const hrData = department.criMultanAssets.filter(
+      (asset) => asset.type === "Human Resource"
     );
 
     // Calculate statistics
@@ -56,6 +65,9 @@ export async function GET() {
       },
       labEquipment,
       farmMachinery,
+      landData,
+      buildingData,
+      hrData,
       statistics: {
         totalLabEquipment: labEquipment.length,
         functionalLab,

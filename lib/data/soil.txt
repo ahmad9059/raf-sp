@@ -1,0 +1,210 @@
+
+Preliminary information
+Name of Department/Agency 	Soil & Water Testing Laboratory for Research, Multan
+Focal Person Name:	Ms. Fatima Bibi
+Designation:	Principal Scientist
+Address:	Soil & Water Testing Lab., Govt. Agricultural Farm, Old Shujabad Road, Multan
+Tel. No:	061-4423568
+Email:	swt_mltn@yahoo.com
+
+Fax No:	
+Project Location:	Soil & Water Testing Lab., Govt. Agricultural Farm, Old Shujabad Road, Multan 
+Latitude: 28.652145° Longitude: 70.694682°
+
+	
+	Impact:
+The successful implementation of this project will surely increase the performance and services of the laboratory for the faming community in the area and enhance their yields not only in quantity but quality as well. 
+
+Outcome:
+•	Ability to Analyze Soil, Plant, Water and fertilizer in less time
+•	Quality of work.
+•	Farmer’s satisfaction on in time advice about use of fertilizers.
+•	In time fertilizer analysis to avoid fake/unfit fertilizer use.
+•	Improved information about judicious use of brackish water.
+
+Outputs:
+•	Improved yields at an economical rate.
+•	Wise use of available resources.
+•	Increased trust of stakeholders on the laboratory.
+•	Improving water use efficiency by using amendments to counter salinity and / or sodicity. 
+•	Avoiding diseases and pests occurring due to malnutrition. 
+
+Design	Performance Targets	Data Source & reporting	Risks / assumptions
+Construction of Office Building	A double story building with at least 6 labs of 20 x 20 size, one sample room with sample storage facility of at least 12000 samples, one seminar room and establishment offices	Monthly progress report & building structure	Provisions of funds
+Purchase of machinery and furniture	Provision of Advisory analysis facility	Monthly progress report, funds utilization and available on-site for research activity	Provisions of funds
+Purchase of Vehicles and repair of existing vehicles	Strengthened fleet of vehicles	Availability in the office	Provision of funds
+Human Resources availability	Two Scientific Officers, One Law Officer, One Steno, Two Junior Clerks, One Head Clerk, One Accounts Clerk, Two drivers, Two Lab Assistants and four Lab Attendants	Recruitment	Provision of human resources
+Equipment	Two digestion Blocks (20 Head Each), two centrifuge machines, three electric Distillaries (German). One Oven, One air drying oven, one furnace, one distillation unit, one Flame Photometer, three analytical balances and one spectrophotometer, 	Purchase through EPADS	Provision of funds
+Glassware	All types	Purchase through EPADS	Provision of funds
+
+
+
+
+
+
+(Fatima Bibi)
+Principal Scientist (SF)
+Soil & Water Testing Lab.,
+Multan
+ 
+Budget Summary of the Project:
+Code	Particulars	2025-26	2026-27	2027-28	2028-29	Total (Rs. Million)
+A01	Total Employees Related Expenses	00.000	10.000	10.000	10.000	30.00
+A03	Total operating Expenses	00.000	10.000	10.00	10.00	30.00
+A093	Commodity and Purchase	00.000	20.000	20.00	10.00	50.00
+A12	Civil Work	00.000	10.00	10.00	10.00	30.00
+A13	Repair and maintenance	0.000	1.000	1.00	1.00	3.00
+Total Estimate	0.000	51.000	51.00	41.00	143.00
+
+HR (Officers)
+#	Officials	BPS	Posts
+1	Scientific Officer (Lab)	17	2
+2	Law Officer	17	1
+3	Quality & Technical Manager for ISO 17025	17	2
+4	Instrument Technician	16	1
+	Total		6
+
+HR (Officials)
+#	Officials	BPS	Posts
+1	Office Assistant	16	1
+2	Instruments Engineer	16	1
+3	Computer Operator	15	1
+4	Senior Clerk	14	1
+5	Junior Clerk	11	2
+6	Accounts Clerk	11	1
+7	Lab. Assistant	6	2
+8	Lab. Attendant	1	4
+9	Store Keeper	11	1
+10	Vehicle Driver	4	2
+11	Naib Qasid	1	1
+12	Chowkidar	1	1
+13	Sweeper	1	1
+	 Total		19
+
+
+
+Plant & Machinery 
+#	Plant & Machinery	Quantity Required	Justification
+1	Photo Copier	1	Seminars /workshops /meetings
+2	Air conditioner 1.5 ton split	4	For office use
+3	Drying Oven	1	For office use
+4	Digital Thermo-hygrometer	4	For office use
+5	Vehicle Hilux Double Cabin	1	For Travelling
+6	Multi Media	1	For Seminars / Trainings
+7	Electronic Digital balance (g) 4 decimal points	4	Office Use
+8	Block Digesters (20 Heads)	2	Lab Use
+9	Centrifuge (4000 RPM)	2	Lab Use
+10	Electric Distillaries	3	Lab use
+11	Reverse Osmosis Plant	1	Lab Use
+12	Furnace (Upto 500 oC)	1	Lab Use
+13	N Distillation Unit	2	N analysis
+14	Refrigerator	2	To maintain chemical reagents
+15	Steel Cupboards	8	Sample storage
+16	Flame Photometer	1	K, Na & Ca Analysis
+17	Spectrophotometer	1	Boron and Phosphorus analysis
+
+ 
+DETAIL OF BUDGET
+Code	Classification	BS	#	2025-26	2026-27	2027-28	2028-29	Total
+A011-1	Employee related expenses 	 	 	 	 	 	 	 
+ 	Pay of officers	 	 	 	 	 	 	 
+ 	Scientific Officers	17	2	 -	1.164	1.246	1.334	3.744
+ 	Law Officer	17	1	 -	0.582	0.623	0.664	1.869
+ 	QM and TM for ISO	17	2	 -	1.164	1.246	1.334	3.744
+	Instrument Techniciann	16	1	-	0.364	0.391	0.416	1.171
+	Total A011-1	 	6	0	3.274	3.406	3.748	10.528
+A012-2	Pay of other staff	 	 	 	 	 	 	 
+ 	Office Assistant	16	1	 	0.364	0.391	0.364	1.119
+ 	Computer Operator	15	1	 	0.313	0.338	0.363	1.014
+ 	Senior Clerk	14	1	 	0.241	0.258	0.275	0.774
+ 	Junior Clerk	11	1	 	0.241	0.258	0.275	0.774
+ 	Accounts Clerk	11	1	 	0.211	0.227	0.243	0.681
+ 	Lab. Assistant	6	2	 	0.364	0.391	0.364	1.119
+ 	Lab. Attendant	1	4	 	0.336	0.352	0.369	1.057
+ 	Store Keeper	7	1	 	0.374	0.399	0.424	1.197
+ 	Vehicle Driver	6	3	 	1.211	1.241	1.271	3.723
+ 	Naib Qasid	1	1	 	0.345	0.362	0.379	1.086
+ 	Chowkidar	1	1	 	0.345	0.362	0.379	1.086
+ 	Sweeper	1	1	 	0.345	0.362	0.379	1.086
+ 	Total A012-2	 	18	0	4.69	4.941	5.085	14.716
+A012-1	Allowances	 	 	 	 	 	 	 
+A01202	House Rent Allowance.	 	 	 	1.163	1.163	1.163	3.489
+A01203	Conveyance Allowance.	 	 	 	1.325	1.325	1.325	3.975
+A01207	Washing Allowance.	 	 	 	0.004	0.004	0.004	0.012
+A0120D	Integrated allowance	 	 	 	0.076	0.076	0.076	0.228
+A01216	Qualification Allowance	 	 	 	0.076	0.076	0.076	0.228
+ 	Research Allowance	 	 	 	1.587	1.587	1.587	4.761
+A01217	Medical Allowance.	 	 	 	0.921	0.921	0.921	2.763
+ 	Adhoc Relief Allowance 15% 2022	 	 	 	1.183	1.183	1.183	3.549
+ 	Special All 25 2021	 	 	 	0.885	0.885	0.885	2.655
+ 	SPE.15 %2022	 	 	 	0.542	0.542	0.542	1.626
+A01270	Others SSB 30%	 	 	 	3.511	3.511	3.511	10.533
+ 	Total (A012-1)	 	 	 	11.273	11.273	11.273	33.819
+A01277	Contingent Paid Staff	 	 	 	2	2	2	8
+ 	Total (A01273-7)	 	 	 	18.873	19.329	19.69	57.892
+ 	 	 	 	 	 	 	 	 
+A032	Communication	 	 	 	 	 	 	 
+A03201	Postage & Telegraph	 	 	 	0.02	0.02	0.02	0.06
+A03202	Telephone & Trunck Calls	 	 	 	0.05	0.05	0.05	0.15
+A03205	Courier Services	 	 	 	0.1	0.1	0.1	0.3
+ 	Total A032	 	 	0	0.17	0.17	0.17	0.51
+A033	Utilities	 	 	 	 	 	 	 
+AO3303	Electricity Charges	 	 	 	3.55	3.55	3.55	10.65
+AO3304	Hot and Cold Weather Charges	 	 	 	0.5	0.5	0.5	1.5
+ 	Total A033	 	 	0	4.05	4.05	4.05	12.15
+A034	Occupancy Costs	 	 	 	 	 	 	 
+A03407	Rates and Taxes	 	 	 	0.3	0.3	0.3	0.9
+ 	Total A034	 	 	0	0.3	0.3	0.3	0.9
+A038	Travel and Transportation	 	 	 	 	 	 	 
+A03805	T.A.	 	 	 	1	1	1	3
+A03807	P.O.L.	 	 	 	2.5	2.5	2.5	7.5
+ 	Total A038	 	 	0	3.5	3.5	3.5	10.5
+A039	General	 	 	 	 	 	 	 
+A03901	Stationery	 	 	0.8	0.8	0.8	0.8	3.2
+A03902	Printing and Publication	 	 	0.3	0.3	0.3	0.3	1.2
+A03905	Newspaper and Books	 	 	0.5	0.5	0.5	0.5	2
+A03907	Publicity and Advertisement	 	 	0.2	0.2	0.2	0.2	0.8
+A03918	Fair and Exhibition etc.	 	 	0.3	0.3	0.3	0.3	1.2
+A03919	Payment to other service rendered	 	 	2	2	2	2	8
+A03942	Cost of other stores	 	 	1	1	1	1	4
+A03970	Others	 	 	1.5	1.5	1.5	1.5	6
+ 	Total A039	 	 	6.6	6.6	6.6	6.6	26.4
+A03	Total A03	 	 	6.6	14.62	14.62	14.62	50.46
+A09	Physical Assets	 	 	 	 	 	 	 
+A09203	IT Equipment	 	 	2	0.5	0.5	0.5	3.5
+ 	Total (A092)	 	 	2	0.5	0.5	0.5	3.5
+A09302	Fertilizer	 	 	0	0	0	0	0
+A09370	Others	 	 	0	0	0	0	0
+ 	Total (A093)	 	 	0	0	0	0	0
+A09411	General utility chemicals	 	 	4	4	4	4	16
+A09414	Insecticides	 	 	0	0	0	0	0
+A09470	Others	 	 	0	0	0	0	0
+ 	Total (A094)	 	 	4	4	4	4	16
+A09601	Purchase of Physical Assets	 	 	 	 	 	 	 
+1	Photo Copier	 	1	0	1	0	0	1
+2	Air conditioner 1.5 ton split	 	4	0	10	0	0	10
+3	Drying Oven	 	1	0	1	0	0	1
+4	Digital Thermo-hygrometer	 	3	0	0.5	0	0	00.5
+5	Refrigerator	 	2	0	0.8	0	0	08
+6	Distillation Unit	 	2	0	4	0	0	4
+7	Electronic Digital balance (mg)	 	4	0	10	0	0	10
+8	Block Digestors	 	2	0	2	0	0	 2
+9	Centrifuge	 	2	0	2	0	0	 2
+10	Furnace	 	1	0	1.5	0	0	 1.5
+11	Magnetic Stirrer	 	4	0	4	0	0	4
+12	Steel Almirah	 	8	0	1.5	0	0	1.5
+13	Fume Hood		1	0	2.5	0	0	2.5
+ 	Total (A096)	 	 	0	40.8	0	0	40.8
+A09701	Furniture and Fixture	 	 	0	0	1.5	2.5	4
+ 	Total (A097)	 	 	0	0	1.5	2.5	4
+ 	Total A09	 	 	6	16	6.5	7.5	36
+A12	Civil Work	 	 	 	 	 	 	 
+ 	Office building, Stores, Garages, 01 Residence of 18-19, 02 residence of 15-17, 04 residences for C Category, Guard Room and boundary wall.	1	 	0	10	10	10	30
+ 	Total A12	 	 	0	10 	10	10	30
+A13	Repair and Maintenance of Durable Goods	 	 	 	 	 	 	 
+A13001	Transport	 	 	1	0.2	0.3	0.2	1.7
+A13101	Machinery and Equipment	 	 	1	0.2	0.2	0.2	1.6
+A13701	Furniture	 	 	0.3	0.3	0.276	0.23	1.106
+ 	Total A13	 	 	2.3	0.7	0.776	0.63	4.406
+ 	Total	 	 	8.300	33.773	50.649	41.526	132.548
+

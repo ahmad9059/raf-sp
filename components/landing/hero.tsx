@@ -40,6 +40,7 @@ export function Hero() {
         >
 
 
+
           {/* Main Heading */}
           <motion.h1
             variants={fadeInUp}
@@ -79,14 +80,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-6 text-lg"
-            >
-              <Link href="/dashboard">Access Platform</Link>
-            </Button>
+
           </motion.div>
         </motion.div>
       </div>

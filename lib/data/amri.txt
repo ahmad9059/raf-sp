@@ -1,0 +1,146 @@
+AMRI
+
+Agriculture Mechanize Research Institute (AMRI)
+LIST OF MACHINERY/IMPLEMENTS TEST & TRIAL STORE.
+ 
+Description 	No		Remarks
+Farm Area	8 acres		For field demonstration machinery and testing and trials
+Design Lab	1		Designing of agricultural machinery by using 3D printers and autoCaD software
+Workshop	1		Manufacturing and repairing machinery by using a welding facility, conventional lathe machine, plasma cutter, CNC Miling and CNC lathe
+Spray Lab	1		Testing of Sprays and nozzles by using lab equipment i.e spray pump testers, drift test bench, gauge tester, independent nozzle tester
+Adminstrative Block 2		For the offices of ADG, Director(T&T) , Director(F&W), Director(D&D)
+Machinery Sheds	    2		For the parking and placement of machinery and implements
+The detailed list of agricultural machinery and implements is attached herewith for your kind perusal
+Mr Ghulam Hussain Director (T&T), AMRI Multan has been nominated as the focal person for further coordination
+Additional Director General 
+Agricultural Mechanization
+Research Institute Multan
+Ph: 061-9200786
+
+SR #	Name of Machinery /Implement	Qty	Remarks
+1.		Disk Plow	1 No	Functional
+2.		Ditcher	1 No	Functional
+3.		Chisel Plow	1 No	Functional
+4.		Border Disk	1 No	Functional
+5.		Post Hole Digger	1 No	Functional
+6.		Fertilizer Spreader	1 No	Functional
+7.		Disk Retoner	1 No	Functional
+8.		Rice Straw Shredder	1 No	Functional
+9.		MB Plough 5-tine (Local)	1 No	Functional
+10.		Trencher along with cross	1 No	Functional
+11.		Sprinkler Gun	1 No	Functional
+12.		Jip Crane	1 No	Functional
+13.		Wheat Bed Planter	1 No	Functional
+14.		Double coulter Drill with Fertilizer	1 No	Functional
+15.		Vegetable Seeder	2 No	Functional
+16.		Vegetable Planter	2 No	Functional
+17.		Maize Cob Harvester	2 No	Functional
+18.		Mango Pruner	2 No	Functional
+19.		Hydraulic Trolley	1 No	Functional
+20.		Sugarcane Loader	2 No	Functional
+21.		Sugarcane Crusher	2 No	Functional
+22.		Tadder (Class) 	1 No	Functional
+23.		Rack (Class)	1 No	Functional
+24.		Silage Bailer 	2 No	Functional
+25.		Sugarcane Loader (Local Made)	1 No	Functional
+26.		Onion Harvester	1 No	Functional
+27.		Hay Bailer	1 No	Functional
+28.		Hay Buster Drill (Imported)	1 No	Functional
+29.		Hay Buster Drill (Local)	3 No	Functional
+30.		Rigger Vegetable	1 No	Functional
+31.		Cotton Ball Stripper	1 No	Functional
+32.		Fruit Picker	1 No	Functional
+33.		Rotary Disk Harrow	1 No	Functional
+34.		Wheat Bed & Farrow Drill	1 No	Functional
+35.		Bud Cutter	1 No	Functional
+36.		Wheat Wrapper	1 No	Functional 
+37.		AMRI Super Seeder (Old)	1 No	Functional
+38.		Walk Behind Reaper	1 No	Functional
+39.		ULV Sprayer	1 No	Functional
+40.		Jecto/Canon Sprayer	1 No	Functional
+41.		Vegetable Nursery Transplanter with Ridger (Local)	1 No	Functional
+42.		Vegetable Nursery Transplanter (Imported)	1 No	Functional
+43.		Hay Bailer (Local)	1 No	Functional
+44.		Hay Bailer (Imported)	1 No	Functional
+45.		Rotary Tillage and fertilizer seeder (Imported)	1 No	Functional
+46.		Inter Tillage weeder (Cultivator)	2 No	Functional
+47.		Trimmer	1 No	Functional
+48.		Orchard Sprayer	1 No	Functional
+49.		Speed Cultivator	1 No	Functional
+50.		Sugarcane Base cutter	1 No	Functional
+51.		Tadder (Imported)	1 No	Functional
+52.		Rack (Imported)	1 No	Functional
+53.		Vegetable Nursery Transplanter USA	1 No	Functional
+54.		Vegetable Nursery Transplanter China	1 No	Functional
+55.		Onion Harvester (Local)	1 No	Functional
+56.		Rice Nursery Raising Machine	1 No	Functional
+57.		Hot Water Treatment Plant	1 No	Functional
+58.		Garlic Weeder (Local)	1 No	Functional
+59.		Rotary Slasher (Sugarcane)	1 No	Functional
+60.		Disc Harrow	1 No	Functional
+61.		Fruit Picker	1 No	Functional
+62.		Cotton Root Digger	1 No	Functional
+63.		Cotton Stock Shredder	1 No	Functional
+64.		Cotton Root Digger	1 No	Functional
+65.		Cultivator (5-tine)	1 No	Functional
+66.		Rotary Slusher (Cotton)	1 No	Functional
+67.		Large Disc Harrow	1 No	Functional
+68.		MB Plough 3-bottom (Imported)	1 No	Functional
+69.		MB Plough 3-bottom (Local)	1 No	Functional
+70.		MB Plough 2-bottom (Imported)	1 No	Functional
+71.		Rice Transplanter	1 No	Not Functional need some repair
+72.		Sub Soiler	1 No	-do-
+73.		Rotary Slasher	1 No	-do-
+74.		Spring Tine Cultivator	1 No	-do-
+75.		Sugarcane set cutter	1 No	-do-
+76.		Self-Leveling boom sprayer	1 No	-do-
+77.		Bed Shipper Planter	1 No	-do-
+78.		Granular Distributor	1 No	-do-
+79.		AMRI Rotary Ditcher	1 No	-do-
+80.		Precision Sprayer (Local Made)	1 No	-do-
+81.		Para Plough	1 No	-do-
+82.		Wheat Straw Bailer	1 No	-do-
+83.		Runner Type Dry Sowing Drill	1 No	-do-
+84.		Hand Fertilizer Spreader (AMRI Made)	1 No	-do-
+85.		Sugarcane Harvester	1 No	-do-
+86.		Chopper Blower	1 No	-do-
+87.		Coulter Type (Drill Cotton)	1 No	-do-
+88.		Hill Planter	1 No	-do-
+89.		Bracketing Machine	1 No	-do-
+90.		Rotary Harrow	1 No	-do-
+91.		Mechanical Hitch Cutter	1 No	-do-
+92.		Garlic Harvester 	2 No	-do-
+93.		Fodder Cutter/Wrapper	2 No	-do-
+94.		Sugarcane Loader (Local Made)	1 No	-do-
+95.		Garlic Harvester (Local Made)	1 No	-do-
+96.		Forage Harvester	1 No	-do-
+97.		Maize Rigger Planter	1 No	-do-
+98.		Rotary Rigger	1 No	-do-
+99.		Fodder Chopper Stationary	1 No	-do-
+100.		Multicrop Planter	1 No	-do-
+101.		White Fly Shaker	1 No	-do-
+102.		Small disc Harrow	1 No	-do-
+103.		MB Plough Small	1 No	-do-
+104.		Cultivator (7-tine)	1 No	-do-
+105.		Garlic Planter	1 No	-do-
+106.		Fodder Cutter disc mover (local)	1 No	-do-
+107.		Garlic Harvester (Imported)	1 No	-do-
+108.		Wheat Straw Chopper Blower	1 No	-do-
+109.		Rota Drill	1 No	-do-
+110.		Rotary Drill	1 No	-do-
+111.		Single Coulter Drill	1 No	-do-
+112.		Carrot Washer (Engine)	1 No	-do-
+113.		Carrot Washer (Tractor Mounted)	1 No	-do-
+114.		Double Coulter Drill with fertilizer	1 No	-do-
+115.		Sugarcane rotavator	1 No	-do-
+116.		Garlic Planter	1 No	-do-
+117.		Multi Crop Planter	1 No	-do-
+118.		Fodder Cutter Cum Chopper	1 No	-do-
+119.		Wheat Straw Baler	1 No	-do-
+120.		Laser Land Leveler	1 No	-do-
+
+
+
+Director
+Agriculture Engineering(T&T)
+AMRI Multan

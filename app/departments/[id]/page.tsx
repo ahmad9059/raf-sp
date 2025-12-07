@@ -19,7 +19,7 @@ import { CottonInstitutePage } from "@/components/departments/cotton-institute-p
 import { PestPage } from "@/components/departments/pest-page";
 import { RAEDCPage } from "@/components/departments/raedc-page";
 import { ADPPage } from "@/components/departments/adp-page";
-import { MNSDataPage } from "@/components/departments/mns-data-page";
+import { AgriEngPage } from "@/components/departments/agri-eng";
 
 const departmentPages: Record<string, React.ComponentType> = {
   mnsuam: MNSUAMPage,
@@ -34,7 +34,7 @@ const departmentPages: Record<string, React.ComponentType> = {
   pest: PestPage,
   raedc: RAEDCPage,
   adp: ADPPage,
-  "mns-data": MNSDataPage,
+  "agri-eng": AgriEngPage,
 };
 
 export default function DepartmentPage() {

@@ -82,7 +82,7 @@ export function AboutSection() {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12">
+          {/* <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               About AgriData Hub
             </h2>
@@ -90,7 +90,7 @@ export function AboutSection() {
               A comprehensive digital platform showcasing agricultural research facilities, 
               equipment inventories, and resources across departments and institutes in South Punjab, Pakistan.
             </p>
-          </motion.div>
+          </motion.div> */}
 
           {/* Stats Grid */}
           <motion.div
@@ -119,7 +119,7 @@ export function AboutSection() {
           </motion.div>
 
           {/* Feature Section */}
-          <motion.div
+          {/* <motion.div
             variants={itemVariants}
             className="grid md:grid-cols-2 gap-8 items-center mb-12"
           >
@@ -177,7 +177,7 @@ export function AboutSection() {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Partner Logos Section */}
           <motion.div
@@ -193,7 +193,7 @@ export function AboutSection() {
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
               <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
                 <Image
-                  src="/icons/logo.png.png"
+                  src="/icons/logo1.png"
                   alt="Partner Organization"
                   fill
                   className="object-contain"
@@ -209,7 +209,7 @@ export function AboutSection() {
               </div>
               <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
                 <Image
-                  src="/icons/logo3.png.jpg"
+                  src="/icons/logo3.png"
                   alt="Partner Organization"
                   fill
                   className="object-contain"
@@ -217,7 +217,7 @@ export function AboutSection() {
               </div>
               <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
                 <Image
-                  src="/icons/logo4.jpg.jpeg"
+                  src="/icons/logo4.png"
                   alt="Partner Organization"
                   fill
                   className="object-contain"
@@ -225,7 +225,7 @@ export function AboutSection() {
               </div>
               <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
                 <Image
-                  src="/icons/logo5.jpg.jpg"
+                  src="/icons/logo5.png"
                   alt="Partner Organization"
                   fill
                   className="object-contain"

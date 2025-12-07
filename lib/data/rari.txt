@@ -1,0 +1,112 @@
+PROVISION OF DATA FOR DEVELOPING ASSET MANAGEMENT SYSTEM
+•	LAND RESOURCE 
+Sr. No.	Name of Farm/Institutes/station	District	Area Under Roads/Building	Direct cultivated Area	Total 
+					
+1	Regional Agricultural Research Institute, Bahawalpur	Bahawalpur	55 Acre	123 Acre	178 Acre
+ 
+•	BUILDING DETIALS 
+	Office Buildings (05 blocks)
+	Produce store, produce shed
+	29 Residential Quarters  
+Officer: 11		Officials:	18
+
+•	FARM MACHINERY/EQUIPMENT 
+Sr. No.	Name of machinery 	Quantity	Remarks
+1	Rabi Drill 	01	Working
+2	Cultivator 13 Phy	01	Working
+3	Cultivator 	03	Working
+4	Grass cuter Machine 	01	Working
+5	Water Tank 	01	Working
+6	Thrasher 	02	Working
+7	Full size Trolly	01	Working
+8	Single plant Wheat Thrasher 	01	Working
+9	Disk 16 Tavy 	01	Working
+10	Karah	01	Working
+11	Tractor Reaper 	01	Working
+12	Power Sprayer Machine 	02	Working
+13	Lawn roller 	01	Working
+14	Ditcher 	01	Working
+15	Bottom plough 	01	Working
+16	Disk plough 	01	Working
+17	Chisel plough 	01	Working
+18	Disk plough	01	Working
+19	Wheat Thrasher	02	Working
+20	Seed Grader	01	Working
+21	Power Sprayer Machine	07	Working
+22	FIAT Dabang 85Hp, 2022	01	Working
+23	FIAT tractor 75Hp, 1977	01	Working
+24	Tractor, Massey-385, 85Hp, 2012	01	Working
+25	Tractor Kabota, 30 Hp, 1995	01	Non Working
+26	Tractor Kabota, 30 Hp,1995	01	Non Working
+27	Massy Fargosan 75 Hp, 2012	01	Non Working
+28	FIAT  75Hp, 2004	01	Non Working
+
+
+LAB MACHINERY/EQUIPMENT 
+Name of Equipment/Instrument 	Use/Application 	Current Working Condition
+Top Loaded Balance	To Weight Soil Samples 	Working 
+Water Bath Thermostatic 	To Incubate Samples In Water At Constant Temperature	Working
+Air Compressor	 -	Out Of Order
+Shaker With Timer	To Shake And Mix Samples 	Working
+Muffle Furnace 	Crashing The Samples To Determine Un Combustible Content	Working
+Magnetic Sterr	To Mix Liquid	Working
+Spectrophotometer	For Determination Of Phosphorus And Born In Soil	Working
+Centrifuge 	 -	Out Of Order
+Flam Photometer 	For Determination Of Potassium And Sodium	Out Of Order
+Universal Shaking Apparatus  	For Shaking And Mixing 	Working 
+Oven	Drying Of Samples And Sterilizing The Of Glass Ware	Working 
+Ph Meter Portable	To Determine The Ph Of Solution 	Working 
+Ph Meter Desktop	To Determine The Ph Of Solution 	Working 
+EC Meter 	To Check The Electrical Conductivity Of Solution 	Working
+EC Meter 	To Check The Electrical Conductivity Of Solution 	Working
+Plant Grander	To Grind And Thresh The Plant And Grains 	Working 
+Microscope	To Identify Micro Organisms	Working 
+Digital Balance	To Weight Chemicals For Experiments 	Working 
+Colony Counter	To Measure Microbial Colony	Working 
+Humidifier	To Create Artificial Humidity For Experiments 	Working
+Germination Cabinet	Grow Microbe Under Control Condition	Out Of Order
+Microscope	To Identify Micro Organisms	Working
+Bio Incubator	Grow Microbe Under Control Condition	Working
+Electric Balance And Seed Counter	For Weight/Thousands Grain Weight And Counting 	Working 
+Canopy Temperature Meter	To Observe The Crop Canopy Temperature	Working
+Digital Balance	For Weighting The Small Samples Of Plant Parts.	Working
+Leaf Area Scanner/Meter	To Measure The Plant Leaf Area	Working
+
+•	HUMAN RESOURCES
+S. No	Name of Post	BS. No	Sanctioned Strength	On Roll	Vacant
+1	Principal Scientist:	19	08	01	07
+2	Senior Scientist	18	12	11	01
+3
+	Scientific Officer	17	08	08	-
+	Total 	28	20	8
+
+OFFICALS STAFF
+S. No	Name of Post	BS. No	Sanctioned Strength	On Roll	Vacant
+1.		Assistant	16	2	2	-
+2.		Senior Scale Stenographer 	16	1	1	-
+3.		Stenographer	15	2	1	1
+4.		Senior Clerk	14	3	3	-
+5.		Junior Clerk	11	8	6	2
+6.		Field Assistant 	11	15	1	14
+7.		Laboratory Assistant	06	5	2	3
+8.		Tractor Driver	05	4	2	2
+9.		Budder	05	1	1	-
+10.		Jeep Driver	04	4	3	1
+11.		Tubewell Operator	03	2	1	1
+12.		Tube well Driver	02	1	1	-
+13.		Tractor Cleaner	01	2	2	-
+14.		Laboratory Attendant	01	4	4	-
+15.		Mali	01	1	-	1
+16.		Naib Qasid	01	11	9	2
+17.		Chowkidar	01	1	1	-
+18.		Sweeper	01	2	2	-
+19.		Beldar	01	34	25	9
+Total:-	103	67	36
+
+
+(RASHID MINHAS)
+PRINCIPAL SCIENTIST
+REGIONAL AGRICULTURAL RESEARCH INSTITUTE,
+BAHAWALPUR
+
+

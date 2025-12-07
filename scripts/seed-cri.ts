@@ -56,6 +56,25 @@ const farmMachinery = [
   { name: "Thresher with Elevator", year: "2018", location: "CRI, Farm Shed" },
 ];
 
+const landData = [
+  { label: "Total Area", value: "24.6 acres", icon: "🌱" },
+  { label: "Under Cultivation", value: "19.6 acres", icon: "🌾" },
+  { label: "Buildings & Infrastructure", value: "4 acres", icon: "🏢" },
+  { label: "Roads & Pathways", value: "1 acre", icon: "🛣️" },
+];
+
+const buildingData = [
+  { label: "Building Rooms", value: "20", icon: "🚪" },
+  { label: "Laboratories", value: "5", icon: "🧪" },
+];
+
+const hrData = [
+  { label: "Total Officers", value: "18", color: "from-blue-500 to-cyan-400" },
+  { label: "Officials & Field Staff", value: "32", color: "from-indigo-500 to-purple-400" },
+  { label: "Total Positions", value: "50", color: "from-violet-600 to-fuchsia-400" },
+  { label: "Vacant Officer Positions", value: "4", color: "from-rose-500 to-orange-400" },
+];
+
 async function main() {
   console.log("Seeding Cotton Research Institute data...");
 
@@ -123,6 +142,50 @@ async function main() {
   }
 
   console.log(`Seeded ${farmMachinery.length} farm machinery items`);
+
+  // Seed Land Data
+  for (const item of landData) {
+    const created = await prisma.cRIMultanAssets.create({
+      data: {
+        name: item.label,
+        type: "Land",
+        description: item.value,
+        imageUrl: item.icon,
+        departmentId: department.id,
+      },
+    });
+    console.log(`Created land item: ${created.name}, description: ${created.description}`);
+  }
+  console.log(`Seeded ${landData.length} land data items`);
+
+  // Seed Building Data
+  for (const item of buildingData) {
+    await prisma.cRIMultanAssets.create({
+      data: {
+        name: item.label,
+        type: "Infrastructure",
+        description: item.value,
+        imageUrl: item.icon,
+        departmentId: department.id,
+      },
+    });
+  }
+  console.log(`Seeded ${buildingData.length} building data items`);
+
+  // Seed HR Data
+  for (const item of hrData) {
+    await prisma.cRIMultanAssets.create({
+      data: {
+        name: item.label,
+        type: "Human Resource",
+        description: item.value,
+        imageUrl: item.color,
+        departmentId: department.id,
+      },
+    });
+  }
+  console.log(`Seeded ${hrData.length} HR data items`);
+
   console.log("✅ CRI data seeding completed!");
 }
 

@@ -32,14 +32,6 @@ export function DepartmentLayout({
             <div>
               {/* Logo Badge */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="relative w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg p-2">
-                  <Image
-                    src="/icons/logo.png.png"
-                    alt="Department Logo"
-                    fill
-                    className="object-contain p-1"
-                  />
-                </div>
                 <div className="flex items-center gap-2 text-sm opacity-90">
                   <Building2 className="w-4 h-4" />
                   <span>Research Institute</span>
