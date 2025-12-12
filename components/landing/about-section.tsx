@@ -1,50 +1,90 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, animate } from "framer-motion";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { Building2, FlaskConical, Users, Tractor, BarChart3, Database } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 const stats = [
   {
     icon: Building2,
-    value: "18+",
+    value: 18,
+    suffix: "+",
     label: "Departments",
     color: "text-primary",
   },
   {
     icon: FlaskConical,
-    value: "1000+",
+    value: 1000,
+    suffix: "+",
     label: "Equipment Items",
     color: "text-secondary",
   },
   {
     icon: Users,
-    value: "500+",
+    value: 500,
+    suffix: "+",
     label: "Staff Members",
     color: "text-primary",
   },
   {
     icon: Tractor,
-    value: "200+",
+    value: 200,
+    suffix: "+",
     label: "Farm Machinery",
     color: "text-secondary",
   },
   {
     icon: BarChart3,
-    value: "100%",
+    value: 100,
+    suffix: "%",
     label: "Data Coverage",
     color: "text-primary",
   },
   {
     icon: Database,
-    value: "Real-time",
-    label: "Updates",
+    value: 24,
+    suffix: "/7",
+    label: "Access",
     color: "text-secondary",
   },
 ];
+
+const partners = [
+  { src: "/icons/logo1.png", alt: "Partner 1" },
+  { src: "/icons/logo2.png.png", alt: "Partner 2" },
+  { src: "/icons/logo3.png", alt: "Partner 3" },
+  { src: "/icons/logo4.png", alt: "Partner 4" },
+  { src: "/icons/logo5.png", alt: "Partner 5" },
+  { src: "/icons/logo6.png", alt: "Partner 6" },
+];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, value, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(current) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(current).toString();
+          }
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value]);
+
+  return (
+    <span className="flex items-center">
+      <span ref={ref}>0</span>
+      {suffix}
+    </span>
+  );
+}
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -55,62 +95,60 @@ export function AboutSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.06,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: {
-        duration: 0.3,
-        ease: "easeOut" as const,
+        duration: 0.5,
       },
     },
   };
 
   return (
-    <section id="about" className="py-16 bg-background" ref={ref}>
+    <section id="about" className="py-20 bg-muted/30" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="max-w-6xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          {/* <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              About AgriData Hub
+          <motion.div variants={itemVariants} className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Empowering Agriculture Through Data
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A comprehensive digital platform showcasing agricultural research facilities, 
-              equipment inventories, and resources across departments and institutes in South Punjab, Pakistan.
+            <p className="text-lg text-muted-foreground">
+              We bridge the gap between research and application by providing a centralized platform for agricultural resources, equipment tracking, and departmental collaboration across South Punjab.
             </p>
-          </motion.div> */}
+          </motion.div>
 
           {/* Stats Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="stat-card text-center"
+                className="bg-card hover:shadow-lg transition-shadow duration-300 rounded-xl p-6 text-center border border-border/50 group"
               >
-                <div className="relative z-10">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-3`}>
+                <div className="flex flex-col items-center justify-center h-full">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <stat.icon className={`w-6 h-6 ${stat.color}`} />
                   </div>
-                  <div className={`text-2xl font-bold ${stat.color} mb-1`}>
-                    {stat.value}
+                  <div className={`text-3xl font-bold ${stat.color} mb-2`}>
+                    <Counter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-sm font-medium text-muted-foreground">
                     {stat.label}
                   </div>
                 </div>
@@ -118,126 +156,140 @@ export function AboutSection() {
             ))}
           </motion.div>
 
-          {/* Feature Section */}
-          {/* <motion.div
-            variants={itemVariants}
-            className="grid md:grid-cols-2 gap-8 items-center mb-12"
-          >
-            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/mns.png.jpg"
-                alt="Agricultural Research"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Comprehensive Agricultural Data
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Access detailed information about research facilities, laboratory equipment, 
-                farm machinery, and human resources across multiple departments and institutes 
-                in the Agriculture Complex Multan.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <FlaskConical className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Equipment Inventory</div>
-                    <div className="text-sm text-muted-foreground">Detailed lab equipment lists</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Building2 className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Facilities Overview</div>
-                    <div className="text-sm text-muted-foreground">Labs, halls, and resources</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Staff Directory</div>
-                    <div className="text-sm text-muted-foreground">Human resources data</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Tractor className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <div className="font-semibold text-foreground">Farm Machinery</div>
-                    <div className="text-sm text-muted-foreground">Agricultural equipment</div>
-                  </div>
-                </div>
-              </div>
-              <Button asChild size="lg">
-                <Link href="#departments">
-                  Explore Departments
-                </Link>
-              </Button>
-            </div>
-          </motion.div> */}
-
-          {/* Partner Logos Section */}
+          {/* Partner Logos Section - Infinite Marquee */}
           <motion.div
             variants={itemVariants}
-            className="mt-12"
+            className="relative w-full overflow-hidden py-10"
           >
-            <h3 className="text-center text-xl font-bold text-foreground mb-2">
-              Made Possible By
-            </h3>
-            <p className="text-center text-sm text-muted-foreground mb-8">
-              In collaboration with our valued partners and supporting organizations
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo1.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
+            <div className="text-center mb-10">
+              <h3 className="text-xl font-semibold text-foreground mb-2">
+                Strategic Partners
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Collaborating with leading institutions to drive agricultural innovation
+              </p>
+            </div>
+
+            {/* Gradient Masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 bg-gradient-to-r from-muted/30 to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 bg-gradient-to-l from-muted/30 to-transparent pointer-events-none" />
+
+            {/* Marquee Container */}
+            <div className="flex flex-col gap-16">
+              {/* Row 1: Left Scroll */}
+              <div className="flex overflow-hidden group">
+                <motion.div
+                  className="flex gap-12 md:gap-24 min-w-full shrink-0 items-center justify-around"
+                  animate={{ x: [0, -1000] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 30,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...partners, ...partners, ...partners].map((partner, index) => (
+                    <div
+                      key={`row1-${index}`}
+                      className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500 cursor-pointer"
+                    >
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        fill
+                        className="object-contain drop-shadow-sm"
+                        sizes="(max-width: 768px) 96px, 128px"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+                <motion.div
+                  className="flex gap-12 md:gap-24 min-w-full shrink-0 items-center justify-around"
+                  animate={{ x: [0, -1000] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 30,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...partners, ...partners, ...partners].map((partner, index) => (
+                    <div
+                      key={`row1-dup-${index}`}
+                      className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500 cursor-pointer"
+                    >
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        fill
+                        className="object-contain drop-shadow-sm"
+                        sizes="(max-width: 768px) 96px, 128px"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
               </div>
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo2.png.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo3.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo4.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo5.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="relative w-24 h-24 md:w-28 md:h-28 hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/icons/logo6.png"
-                  alt="Partner Organization"
-                  fill
-                  className="object-contain"
-                />
+
+              {/* Row 2: Right Scroll (Reverse) */}
+              <div className="flex overflow-hidden group">
+                <motion.div
+                  className="flex gap-12 md:gap-24 min-w-full shrink-0 items-center justify-around"
+                  animate={{ x: [-1000, 0] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 35,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...partners, ...partners, ...partners].reverse().map((partner, index) => (
+                    <div
+                      key={`row2-${index}`}
+                      className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500 cursor-pointer"
+                    >
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        fill
+                        className="object-contain drop-shadow-sm"
+                        sizes="(max-width: 768px) 96px, 128px"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+                <motion.div
+                  className="flex gap-12 md:gap-24 min-w-full shrink-0 items-center justify-around"
+                  animate={{ x: [-1000, 0] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 35,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...partners, ...partners, ...partners].reverse().map((partner, index) => (
+                    <div
+                      key={`row2-dup-${index}`}
+                      className="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500 cursor-pointer"
+                    >
+                      <Image
+                        src={partner.src}
+                        alt={partner.alt}
+                        fill
+                        className="object-contain drop-shadow-sm"
+                        sizes="(max-width: 768px) 96px, 128px"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
               </div>
             </div>
           </motion.div>
