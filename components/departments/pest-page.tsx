@@ -240,7 +240,7 @@ export function PestPage() {
                   cx="50%"
                   cy="50%"
                   outerRadius={100}
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}
                 >
                   {data.stats.equipmentDistribution.map((entry, idx) => (
                     <Cell key={entry.name} fill={palette[idx % palette.length]} />
