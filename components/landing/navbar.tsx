@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sprout } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -33,16 +34,26 @@ export function Navbar() {
           : "bg-transparent border-transparent"
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container py-1 mx-auto px-4 sm:px-6 lg:px-3">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo and Brand */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
-              <Sprout className="h-6 w-6 text-primary" />
+          <Link href="/" className="flex items-center group">
+            <div className=" transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/images/mainLogo.png"
+                alt="RAF-SP Logo"
+                width={100}
+                height={100}
+                className="object-cover"
+                priority
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="text-foreground font-bold text-lg leading-none tracking-tight">
+            <div className="ml-[-8px] flex flex-col">
+              <span className="text-primary font-bold text-xl leading-none tracking-tight">
                 RAF-SP
+              </span>
+              <span className="text-[10px] text-muted-foreground font-medium hidden sm:inline-block tracking-wide">
+                Research & Agriculture
               </span>
             </div>
           </Link>
@@ -53,7 +64,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+                className="text-base font-medium text-muted-foreground hover:text-primary transition-colors relative group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -63,10 +74,17 @@ export function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" asChild className="font-medium hover:text-primary hover:bg-primary/5">
+            <Button
+              variant="ghost"
+              asChild
+              className="font-medium hover:text-primary hover:bg-primary/5"
+            >
               <Link href="/login">Login</Link>
             </Button>
-            <Button asChild className="font-medium shadow-sm hover:shadow-md transition-all">
+            <Button
+              asChild
+              className="font-medium shadow-sm hover:shadow-md transition-all"
+            >
               <Link href="/signup">Get Started</Link>
             </Button>
           </div>
@@ -105,7 +123,11 @@ export function Navbar() {
                 ))}
               </div>
               <div className="pt-4 border-t border-border/50 grid grid-cols-2 gap-4">
-                <Button variant="outline" asChild className="w-full justify-center">
+                <Button
+                  variant="outline"
+                  asChild
+                  className="w-full justify-center"
+                >
                   <Link
                     href="/login"
                     onClick={() => setIsMobileMenuOpen(false)}
