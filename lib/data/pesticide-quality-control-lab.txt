@@ -1,0 +1,81 @@
+Here is your information **cleanly formatted and structured** for official or report use:
+
+---
+
+## **Land Resource**
+
+* **Nil**
+
+---
+
+## **Building Details**
+
+* Chief Scientist Office
+* Establishment Office
+* ISO Cell
+* General Laboratory
+* HPLC Lab–1
+* HPLC Lab–2
+* GC Laboratory
+* Sample Processing Room
+* Chemical Laboratory
+* Balance Room
+* Sample Store Room
+* Sample Receiving Room
+
+---
+
+## **List of Farm Machinery / Equipment**
+
+* **Nil**
+
+---
+
+## **List of Laboratory Machinery / Equipment**
+
+| **Name of Instrument** | **Quantity / Parameter** |
+| ---------------------- | ------------------------ |
+| HPLC                   | 3                        |
+| GC                     | 2                        |
+| Analytical Balance     | 1                        |
+| Spectrophotometer      | 2                        |
+| EC Meter               | 1                        |
+| Thermo Hygrometer      | 4                        |
+| pH Meter               | 1                        |
+
+---
+
+## **Human Resource Details**
+
+| **Post Description**  | **BPS** | **Sanctioned** | **Filled** | **Vacant** |
+| --------------------- | ------- | -------------- | ---------- | ---------- |
+| Chief Scientist       | 20      | 01             | 01         | —          |
+| Principal Scientist   | 19      | 01             | —          | 01         |
+| Senior Scientist      | 18      | 02             | 02         | —          |
+| Scientific Officer    | 17      | 02             | —          | 02         |
+| Stenographer          | 16      | 01             | —          | 01         |
+| Research Assistant    | 15      | 02             | —          | 02         |
+| Senior Clerk          | 14      | 01             | 01         | —          |
+| Junior Clerk          | 11      | 01             | 01         | —          |
+| Instrument Technician | 11      | 01             | —          | 01         |
+| Lab Technician        | 11      | 01             | —          | 01         |
+| Lab Assistant         | 06      | 04             | —          | 04         |
+| Driver                | 04      | 01             | 01         | —          |
+| Lab Attendant         | 01      | 01             | 01         | —          |
+| Naib Qasid            | 01      | 01             | 01         | —          |
+| Chowkidar             | 01      | 02             | 02         | —          |
+| Sweeper               | 01      | 01             | 01         | —          |
+| **Grand Total**       | —       | **23**         | **11**     | **12**     |
+
+---
+
+## **Focal Person**
+
+* **Name:** Dr. Subhan Danish
+* **Designation:** Senior Scientist
+* **Contact Number:** 0304-7996951
+* **Email Address:** [sd96850@gmail.com](mailto:sd96850@gmail.com)
+
+---
+
+If you want this converted into **Word, Excel, or official government-report format**, tell me which one you need.

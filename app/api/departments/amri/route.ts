@@ -36,13 +36,21 @@ export async function GET() {
       (asset) => asset.type === "Machinery"
     );
 
+    const normalizeStatus = (status?: string | null) => {
+      const value = (status || "").toLowerCase();
+      if (value.includes("non") || value.includes("not") || value.includes("repair")) {
+        return "Non-Functional";
+      }
+      return "Functional";
+    };
+
     // Calculate statistics
     const totalMachinery = machinery.length;
     const functionalMachinery = machinery.filter(
-      (m) => m.functionalStatus === "Functional"
+      (m) => normalizeStatus(m.functionalStatus) === "Functional"
     ).length;
     const nonFunctionalMachinery = machinery.filter(
-      (m) => m.functionalStatus === "Non-Functional" || m.functionalStatus === "Not Functional need some repair"
+      (m) => normalizeStatus(m.functionalStatus) === "Non-Functional"
     ).length;
 
     return NextResponse.json({
