@@ -3,6 +3,25 @@ import { pgPool } from "@/lib/pg";
 
 export async function GET() {
   try {
+    // Check if tables exist
+    const tableExistQuery = await pgPool.query(`
+      SELECT EXISTS (
+        SELECT FROM information_schema.tables 
+        WHERE table_schema = 'public' 
+        AND table_name = 'ento_profile'
+      );
+    `);
+
+    if (!tableExistQuery.rows[0].exists) {
+      return NextResponse.json(
+        { 
+          error: "Ento tables not found in database",
+          message: "Please run: npx tsx scripts/seed-ento.ts" 
+        },
+        { status: 503 }
+      );
+    }
+
     const profileQuery = await pgPool.query(
       `
         SELECT
@@ -120,8 +139,9 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error fetching Ento data:", error);
+    const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: errorMessage, details: "Check server logs for more information" },
       { status: 500 }
     );
   }
