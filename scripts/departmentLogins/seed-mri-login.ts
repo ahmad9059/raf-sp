@@ -10,7 +10,10 @@ async function seedMRILogin() {
       email: "abidhameedkhan@yahoo.com",
     },
     update: {
-      departmentId:
+      name: "MRI Department Focal Person",
+      password,
+      role: "DEPT_HEAD",
+      departmentId: "mri",
     },
     create: {
       name: "MRI Department Focal Person",

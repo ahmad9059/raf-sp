@@ -15,51 +15,87 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 interface SidebarProps {
   userRole?: string;
+  departmentId?: string | null;
 }
 
-const navigation = [
+// Map department IDs to their dashboard routes and display names
+const departmentInfo: Record<string, { route: string; name: string }> = {
+  "mri": { route: "/dashboard/mri", name: "MRI Dashboard" },
+  "amri": { route: "/dashboard/amri", name: "AMRI Dashboard" },
+  "food-science": { route: "/dashboard/food-science", name: "Food Science" },
+  "cri": { route: "/dashboard/cri", name: "CRI Dashboard" },
+  "flori": { route: "/dashboard/floriculture", name: "Floriculture" },
+  "rari": { route: "/dashboard/rari", name: "RARI Dashboard" },
+  "mnsuam": { route: "/dashboard/mnsuam", name: "MNSUAM Dashboard" },
+  "soil-water": { route: "/dashboard/soil-water", name: "Soil & Water" },
+  "pest": { route: "/dashboard/pesticide", name: "Pesticide QC" },
+  "agri-eng": { route: "/dashboard/agri-engineering", name: "Agri Engineering" },
+  "cmj65lx040000f4txnzu2lssv": { route: "/dashboard/agri-engineering", name: "Agri Engineering" },
+  "raedc": { route: "/dashboard/raedc", name: "RAEDC Dashboard" },
+  "cmj65nmep0000e0txy17pplhy": { route: "/dashboard/raedc", name: "RAEDC Dashboard" },
+  "agri-ext": { route: "/dashboard/agri-extension", name: "Agri Extension" },
+  "erss": { route: "/dashboard/entomology", name: "Entomology" },
+};
+
+const adminNavigation = [
   {
     name: "Dashboard",
     href: "/dashboard",
     icon: LayoutDashboard,
-    roles: ["ADMIN", "DEPT_HEAD"],
   },
-  
   {
     name: "Departments",
     href: "/dashboard/admin/departments",
     icon: Building2,
-    roles: ["ADMIN"],
   },
   {
     name: "Users",
     href: "/dashboard/admin/users",
     icon: Users,
-    roles: ["ADMIN"],
   },
   {
     name: "Settings",
     href: "/dashboard/settings",
     icon: Settings,
-    roles: ["ADMIN", "DEPT_HEAD"],
   },
 ];
 
-export function Sidebar({ userRole = "DEPT_HEAD" }: SidebarProps) {
+export function Sidebar({ userRole = "DEPT_HEAD", departmentId }: SidebarProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const filteredNavigation = navigation.filter((item) =>
-    item.roles.includes(userRole)
-  );
+  // Generate navigation based on user role and department
+  const navigation = useMemo(() => {
+    if (userRole === "ADMIN") {
+      return adminNavigation;
+    }
+
+    // For department heads, show their specific department dashboard
+    const deptInfo = departmentId ? departmentInfo[departmentId] : null;
+    
+    const deptNavigation = [
+      {
+        name: deptInfo?.name || "My Dashboard",
+        href: deptInfo?.route || "/dashboard",
+        icon: LayoutDashboard,
+      },
+      {
+        name: "Settings",
+        href: "/dashboard/settings",
+        icon: Settings,
+      },
+    ];
+
+    return deptNavigation;
+  }, [userRole, departmentId]);
 
   const NavLinks = () => (
     <>
-      {filteredNavigation.map((item) => {
+      {navigation.map((item) => {
         const isActive =
           pathname === item.href ||
           (item.href !== "/dashboard" && pathname.startsWith(item.href));

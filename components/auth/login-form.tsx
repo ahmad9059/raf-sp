@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { loginSchema, type LoginInput } from "@/lib/validations/auth";
 import { loginAction } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,6 @@ import { useToast } from "@/hooks/use-toast";
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   const { success, error } = useToast();
 
   const form = useForm<LoginInput>({
@@ -39,8 +37,9 @@ export function LoginForm() {
 
       if (result.success) {
         success(result.message || "Login successful");
-        router.push("/dashboard");
-        router.refresh();
+        // Use full page navigation to trigger middleware redirect
+        // This ensures department heads are redirected to their specific dashboard
+        window.location.href = "/dashboard";
       } else {
         error(result.message || "Login failed");
       }
