@@ -4,12 +4,14 @@ import { prisma } from "../../lib/prisma";
 
 async function seedMRILogin() {
   const password = await bcrypt.hash("ChangeMe123!", 10);
-
+  
   await prisma.user.upsert({
     where: {
-      email: "muzamil.ijaz243@gmail.com",
+      email: "abidhameedkhan@yahoo.com",
     },
-    update: {},
+    update: {
+      departmentId:
+    },
     create: {
       name: "MRI Department Focal Person",
       email: "abidhameedkhan@yahoo.com",
