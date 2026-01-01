@@ -89,14 +89,6 @@ const itemVariants = {
   },
 };
 
-const palette = {
-  primary: "#2563eb",
-  filled: "#0f9f6e",
-  vacant: "#e11d48",
-  accent: "#0ea5e9",
-  muted: "#e2e8f0",
-};
-
 export function ARCPage() {
   const [data, setData] = useState<AdaptiveResearchData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -181,103 +173,79 @@ export function ARCPage() {
         email: data.department.email || undefined,
       }}
     >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="space-y-10"
-      >
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-10">
+        {/* Top Stats */}
         <motion.div variants={itemVariants}>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="p-5 bg-gradient-to-br from-blue-50 to-white border-blue-100 shadow-sm">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-blue-600 font-semibold">
-                    Sanctioned Posts
-                  </p>
-                  <p className="text-3xl font-bold text-blue-900">{data.stats.totalSanctioned}</p>
+            {[
+              { label: "Sanctioned Posts", value: data.stats.totalSanctioned, icon: <BarChart3 className="w-8 h-8 text-slate-600" /> },
+              {
+                label: "Filled Posts",
+                value: data.stats.totalFilled,
+                icon: <CheckCircle2 className="w-8 h-8 text-slate-600" />,
+                footer: (
+                  <div className="mt-2 space-y-1">
+                    <div className="flex items-center justify-between text-xs text-slate-600">
+                      <span>Filled ratio</span>
+                      <span className="font-semibold text-slate-900">{fillProgress}%</span>
+                    </div>
+                    <Progress value={fillProgress} className="h-2" />
+                  </div>
+                ),
+              },
+              { label: "Vacant Posts", value: data.stats.totalVacant, icon: <AlertTriangle className="w-8 h-8 text-slate-600" />, hint: `Vacancy rate ${data.stats.vacancyRate}%` },
+              {
+                label: "Pipeline",
+                value: data.stats.promotionPosts + data.stats.initialRecruitmentPosts,
+                icon: <ClipboardList className="w-8 h-8 text-slate-600" />,
+                hint: `${data.stats.promotionPosts} Promotion • ${data.stats.initialRecruitmentPosts} Initial`,
+              },
+            ].map((card) => (
+              <Card key={card.label} className="p-5 bg-white border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between gap-2">
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-500 font-semibold">{card.label}</p>
+                    <p className="text-3xl font-bold text-slate-900">{card.value}</p>
+                  </div>
+                  {card.icon}
                 </div>
-                <BarChart3 className="w-10 h-10 text-blue-500" />
-              </div>
-            </Card>
-            <Card className="p-5 bg-gradient-to-br from-emerald-50 to-white border-emerald-100 shadow-sm">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-emerald-700 font-semibold">
-                    Filled Posts
-                  </p>
-                  <p className="text-3xl font-bold text-emerald-900">{data.stats.totalFilled}</p>
-                </div>
-                <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-              </div>
-              <div className="mt-3 space-y-2">
-                <div className="flex items-center justify-between text-xs text-emerald-800">
-                  <span>Filled ratio</span>
-                  <span className="font-semibold">{fillProgress}%</span>
-                </div>
-                <Progress value={fillProgress} className="h-2" />
-              </div>
-            </Card>
-            <Card className="p-5 bg-gradient-to-br from-rose-50 to-white border-rose-100 shadow-sm">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-rose-700 font-semibold">
-                    Vacant Posts
-                  </p>
-                  <p className="text-3xl font-bold text-rose-900">{data.stats.totalVacant}</p>
-                </div>
-                <AlertTriangle className="w-10 h-10 text-rose-500" />
-              </div>
-              <p className="text-xs text-rose-700 mt-2">Vacancy rate {data.stats.vacancyRate}%</p>
-            </Card>
-            <Card className="p-5 bg-gradient-to-br from-amber-50 to-white border-amber-100 shadow-sm">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-amber-700 font-semibold">
-                    Pipeline
-                  </p>
-                  <p className="text-2xl font-bold text-amber-900">
-                    {data.stats.promotionPosts + data.stats.initialRecruitmentPosts}
-                  </p>
-                  <p className="text-xs text-amber-700">
-                    {data.stats.promotionPosts} Promotion · {data.stats.initialRecruitmentPosts} Initial
-                  </p>
-                </div>
-                <ClipboardList className="w-10 h-10 text-amber-500" />
-              </div>
-            </Card>
+                {card.footer}
+                {card.hint && <p className="text-xs text-slate-500 mt-2">{card.hint}</p>}
+              </Card>
+            ))}
           </div>
         </motion.div>
 
+        {/* Charts */}
         <motion.div variants={itemVariants} className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-          <Card className="p-6 border-slate-200 shadow-md">
+          <Card className="p-6 border-slate-200 shadow-sm bg-white">
             <div className="flex items-center justify-between gap-3 mb-4">
               <div>
                 <h3 className="text-xl font-semibold text-slate-900">BPS Fill vs Vacant</h3>
-                <p className="text-sm text-muted-foreground">
-                  Sanctioned strength with filled/vacant split by BPS scale.
-                </p>
+                <p className="text-sm text-muted-foreground">Sanctioned strength with filled/vacant split by BPS scale.</p>
               </div>
               <Badge variant="outline" className="bg-slate-50">
                 {totalRecords} roles
               </Badge>
             </div>
-            <ResponsiveContainer width="100%" height={320}>
-              <BarChart data={data.breakdown.bpsBreakdown} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="bps" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="filled" name="Filled" stackId="a" fill={palette.filled} radius={[6, 6, 0, 0]} />
-                <Bar dataKey="vacant" name="Vacant" stackId="a" fill={palette.vacant} radius={[6, 6, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            <div className="w-full h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={data.breakdown.bpsBreakdown} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="bps" />
+                  <YAxis allowDecimals={false} />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="filled" name="Filled" stackId="a" fill="#0f9f6e" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="vacant" name="Vacant" stackId="a" fill="#e11d48" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </Card>
 
-          <Card className="p-6 border-slate-200 shadow-md">
+          <Card className="p-6 border-slate-200 shadow-sm bg-white">
             <div className="flex items-center gap-3 mb-4">
-              <PieIcon className="w-5 h-5 text-blue-600" />
+              <PieIcon className="w-5 h-5 text-slate-600" />
               <div>
                 <h3 className="text-xl font-semibold text-slate-900">Vacancy Rate</h3>
                 <p className="text-sm text-muted-foreground">Overall fill progress across ARC.</p>
@@ -285,10 +253,10 @@ export function ARCPage() {
             </div>
             <div className="space-y-4">
               <div className="flex items-baseline gap-3">
-                <p className="text-4xl font-bold text-blue-900">{fillProgress}%</p>
+                <p className="text-4xl font-bold text-slate-900">{fillProgress}%</p>
                 <p className="text-sm text-muted-foreground">filled</p>
               </div>
-              <div className="rounded-lg border border-blue-100 bg-blue-50/50 p-4 space-y-3">
+              <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 space-y-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-medium text-slate-800">Vacancy rate</span>
                   <span className="font-semibold text-rose-700">{data.stats.vacancyRate}%</span>
@@ -312,10 +280,11 @@ export function ARCPage() {
           </Card>
         </motion.div>
 
+        {/* Hotspots */}
         <motion.div variants={itemVariants}>
-          <Card className="p-6 border-slate-200 shadow-md">
+          <Card className="p-6 border-slate-200 shadow-sm bg-white">
             <div className="flex items-center gap-3 mb-4">
-              <Activity className="w-5 h-5 text-rose-600" />
+              <Activity className="w-5 h-5 text-slate-600" />
               <div>
                 <h3 className="text-xl font-semibold text-slate-900">Vacancy Hotspots</h3>
                 <p className="text-sm text-muted-foreground">Roles with the highest open posts.</p>
@@ -326,23 +295,14 @@ export function ARCPage() {
                 <p className="text-sm text-muted-foreground col-span-2">All positions are currently filled.</p>
               )}
               {data.breakdown.vacancyLeaders.map((pos) => {
-                const fillRate = pos.sanctionedPosts
-                  ? Math.round((pos.filledPosts / pos.sanctionedPosts) * 100)
-                  : 0;
+                const fillRate = pos.sanctionedPosts ? Math.round((pos.filledPosts / pos.sanctionedPosts) * 100) : 0;
                 return (
-                  <div
-                    key={pos.id}
-                    className="p-4 rounded-lg border border-rose-100 bg-rose-50/50 space-y-2"
-                  >
+                  <div key={pos.id} className="p-4 rounded-lg border border-slate-200 bg-slate-50 space-y-2">
                     <div className="flex items-center justify-between">
-                      <div className="font-semibold text-rose-900">{pos.postName}</div>
-                      <Badge variant="outline" className="bg-white">
-                        {pos.bpsScale}
-                      </Badge>
+                      <div className="font-semibold text-slate-900">{pos.postName}</div>
+                      <Badge variant="outline">{pos.bpsScale}</Badge>
                     </div>
-                    <div className="text-xs text-muted-foreground">
-                      {pos.attachedDepartment || "ARC"}
-                    </div>
+                    <div className="text-xs text-muted-foreground">{pos.attachedDepartment || "ARC"}</div>
                     <div className="flex items-center justify-between text-sm text-slate-700">
                       <span>Vacant</span>
                       <span className="font-semibold text-rose-700">{pos.vacantPosts}</span>
@@ -358,8 +318,9 @@ export function ARCPage() {
           </Card>
         </motion.div>
 
+        {/* Table */}
         <motion.div variants={itemVariants}>
-          <Card className="border-slate-200 shadow-md overflow-hidden">
+          <Card className="border-slate-200 shadow-sm bg-white overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b bg-slate-50">
               <div>
                 <h3 className="text-xl font-semibold text-slate-900">Complete Vacancy Register</h3>
@@ -373,35 +334,32 @@ export function ARCPage() {
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-white border-b">
+                <thead className="bg-slate-50 border-b border-slate-200">
                   <tr>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Sr. No</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Sr. No</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">
                       Name of Attached Department / Autonomous Bodies
                     </th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Nomenclature of the Post</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">BPS</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Total Number of Sanctioned Posts</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Filled</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Vacant</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">No. of Posts to be filled by Promotion</th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">
-                      No. of Posts to be filled through Initial Recruitment
-                    </th>
-                    <th className="text-left px-6 py-3 font-semibold text-slate-600">Remarks</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Nomenclature of the Post</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">BPS</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Total Sanctioned</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Filled</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Vacant</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Promotion</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Initial Recruitment</th>
+                    <th className="text-left px-6 py-3 font-semibold text-slate-700">Remarks</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y">
+                <tbody className="divide-y divide-slate-200">
                   {data.positions.map((pos, idx) => {
-                    const fillRate = pos.sanctionedPosts
-                      ? Math.round((pos.filledPosts / pos.sanctionedPosts) * 100)
-                      : 0;
+                    const fillRate = pos.sanctionedPosts ? Math.round((pos.filledPosts / pos.sanctionedPosts) * 100) : 0;
                     return (
                       <tr key={pos.id} className="hover:bg-slate-50/70">
                         <td className="px-6 py-3 text-slate-600">{(pos.orderNumber ?? idx + 1).toString().padStart(2, "0")}</td>
                         <td className="px-6 py-3">
                           <div className="font-medium text-slate-900">
-                            {pos.attachedDepartment || "DA (F.T & AR) Vehari / Assistant Director Agriculture (Farm) Govt. Agri. Station Multan"}
+                            {pos.attachedDepartment ||
+                              "DA (F.T & AR) Vehari / Assistant Director Agriculture (Farm) Govt. Agri. Station Multan"}
                           </div>
                         </td>
                         <td className="px-6 py-3 font-semibold text-slate-900">{pos.postName}</td>
@@ -417,12 +375,8 @@ export function ARCPage() {
                           <div className="flex items-center gap-2">
                             <div className="flex-1">
                               <Progress value={fillRate} className="h-1.5" />
-                              <div className="text-[10px] text-muted-foreground mt-1">
-                                {fillRate}% filled
-                              </div>
-                              {pos.remarks && (
-                                <div className="text-xs text-slate-700 mt-1">{pos.remarks}</div>
-                              )}
+                              <div className="text-[10px] text-muted-foreground mt-1">{fillRate}% filled</div>
+                              {pos.remarks && <div className="text-xs text-slate-700 mt-1">{pos.remarks}</div>}
                             </div>
                           </div>
                         </td>

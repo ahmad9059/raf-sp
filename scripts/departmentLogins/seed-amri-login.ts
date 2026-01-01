@@ -1,29 +1,37 @@
-import "dotenv/config"
-import {prisma} from '../../lib/prisma';
-import bcrypt from 'bcrypt';
+import "dotenv/config";
+import bcrypt from "bcrypt";
+import { prisma } from "../../lib/prisma";
 
-async function seedAmriLogin(){
-    const password = await bcrypt.hash("ChangeMe123!",10);
+async function seedAmriLogin() {
+  const password = await bcrypt.hash("ChangeMe123!", 10);
 
-    await prisma.user.upsert({
-        where:{
-            email:"amri@example.com"
-        },
-        update:{},
-        create:{
-            name:"Agricultural Mechanical Research Institute",
-            email:"amri@example.com",
-            password,
-            role:"DEPT_HEAD",
-            departmentId:"amri"
-        }
-    })
+  await prisma.user.upsert({
+    where: {
+      email: "focalperson@amri.gov.pk",
+    },
+    update: {
+      name: "AMRI Focal Person",
+      password,
+      role: "DEPT_HEAD",
+      departmentId: "amri",
+    },
+    create: {
+      name: "AMRI Focal Person",
+      email: "focalperson@amri.gov.pk",
+      password,
+      role: "DEPT_HEAD",
+      departmentId: "amri",
+    },
+  });
+
+  console.log("✅ AMRI login seeded");
 }
+
 seedAmriLogin()
-.catch(err=>{
-    console.error("seeding failed",err)
-    process.exit(1)
-})
-.finally(async()=>{
-    prisma.$disconnect()
-})
+  .catch((err) => {
+    console.error("Seeding AMRI login failed:", err);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

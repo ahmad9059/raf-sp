@@ -20,6 +20,32 @@ const foodScienceEquipmentSchema = z.object({
 
 export type FoodScienceEquipmentInput = z.infer<typeof foodScienceEquipmentSchema>;
 
+const ensureFoodScienceDepartment = async () =>
+  prisma.department.upsert({
+    where: { id: "food-science" },
+    update: {
+      name: "Food Science and Technology",
+      location: "MNS University of Agriculture, Multan",
+      description:
+        "Focuses on the science of food, from production to consumption, including food safety, nutrition, and processing technologies.",
+      focalPerson: "Dr. Shabbir Ahmad",
+      designation: "Professor & Head",
+      phone: "+92-61-9210071",
+      email: "shabbir.ahmad@mnsuam.edu.pk",
+    },
+    create: {
+      id: "food-science",
+      name: "Food Science and Technology",
+      location: "MNS University of Agriculture, Multan",
+      description:
+        "Focuses on the science of food, from production to consumption, including food safety, nutrition, and processing technologies.",
+      focalPerson: "Dr. Shabbir Ahmad",
+      designation: "Professor & Head",
+      phone: "+92-61-9210071",
+      email: "shabbir.ahmad@mnsuam.edu.pk",
+    },
+  });
+
 /**
  * Get all Food Science equipment
  */
@@ -33,14 +59,8 @@ export async function getFoodScienceEquipment(): Promise<ActionResult> {
 
     const { role, departmentId } = session.user;
 
-    // Find Food Science department
-    const foodScienceDepartment = await prisma.department.findFirst({
-      where: { id: "food-science" },
-    });
-
-    if (!foodScienceDepartment) {
-      return { success: false, message: "Food Science department not found" };
-    }
+    // Ensure Food Science department exists
+    const foodScienceDepartment = await ensureFoodScienceDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== foodScienceDepartment.id) {
@@ -108,14 +128,7 @@ export async function createFoodScienceEquipment(data: FoodScienceEquipmentInput
 
     const { role, departmentId } = session.user;
 
-    // Find Food Science department
-    const foodScienceDepartment = await prisma.department.findFirst({
-      where: { id: "food-science" },
-    });
-
-    if (!foodScienceDepartment) {
-      return { success: false, message: "Food Science department not found" };
-    }
+    const foodScienceDepartment = await ensureFoodScienceDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== foodScienceDepartment.id) {
@@ -168,14 +181,7 @@ export async function updateFoodScienceEquipment(id: string, data: FoodScienceEq
 
     const { role, departmentId } = session.user;
 
-    // Find Food Science department
-    const foodScienceDepartment = await prisma.department.findFirst({
-      where: { id: "food-science" },
-    });
-
-    if (!foodScienceDepartment) {
-      return { success: false, message: "Food Science department not found" };
-    }
+    const foodScienceDepartment = await ensureFoodScienceDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== foodScienceDepartment.id) {
@@ -235,14 +241,7 @@ export async function deleteFoodScienceEquipment(id: string): Promise<ActionResu
 
     const { role, departmentId } = session.user;
 
-    // Find Food Science department
-    const foodScienceDepartment = await prisma.department.findFirst({
-      where: { id: "food-science" },
-    });
-
-    if (!foodScienceDepartment) {
-      return { success: false, message: "Food Science department not found" };
-    }
+    const foodScienceDepartment = await ensureFoodScienceDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== foodScienceDepartment.id) {

@@ -2,6 +2,7 @@
 
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { pgPool } from "@/lib/pg";
 import { ActionResult } from "@/types";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -20,6 +21,57 @@ const erssStockSchema = z.object({
 
 export type ERSSStockInput = z.infer<typeof erssStockSchema>;
 
+const ensureERSSDepartment = async () => {
+  return prisma.department.upsert({
+    where: { id: "erss" },
+    update: {
+      name: "Entomological Research Sub-Station",
+      location: "Multan, Punjab",
+      description: "Research on insect pests, beneficial insects, and integrated pest management strategies.",
+      focalPerson: "Dr. Asifa Hameed",
+      designation: "Principal Scientist",
+      phone: "",
+      email: "asifa_hameed_sheikh@yahoo.com",
+    },
+    create: {
+      id: "erss",
+      name: "Entomological Research Sub-Station",
+      location: "Multan, Punjab",
+      description: "Research on insect pests, beneficial insects, and integrated pest management strategies.",
+      focalPerson: "Dr. Asifa Hameed",
+      designation: "Principal Scientist",
+      phone: "",
+      email: "asifa_hameed_sheikh@yahoo.com",
+    },
+  });
+};
+
+const getFallbackEntoItems = async (departmentName: string) => {
+  const fallbackRows = await pgPool.query(`
+    SELECT id, item_no, name, quantity_label, date_received, last_verified, last_verification_label, register_label
+    FROM ento_inventory_items
+    ORDER BY item_no ASC;
+  `);
+
+  return fallbackRows.rows.map((row) => ({
+    id: `fallback-${row.id}`,
+    name: row.name,
+    type: "Inventory Item",
+    quantityStr: row.quantity_label,
+    dateReceived: row.date_received ? new Date(row.date_received) : null,
+    lastVerificationDate: row.last_verification_label,
+    currentStatusRemarks: row.register_label,
+    status: "AVAILABLE" as const,
+    imageUrl: null,
+    departmentId: "erss",
+    department: {
+      name: departmentName,
+    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }));
+};
+
 /**
  * Get all ERSS Stock Register items for the Entomology department
  */
@@ -33,14 +85,8 @@ export async function getERSSStockItems(): Promise<ActionResult> {
 
     const { role, departmentId } = session.user;
 
-    // Find ERSS department
-    const erssDepartment = await prisma.department.findFirst({
-      where: { id: "erss" },
-    });
-
-    if (!erssDepartment) {
-      return { success: false, message: "Entomology Research Sub-Station department not found" };
-    }
+    // Ensure ERSS department exists
+    const erssDepartment = await ensureERSSDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== erssDepartment.id) {
@@ -56,6 +102,16 @@ export async function getERSSStockItems(): Promise<ActionResult> {
       },
       orderBy: { createdAt: "desc" },
     });
+
+    // If no Prisma items exist yet, fall back to raw ento inventory to populate the dashboard
+    if (!items.length) {
+      const fallbackItems = await getFallbackEntoItems(erssDepartment.name);
+      return {
+        success: true,
+        data: fallbackItems,
+        message: "No ERSS stock records found; showing ento inventory fallback. Run scripts/seed-ento.ts or add ERSS items.",
+      };
+    }
 
     return { success: true, data: items };
   } catch (error) {
@@ -108,14 +164,7 @@ export async function createERSSStockItem(data: ERSSStockInput): Promise<ActionR
 
     const { role, departmentId } = session.user;
 
-    // Find ERSS department
-    const erssDepartment = await prisma.department.findFirst({
-      where: { id: "erss" },
-    });
-
-    if (!erssDepartment) {
-      return { success: false, message: "Entomology Research Sub-Station department not found" };
-    }
+    const erssDepartment = await ensureERSSDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== erssDepartment.id) {
@@ -168,14 +217,7 @@ export async function updateERSSStockItem(id: string, data: ERSSStockInput): Pro
 
     const { role, departmentId } = session.user;
 
-    // Find ERSS department
-    const erssDepartment = await prisma.department.findFirst({
-      where: { id: "erss" },
-    });
-
-    if (!erssDepartment) {
-      return { success: false, message: "Entomology Research Sub-Station department not found" };
-    }
+    const erssDepartment = await ensureERSSDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== erssDepartment.id) {
@@ -235,14 +277,7 @@ export async function deleteERSSStockItem(id: string): Promise<ActionResult> {
 
     const { role, departmentId } = session.user;
 
-    // Find ERSS department
-    const erssDepartment = await prisma.department.findFirst({
-      where: { id: "erss" },
-    });
-
-    if (!erssDepartment) {
-      return { success: false, message: "Entomology Research Sub-Station department not found" };
-    }
+    const erssDepartment = await ensureERSSDepartment();
 
     // Check authorization
     if (role === "DEPT_HEAD" && departmentId !== erssDepartment.id) {

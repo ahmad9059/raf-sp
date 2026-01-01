@@ -16,6 +16,8 @@ const departmentDashboardRoutes: Record<string, string> = {
   "raedc": "/dashboard/raedc",
   "agri-ext": "/dashboard/agri-extension",
   "erss": "/dashboard/entomology",
+  "arc": "/dashboard/adaptive-research",
+  "agronomy": "/dashboard/agronomy",
 };
 
 export default auth((req) => {
