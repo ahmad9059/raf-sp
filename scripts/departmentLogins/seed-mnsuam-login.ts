@@ -2,33 +2,32 @@ import "dotenv/config";
 import bcrypt from "bcrypt";
 import { prisma } from "../../lib/prisma";
 
-async function seedAgriLogin() {
+async function seedMNSUAMLogin() {
   const password = await bcrypt.hash("ChangeMe123!", 10);
 
   await prisma.user.upsert({
-    where: {
-      email: "daemultan@yahoo.com",
-    },
+    where: { email: "mahmood.alam@mnsuam.edu.pk" },
     update: {
-      name: "Agriculture Engineering Field Wing Focal Person",
+      name: "MNSUAM Focal Person",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "mnsuam",
     },
     create: {
-      name: "Agriculture Engineering Field Wing Focal Person",
-      email: "daemultan@yahoo.com",
+      name: "MNSUAM Focal Person",
+      email: "mahmood.alam@mnsuam.edu.pk",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "mnsuam",
     },
   });
-  console.log("✅ Agri Engineering login seeded");
+
+  console.log("✅ MNSUAM login seeded");
 }
 
-seedAgriLogin()
+seedMNSUAMLogin()
   .catch((err) => {
-    console.error("❌ Seed failed:", err);
+    console.error("Seeding MNSUAM login failed:", err);
     process.exit(1);
   })
   .finally(async () => {

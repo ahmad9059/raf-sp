@@ -2,33 +2,32 @@ import "dotenv/config";
 import bcrypt from "bcrypt";
 import { prisma } from "../../lib/prisma";
 
-async function seedAgriLogin() {
+async function seedPesticideLogin() {
   const password = await bcrypt.hash("ChangeMe123!", 10);
 
   await prisma.user.upsert({
-    where: {
-      email: "daemultan@yahoo.com",
-    },
+    where: { email: "sd96850@gmail.com" },
     update: {
-      name: "Agriculture Engineering Field Wing Focal Person",
+      name: "Pesticide QC Lab Focal Person",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "pest",
     },
     create: {
-      name: "Agriculture Engineering Field Wing Focal Person",
-      email: "daemultan@yahoo.com",
+      name: "Pesticide QC Lab Focal Person",
+      email: "sd96850@gmail.com",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "pest",
     },
   });
-  console.log("✅ Agri Engineering login seeded");
+
+  console.log("✅ Pesticide QC Lab login seeded");
 }
 
-seedAgriLogin()
+seedPesticideLogin()
   .catch((err) => {
-    console.error("❌ Seed failed:", err);
+    console.error("Seeding Pesticide login failed:", err);
     process.exit(1);
   })
   .finally(async () => {

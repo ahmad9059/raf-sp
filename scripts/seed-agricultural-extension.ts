@@ -9,13 +9,30 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
+const departmentId = "agri-ext";
+const departmentName = "Agricultural Extension Wing";
+
 async function main() {
   let department;
   try {
+    // Check for existing department with same name but different ID
+    const existingDept = await prisma.department.findUnique({
+      where: { name: departmentName },
+    });
+
+    if (existingDept && existingDept.id !== departmentId) {
+      console.log(`Found existing department with different ID: ${existingDept.id}. Deleting it...`);
+      await prisma.department.delete({
+        where: { id: existingDept.id },
+      });
+      console.log("Deleted existing department.");
+    }
+
     // First, ensure the department exists
     department = await prisma.department.upsert({
-      where: { name: "Agricultural Extension Wing" },
+      where: { id: departmentId },
       update: {
+        name: departmentName,
         location: "Multan",
         description:
           "Agricultural Extension Wing - Provincial Agriculture Department office providing extension services",
@@ -24,7 +41,8 @@ async function main() {
         email: "ext@agripunjab.gov.pk",
       },
       create: {
-        name: "Agricultural Extension Wing",
+        id: departmentId,
+        name: departmentName,
         location: "Multan",
         description:
           "Agricultural Extension Wing - Provincial Agriculture Department office providing extension services",

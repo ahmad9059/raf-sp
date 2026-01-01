@@ -2,33 +2,32 @@ import "dotenv/config";
 import bcrypt from "bcrypt";
 import { prisma } from "../../lib/prisma";
 
-async function seedAgriLogin() {
+async function seedRAEDCLogin() {
   const password = await bcrypt.hash("ChangeMe123!", 10);
 
   await prisma.user.upsert({
-    where: {
-      email: "daemultan@yahoo.com",
-    },
+    where: { email: "raedc@agripunjab.gov.pk" },
     update: {
-      name: "Agriculture Engineering Field Wing Focal Person",
+      name: "RAEDC Focal Person",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "raedc",
     },
     create: {
-      name: "Agriculture Engineering Field Wing Focal Person",
-      email: "daemultan@yahoo.com",
+      name: "RAEDC Focal Person",
+      email: "raedc@agripunjab.gov.pk",
       password,
       role: "DEPT_HEAD",
-      departmentId: "agri-eng",
+      departmentId: "raedc",
     },
   });
-  console.log("✅ Agri Engineering login seeded");
+
+  console.log("✅ RAEDC login seeded");
 }
 
-seedAgriLogin()
+seedRAEDCLogin()
   .catch((err) => {
-    console.error("❌ Seed failed:", err);
+    console.error("Seeding RAEDC login failed:", err);
     process.exit(1);
   })
   .finally(async () => {

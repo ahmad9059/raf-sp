@@ -13,9 +13,7 @@ const departmentDashboardRoutes: Record<string, string> = {
   "soil-water": "/dashboard/soil-water",
   "pest": "/dashboard/pesticide",
   "agri-eng": "/dashboard/agri-engineering",
-  "cmj65lx040000f4txnzu2lssv": "/dashboard/agri-engineering", // Agriculture Engineering CUID
   "raedc": "/dashboard/raedc",
-  "cmj65nmep0000e0txy17pplhy": "/dashboard/raedc", // RAEDC CUID
   "agri-ext": "/dashboard/agri-extension",
   "erss": "/dashboard/entomology",
 };
