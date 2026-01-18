@@ -13,7 +13,7 @@ const allDepartments = [
     location: "Multan, Punjab",
     description:
       "Leading agricultural university with state-of-the-art laboratories, research facilities, and comprehensive equipment for agricultural education and research.",
-    image: "/images/mns.png.jpg",
+    image: "/images/mnsuam_cover.jfif",
     hasData: true,
     focalPerson: "Dr. Muhammad Asif",
     designation: "Director",
