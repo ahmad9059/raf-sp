@@ -32,9 +32,9 @@ The platform manages data for the following agriculture departments in South Pun
 10. **Regional Agricultural Economic Development Centre (RAEDC)** - Training and capacity building
 11. **Pesticide Quality Control Laboratory** - Pesticide testing and quality assurance
 12. **Soil & Water Testing Laboratory** - Soil and water analysis services
-13. **Food Science & Technology Department (MNSUAM)** - Food processing research
-14. **Agronomy Department (MNSUAM)** - Crop production and soil management
-15. **MNS University of Agriculture Estate** - University farm management
+13. **Food Science & Technology Department (Muhammad Nawaz Shareef University of Agriculture)** - Food processing research
+14. **Agronomy Department (Muhammad Nawaz Shareef University of Agriculture)** - Crop production and soil management
+15. **Muhammad Nawaz Shareef University of Agriculture Estate** - University farm management
 
 ---
 

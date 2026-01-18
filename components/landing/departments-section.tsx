@@ -9,7 +9,7 @@ import { Users, Building2, ArrowRight } from "lucide-react";
 const allDepartments = [
   {
     id: "mnsuam",
-    name: "MNS University of Agriculture",
+    name: "Muhammad Nawaz Shareef University of Agriculture",
     location: "Multan, Punjab",
     description:
       "Leading agricultural university with state-of-the-art laboratories, research facilities, and comprehensive equipment for agricultural education and research.",
