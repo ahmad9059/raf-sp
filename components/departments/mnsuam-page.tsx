@@ -236,7 +236,7 @@ export function MNSUAMPage() {
       <DepartmentLayout
         name="MNS University of Agriculture"
         description="Vibrant agricultural university offering collaborative facilities and research-grade equipment."
-        image="/images/mnsuam_cover.jfif"
+        image="/images/mnsuam_cover.jpg"
         focalPerson={{
           name: "Loading...",
           designation: "Loading...",
@@ -258,7 +258,7 @@ export function MNSUAMPage() {
       <DepartmentLayout
         name="MNS University of Agriculture"
         description="Vibrant agricultural university offering collaborative facilities and research-grade equipment."
-        image="/images/mnsuam_cover.jfif"
+        image="/images/mnsuam_cover.jpg"
         focalPerson={{
           name: "MNSUAM Focal Person",
           designation: "",
@@ -280,7 +280,7 @@ export function MNSUAMPage() {
         data.department.description ||
         "Vibrant agricultural university providing research-driven facilities, modern labs, and collaborative spaces for South Punjab Regional Agriculture Forum."
       }
-      image="/images/mnsuam_cover.jfif"
+      image="/images/mnsuam_cover.jpg"
       focalPerson={{
         name: data.department.focalPerson || "MNSUAM Focal Person",
         designation: data.department.designation || "",
