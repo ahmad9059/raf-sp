@@ -218,6 +218,8 @@ export function MNSUAMPage() {
     if (!data || !data.facilities) return [];
     const counts = data.facilities.reduce((acc, facility) => {
       const key = facility.facilityType || "Other";
+      // Exclude Computer Labs/Lab as it will be shown statically
+      if (key.toLowerCase().trim().includes("computer lab")) return acc;
       acc[key] = (acc[key] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
@@ -365,6 +367,18 @@ export function MNSUAMPage() {
           </div>
 
           <div className="flex flex-wrap gap-2 mt-4">
+            {/* Static Computer Labs badge */}
+            <Badge
+              variant="secondary"
+              className="flex items-center gap-2 border-border/60 text-foreground"
+            >
+              <span
+                className="w-2.5 h-2.5 rounded-full"
+                style={{ backgroundColor: piePalette[0] }}
+              />
+              Computer Labs
+              <span className="text-xs text-muted-foreground">(5)</span>
+            </Badge>
             {facilityTypeBreakdown.map((item) => (
               <Badge
                 key={item.type}
