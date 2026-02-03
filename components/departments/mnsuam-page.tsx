@@ -150,7 +150,7 @@ export function MNSUAMPage() {
   }, []);
 
   const facilityDistribution = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.stats || !data.stats.blockSummary) return [];
     return data.stats.blockSummary.map((block, idx) => ({
       ...block,
       fill: piePalette[idx % piePalette.length],
@@ -158,7 +158,7 @@ export function MNSUAMPage() {
   }, [data]);
 
   const equipmentDistribution = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.stats || !data.stats.equipmentSummary) return [];
     return data.stats.equipmentSummary.equipmentByType.map((item, idx) => ({
       ...item,
       fill: piePalette[idx % piePalette.length],
@@ -166,7 +166,7 @@ export function MNSUAMPage() {
   }, [data]);
 
   const valueAdditionByLab = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.valueAdditionEquipment) return [];
     const grouped = data.valueAdditionEquipment.reduce((acc, item) => {
       const key = item.labName || "Other";
       if (!acc[key]) acc[key] = [];
@@ -183,12 +183,12 @@ export function MNSUAMPage() {
   }, [data]);
 
   const valueAdditionUnits = useMemo(() => {
-    if (!data) return 0;
+    if (!data || !data.valueAdditionEquipment) return 0;
     return data.valueAdditionEquipment.reduce((sum, item) => sum + (item.quantity || 0), 0);
   }, [data]);
 
   const valueAdditionTypeDistribution = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.valueAdditionEquipment) return [];
     const grouped = data.valueAdditionEquipment.reduce((acc, item) => {
       const key = item.type || "Other";
       acc[key] = (acc[key] || 0) + (item.quantity || 1);
@@ -215,9 +215,11 @@ export function MNSUAMPage() {
   }, [data, valueAdditionByLab]);
 
   const facilityTypeBreakdown = useMemo(() => {
-    if (!data) return [];
+    if (!data || !data.facilities) return [];
     const counts = data.facilities.reduce((acc, facility) => {
       const key = facility.facilityType || "Other";
+      // Exclude Computer Labs/Lab as it will be shown statically
+      if (key.toLowerCase().trim().includes("computer lab")) return acc;
       acc[key] = (acc[key] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
@@ -236,7 +238,7 @@ export function MNSUAMPage() {
       <DepartmentLayout
         name="MNS University of Agriculture"
         description="Vibrant agricultural university offering collaborative facilities and research-grade equipment."
-        image="/images/mns.png.jpg"
+        image="/images/mnsuam_cover.jpg"
         focalPerson={{
           name: "Loading...",
           designation: "Loading...",
@@ -258,12 +260,12 @@ export function MNSUAMPage() {
       <DepartmentLayout
         name="MNS University of Agriculture"
         description="Vibrant agricultural university offering collaborative facilities and research-grade equipment."
-        image="/images/mns.png.jpg"
+        image="/images/mnsuam_cover.jpg"
         focalPerson={{
-          name: "Dr. Mahmood Alam",
-          designation: "Directorate of University Farms",
-          phone: "+92-61-9210071",
-          email: "mahmood.alam@mnsuam.edu.pk",
+          name: "MNSUAM Focal Person",
+          designation: "",
+          phone: "",
+          email: "estatedata.focalperson@mnsuam.edu.pk",
         }}
       >
         <Card className="p-6">
@@ -280,12 +282,12 @@ export function MNSUAMPage() {
         data.department.description ||
         "Vibrant agricultural university providing research-driven facilities, modern labs, and collaborative spaces for South Punjab Regional Agriculture Forum."
       }
-      image="/images/mns.png.jpg"
+      image="/images/mnsuam_cover.jpg"
       focalPerson={{
-        name: data.department.focalPerson || "Dr. Mahmood Alam",
-        designation: data.department.designation || "Directorate of University Farms",
-        phone: data.department.phone || "+92-61-9210071",
-        email: data.department.email || "mahmood.alam@mnsuam.edu.pk",
+        name: data.department.focalPerson || "MNSUAM Focal Person",
+        designation: data.department.designation || "",
+        phone: data.department.phone || "",
+        email: data.department.email || "estatedata.focalperson@mnsuam.edu.pk",
       }}
     >
       <motion.div
@@ -365,6 +367,18 @@ export function MNSUAMPage() {
           </div>
 
           <div className="flex flex-wrap gap-2 mt-4">
+            {/* Static Computer Labs badge */}
+            <Badge
+              variant="secondary"
+              className="flex items-center gap-2 border-border/60 text-foreground"
+            >
+              <span
+                className="w-2.5 h-2.5 rounded-full"
+                style={{ backgroundColor: piePalette[0] }}
+              />
+              Computer Labs
+              <span className="text-xs text-muted-foreground">(5)</span>
+            </Badge>
             {facilityTypeBreakdown.map((item) => (
               <Badge
                 key={item.type}

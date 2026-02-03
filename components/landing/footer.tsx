@@ -112,7 +112,7 @@ export function Footer() {
                   className="text-sm opacity-90 hover:text-secondary transition-colors flex items-center gap-2"
                 >
                   <ExternalLink className="w-3 h-3" />
-                  MNSUAM University
+                  Muhammad Nawaz Shareef University of Agriculture
                 </a>
               </li>
               <li>
@@ -192,7 +192,7 @@ export function Footer() {
                 © {new Date().getFullYear()} Agriculture Complex Multan. All rights reserved.
               </p>
               <p className="text-xs mt-1">
-                MNS University of Agriculture, Multan
+                Muhammad Nawaz Shareef University of Agriculture, Multan
               </p>
             </div>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm opacity-80">

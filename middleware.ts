@@ -1,10 +1,30 @@
 import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 
+// Map department IDs to their dashboard routes
+const departmentDashboardRoutes: Record<string, string> = {
+  "mri": "/dashboard/mri",
+  "amri": "/dashboard/amri",
+  "food-science": "/dashboard/food-science",
+  "cri": "/dashboard/cri",
+  "flori": "/dashboard/floriculture",
+  "rari": "/dashboard/rari",
+  "mnsuam": "/dashboard/mnsuam",
+  "soil-water": "/dashboard/soil-water",
+  "pest": "/dashboard/pesticide",
+  "agri-eng": "/dashboard/agri-engineering",
+  "raedc": "/dashboard/raedc",
+  "agri-ext": "/dashboard/agri-extension",
+  "erss": "/dashboard/entomology",
+  "arc": "/dashboard/adaptive-research",
+  "agronomy": "/dashboard/agronomy",
+};
+
 export default auth((req) => {
   const { pathname } = req.nextUrl;
   const isAuthenticated = !!req.auth;
   const userRole = req.auth?.user?.role;
+  const userDepartmentId = req.auth?.user?.departmentId;
 
   // Check if user is trying to access dashboard routes
   if (pathname.startsWith("/dashboard")) {
@@ -13,6 +33,16 @@ export default auth((req) => {
       const loginUrl = new URL("/login", req.url);
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
+    }
+
+    // Redirect department heads to their specific dashboard
+    if (
+      pathname === "/dashboard" &&
+      userRole === "DEPT_HEAD" &&
+      userDepartmentId &&
+      departmentDashboardRoutes[userDepartmentId]
+    ) {
+      return NextResponse.redirect(new URL(departmentDashboardRoutes[userDepartmentId], req.url));
     }
 
     // Check for admin-only routes
@@ -27,6 +57,10 @@ export default auth((req) => {
   // Redirect authenticated users away from auth pages
   if (pathname.startsWith("/login") || pathname.startsWith("/signup")) {
     if (isAuthenticated) {
+      // Redirect department heads to their specific dashboard
+      if (userRole === "DEPT_HEAD" && userDepartmentId && departmentDashboardRoutes[userDepartmentId]) {
+        return NextResponse.redirect(new URL(departmentDashboardRoutes[userDepartmentId], req.url));
+      }
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
   }

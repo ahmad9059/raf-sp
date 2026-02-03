@@ -10,6 +10,9 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
+const departmentId = "amri";
+const departmentName = "Agricultural Mechanization Research Institute";
+
 const infrastructureData = [
   { name: "Farm Area", quantity: "8 acres", remarks: "For field demonstration machinery and testing and trials", type: "Infrastructure" },
   { name: "Design Lab", quantity: "1", remarks: "Designing of agricultural machinery by using 3D printers and autoCaD software", type: "Laboratory" },
@@ -145,10 +148,24 @@ const machineryData = [
 async function main() {
   console.log("Seeding AMRI data...");
 
+  // Check for existing department with same name but different ID
+  const existingDept = await prisma.department.findUnique({
+    where: { name: departmentName },
+  });
+
+  if (existingDept && existingDept.id !== departmentId) {
+    console.log(`Found existing department with different ID: ${existingDept.id}. Deleting it...`);
+    await prisma.department.delete({
+      where: { id: existingDept.id },
+    });
+    console.log("Deleted existing department.");
+  }
+
   // Create or update department
   const department = await prisma.department.upsert({
-    where: { name: "Agricultural Mechanization Research Institute" },
+    where: { id: departmentId },
     update: {
+      name: departmentName,
       location: "Multan",
       description: "Research and development in farm machinery, mechanization technologies, and agricultural engineering for modern farming solutions.",
       focalPerson: "Mr Ghulam Hussain",
@@ -157,7 +174,8 @@ async function main() {
       email: "", // Email not provided in text
     },
     create: {
-      name: "Agricultural Mechanization Research Institute",
+      id: departmentId,
+      name: departmentName,
       location: "Multan",
       description: "Research and development in farm machinery, mechanization technologies, and agricultural engineering for modern farming solutions.",
       focalPerson: "Mr Ghulam Hussain",

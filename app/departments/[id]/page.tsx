@@ -18,8 +18,8 @@ import { ExtPage } from "@/components/departments/ext-page";
 import { CottonInstitutePage } from "@/components/departments/cotton-institute-page";
 import { PestPage } from "@/components/departments/pest-page";
 import { RAEDCPage } from "@/components/departments/raedc-page";
-import { ADPPage } from "@/components/departments/adp-page";
 import { AgriEngPage } from "@/components/departments/agri-eng";
+import { ARCPage } from "@/components/departments/arc-page";
 
 const departmentPages: Record<string, React.ComponentType> = {
   mnsuam: MNSUAMPage,
@@ -33,7 +33,8 @@ const departmentPages: Record<string, React.ComponentType> = {
   "cotton-institute": CottonInstitutePage,
   pest: PestPage,
   raedc: RAEDCPage,
-  adp: ADPPage,
+  adp: ARCPage,
+  arc: ARCPage,
   "agri-eng": AgriEngPage,
 };
 

@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+
 }
 
 model User {
@@ -44,6 +45,7 @@ model Department {
   foodAnalysisLabEquipment        FoodAnalysisLabEquipment[]
   mnsuamEstateFacilities          MNSUAMEstateFacilities[]
   mriAssets                       MRIAssets[]
+  adaptiveResearchPositions       AdaptiveResearchPosition[]
   pesticideQCLabData              PesticideQCLabData[]
   rariBahawalpurAssets            RARIBahawalpurAssets[]
   soilWaterTestingProject         SoilWaterTestingProject[]
@@ -395,6 +397,27 @@ model AgriculturalExtensionWing {
   @@index([equipmentStatus])
 }
 
+model AdaptiveResearchPosition {
+  id                      String      @id @default(cuid())
+  attachedDepartment      String?
+  postName                String
+  bpsScale                String
+  sanctionedPosts         Int
+  filledPosts             Int
+  vacantPosts             Int
+  promotionPosts          Int
+  initialRecruitmentPosts Int
+  remarks                 String?
+  orderNumber             Int?
+  departmentId            String
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+  department              Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+
+  @@index([departmentId])
+  @@index([orderNumber])
+}
+
 enum Role {
   ADMIN
   DEPT_HEAD
@@ -405,4 +428,11 @@ enum EquipmentStatus {
   IN_USE
   NEEDS_REPAIR
   DISCARDED
+}
+
+model VisitorCounter {
+  id        String   @id @default(cuid())
+  count     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

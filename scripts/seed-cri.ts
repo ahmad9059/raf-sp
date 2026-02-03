@@ -76,12 +76,29 @@ const hrData = [
 ];
 
 async function main() {
-  console.log("Seeding Cotton Research Institute data...");
+  const departmentId = "cri";
+  const departmentName = "Cotton Research Institute";
+
+  console.log(`Seeding ${departmentName}...`);
+
+  // Check for existing department with same name but different ID
+  const existingDept = await prisma.department.findUnique({
+    where: { name: departmentName },
+  });
+
+  if (existingDept && existingDept.id !== departmentId) {
+    console.log(`Found existing department with different ID: ${existingDept.id}. Deleting it...`);
+    await prisma.department.delete({
+      where: { id: existingDept.id },
+    });
+    console.log("Deleted existing department.");
+  }
 
   // Create or update department
   const department = await prisma.department.upsert({
-    where: { name: "Cotton Research Institute" },
+    where: { id: departmentId },
     update: {
+      name: departmentName,
       location: "Old Shujabad Road Multan",
       description: "Leading research in cotton cultivation, variety development, pest management, and fiber quality improvement for Pakistan's cotton industry.",
       focalPerson: "Dr. Muhammad Tauseef",
@@ -90,7 +107,8 @@ async function main() {
       email: "dircrimm@gmail.com",
     },
     create: {
-      name: "Cotton Research Institute",
+      id: departmentId,
+      name: departmentName,
       location: "Old Shujabad Road Multan",
       description: "Leading research in cotton cultivation, variety development, pest management, and fiber quality improvement for Pakistan's cotton industry.",
       focalPerson: "Dr. Muhammad Tauseef",

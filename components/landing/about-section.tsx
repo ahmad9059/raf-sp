@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, animate } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Building2, FlaskConical, Users, Tractor, BarChart3, Database } from "lucide-react";
 
@@ -35,18 +35,11 @@ const stats = [
     color: "text-secondary",
   },
   {
-    icon: BarChart3,
-    value: 100,
-    suffix: "%",
-    label: "Data Coverage",
-    color: "text-primary",
-  },
-  {
     icon: Database,
     value: 24,
     suffix: "/7",
     label: "Access",
-    color: "text-secondary",
+    color: "text-primary",
   },
 ];
 
@@ -66,7 +59,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   useEffect(() => {
     if (isInView && ref.current) {
       const controls = animate(0, value, {
-        duration: 2,
+        duration: 1.5,
         ease: "easeOut",
         onUpdate(current) {
           if (ref.current) {
@@ -89,6 +82,40 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [visitorCount, setVisitorCount] = useState<number>(0);
+  const [hasTrackedVisit, setHasTrackedVisit] = useState(false);
+
+  useEffect(() => {
+    // Track visitor and get count on mount
+    const trackVisitor = async () => {
+      if (!hasTrackedVisit) {
+        try {
+          const response = await fetch("/api/visitor-count", {
+            method: "POST",
+          });
+          const data = await response.json();
+          if (data.success) {
+            setVisitorCount(data.count);
+            setHasTrackedVisit(true);
+          }
+        } catch (error) {
+          console.error("Failed to track visitor:", error);
+          // Fallback: just get the count
+          try {
+            const response = await fetch("/api/visitor-count");
+            const data = await response.json();
+            if (data.success) {
+              setVisitorCount(data.count);
+            }
+          } catch (error) {
+            console.error("Failed to get visitor count:", error);
+          }
+        }
+      }
+    };
+
+    trackVisitor();
+  }, [hasTrackedVisit]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,10 +133,23 @@ export function AboutSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
+        ease: "easeOut",
       },
     },
   };
+
+  // Add visitor count to stats dynamically
+  const allStats = [
+    ...stats, // All existing stats
+    {
+      icon: BarChart3,
+      value: visitorCount,
+      suffix: "+",
+      label: "Site Visits",
+      color: "text-secondary",
+    },
+  ];
 
   return (
     <section id="about" className="py-20 bg-muted/30" ref={ref}>
@@ -135,7 +175,7 @@ export function AboutSection() {
             variants={containerVariants}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20"
           >
-            {stats.map((stat, index) => (
+            {allStats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}

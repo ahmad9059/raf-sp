@@ -95,9 +95,9 @@ export async function GET() {
       },
       focalPersons: [
         {
-          name: "Dr. Mahmood Alam",
-          role: "Directorate of University Farms",
-          email: "mahmood.alam@mnsuam.edu.pk",
+          name: "MNSUAM Focal Person",
+          role: "MNSUAM Focal Person",
+          email: "estatedata.focalperson@mnsuam.edu.pk",
         },
         {
           name: "Dr. Nabeel Ahmad Ikram",

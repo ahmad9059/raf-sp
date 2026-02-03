@@ -11,12 +11,28 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
+const departmentId = "agri-eng";
+const departmentName = "Agriculture Engineering";
+
 async function main() {
   console.log("Seeding Agricultural Engineering data...");
 
+  // Check for existing department with same name but different ID
+  const existingDept = await prisma.department.findUnique({
+    where: { name: departmentName },
+  });
+
+  if (existingDept && existingDept.id !== departmentId) {
+    console.log(`Found existing department with different ID: ${existingDept.id}. Deleting it...`);
+    await prisma.department.delete({
+      where: { id: existingDept.id },
+    });
+    console.log("Deleted existing department.");
+  }
+
   // 1. Create or Update Department
   const deptData = {
-    name: "Agriculture Engineering",
+    name: departmentName,
     location: "Multan, Pakistan",
     description: "Agricultural Engineering Department responsible for land development, water conservation, and farm mechanization.",
     focalPerson: "Mr. Muhammad Abdul Haye Faisal",
@@ -27,9 +43,9 @@ async function main() {
   };
 
   const department = await prisma.department.upsert({
-    where: { name: deptData.name },
+    where: { id: departmentId },
     update: deptData,
-    create: deptData,
+    create: { id: departmentId, ...deptData },
   });
 
   console.log(`Department '${department.name}' ready.`);

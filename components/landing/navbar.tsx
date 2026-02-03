@@ -35,15 +35,15 @@ export function Navbar() {
       )}
     >
       <div className="container py-1 mx-auto px-4 sm:px-6 lg:px-3">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-16">
           {/* Logo and Brand */}
           <Link href="/" className="flex items-center group">
             <div className=" transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/images/mainLogo.png"
                 alt="RAF-SP Logo"
-                width={100}
-                height={100}
+                width={90}
+                height={90}
                 className="object-cover"
                 priority
               />

@@ -49,9 +49,11 @@ export function DepartmentLayout({
                     <User className="w-5 h-5 mt-1 flex-shrink-0" />
                     <div className="space-y-1">
                       <div className="font-semibold">{focalPerson.name}</div>
-                      <div className="text-sm opacity-90">
-                        {focalPerson.designation}
-                      </div>
+                      {focalPerson.designation && (
+                        <div className="text-sm opacity-90">
+                          {focalPerson.designation}
+                        </div>
+                      )}
                       {focalPerson.phone && (
                         <div className="flex items-center gap-2 text-sm">
                           <Phone className="w-3 h-3" />

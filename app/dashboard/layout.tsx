@@ -22,7 +22,7 @@ export default async function DashboardLayout({
       <QueryProvider>
         <div className="min-h-screen bg-gray-50">
           {/* Sidebar */}
-          <Sidebar userRole={session.user.role} />
+          <Sidebar userRole={session.user.role} departmentId={session.user.departmentId} />
 
           {/* Main content area */}
           <div className="lg:pl-64">
